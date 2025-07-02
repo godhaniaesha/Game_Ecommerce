@@ -359,31 +359,7 @@
                 }
             });
 
-            // Quantity counter logic
-            function updateQtyBtns(qty) {
-                if (qty <= 1) {
-                    $('.x_qty-minus').attr('disabled', true);
-                } else {
-                    $('.x_qty-minus').attr('disabled', false);
-                }
-            }
-            updateQtyBtns(1);
-            $('.x_qty-plus').on('click', function () {
-                var $input = $('.x_qty-input');
-                var val = parseInt($input.val()) || 1;
-                val++;
-                $input.val(val);
-                updateQtyBtns(val);
-            });
-            $('.x_qty-minus').on('click', function () {
-                var $input = $('.x_qty-input');
-                var val = parseInt($input.val()) || 1;
-                if (val > 1) {
-                    val--;
-                    $input.val(val);
-                    updateQtyBtns(val);
-                }
-            });
+           
         });
     </script>
 </body>
