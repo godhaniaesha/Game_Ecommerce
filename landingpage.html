@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Unconquered – Eldritch</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #18151a;
+        }
+
+        .d_header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
+            background: transparent;
+            padding: 2rem 0 0 0;
+        }
+
+        .d_navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 2rem;
+            padding: 0.5rem 2rem;
+            backdrop-filter: blur(4px);
+            position: relative;
+        }
+
+        .d_logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+        }
+
+        .d_logo-icon {
+            width: 40px;
+            height: 40px;
+            filter: invert(1);
+        }
+
+        .d_nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            transition: max-height 0.3s ease;
+        }
+
+        .d_nav-link {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .d_nav-link:hover,
+        .d_nav-link.d_active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffb366;
+        }
+
+        .d_nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .d_hero-section {
+            min-height: 100vh;
+            width: 100vw;
+            background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .d_hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(24, 21, 26, 0.85);
+            z-index: 1;
+        }
+
+        .d_hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .d_hero-content {
+            color: #fff;
+            flex: 1 1 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .d_hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 1.2rem;
+            color: #fff;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 32px #000, 0 0 12px #c55978;
+        }
+
+        .d_hero-divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, #fff 0%, #c55978 100%);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+        }
+
+        .d_hero-subtitle {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            text-shadow: 0 2px 8px #000;
+        }
+
+        .d_hero-btn {
+            background: #c55978;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 0.8rem 2.5rem;
+            border: none;
+            border-radius: 2rem;
+            box-shadow: 0 4px 24px 0 #c5597888;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            letter-spacing: 0.1em;
+        }
+
+        .d_hero-btn:hover {
+            background: #fff;
+            color: #c55978;
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .d_hero-img {
+            flex: 1 1 0;
+            max-width: 350px;
+            width: 100%;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px #000a, 0 0 24px #c5597844;
+            object-fit: cover;
+            background: #222;
+            margin-left: 1rem;
+            z-index: 2;
+        }
+
+        @media (max-width: 991px) {
+            .d_navbar {
+                flex-direction: row;
+                gap: 0;
+                padding: 0.5rem 1rem;
+            }
+
+            .d_hero-content-wrapper {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .d_hero-title {
+                font-size: 2rem;
+                letter-spacing: 0.5rem;
+            }
+
+            .d_hero-img {
+                max-width: 250px;
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .d_nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(24, 21, 26, 0.98);
+                flex-direction: column;
+                gap: 0;
+                border-radius: 0 0 1.5rem 1.5rem;
+                max-height: 0;
+                overflow: hidden;
+                box-shadow: 0 8px 32px #000a;
+            }
+
+            .d_nav.open {
+                max-height: 500px;
+                padding: 1rem 0;
+                transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .d_nav-link {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+                border-radius: 0;
+                width: 100%;
+                display: block;
+                text-align: left;
+            }
+
+            .d_nav-toggle {
+                display: block;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .d_hero-title {
+                font-size: 1.2rem;
+                letter-spacing: 0.2rem;
+            }
+
+            .d_hero-btn {
+                font-size: 1rem;
+                padding: 0.6rem 1.5rem;
+            }
+
+            .d_nav {
+                gap: 0;
+            }
+
+            .d_hero-img {
+                max-width: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="d_header">
+        <nav class="d_navbar">
+            <a href="#" class="d_logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Logo" class="d_logo-icon" />
+                ELDRITCH
+            </a>
+            <button class="d_nav-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+            <ul class="d_nav mb-0">
+                <li><a href="home.html" class="d_nav-link d_active">Home</a></li>
+                <li><a href="games.html" class="d_nav-link">Games</a></li>
+                <li><a href="about.html" class="d_nav-link">About</a></li>
+                <li><a href="contact.html" class="d_nav-link">Contact</a></li>
+                <li><a href="#" class="d_nav-link" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="#" class="d_nav-link" title="User"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="d_hero-section">
+        <div class="d_hero-overlay"></div>
+        <div class="d_hero-content-wrapper">
+            <div class="d_hero-content">
+                <h1 class="d_hero-title">THE UNCONQUERED</h1>
+                <div class="d_hero-divider"></div>
+                <div class="d_hero-subtitle">
+                    It seemed to be a sort of monster, or symbol representing a monster,<br />
+                    of a form which only a diseased fancy could conceive.
+                </div>
+                <a href="#" class="d_hero-btn">BUY THEME</a>
+            </div>
+            <!-- <img src="images/port-standard.jpg" alt="Hero Image" class="d_hero-img" /> -->
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Responsive navbar toggle
+        const navToggle = document.querySelector('.d_nav-toggle');
+        const navMenu = document.querySelector('.d_nav');
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+        // Optional: Close menu when a link is clicked (on mobile)
+        document.querySelectorAll('.d_nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('open');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
