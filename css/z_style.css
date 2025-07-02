@@ -1,4 +1,470 @@
 body {
-    background-color: #000;
-    color: #fff;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Hero Section */
+.Z_about_hero {
+  position: relative;
+  width: 100%;
+  height: 45vh;
+  min-height: 350px;
+  background: url("../images/About2.jpeg") center center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Z_about_hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Z_about_title {
+  color: #fff;
+  font-size: 3rem;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  z-index: 2;
+}
+
+/* Content Section */
+.Z_about_content {
+  background: #191919;
+  padding: 3rem 0 3rem 0;
+}
+
+.Z_about_container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.Z_about_intro {
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.Z_about_heading {
+  font-size: 2rem;
+  font-family: "Cinzel", serif;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.Z_about_text {
+  color: #ccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.Z_about_features {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.Z_about_feature {
+  background: rgba(30, 30, 30, 0.85);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  flex: 1 1 300px;
+  min-width: 260px;
+  max-width: 48%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+}
+
+.Z_about_icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Z_about_feature-content {
+  flex: 1;
+}
+
+.Z_about_feature-title {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-family: "Cinzel", serif;
+}
+
+.Z_about_feature-text {
+  color: #bbb;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  .Z_about_features {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .Z_about_feature {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .Z_about_hero {
+    height: 30vh;
+    min-height: 180px;
+  }
+  .Z_about_title {
+    font-size: 2rem;
+  }
+  .Z_about_heading {
+    font-size: 1.3rem;
+  }
+  .Z_about_content {
+    padding: 1.5rem 0;
+  }
+  .Z_about_feature {
+    padding: 1.2rem 0.8rem;
+  }
+}
+
+/* Split Section */
+.Z_about_split {
+  width: 100%;
+  background: #181818;
+  padding: 45px 0;
+}
+
+.Z_about_split-container {
+  display: flex;
+  flex-direction: row;
+  min-height: 60vh;
+  width: 100%;
+}
+
+.Z_about_split-left {
+  flex: 1 1 50%;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  overflow: hidden;
+}
+
+.Z_about_split-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.Z_about_split-right {
+  flex: 1 1 50%;
+  background: #181818;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 3rem;
+  min-width: 0;
+}
+
+.Z_about_split-title {
+  font-size: 2.5rem;
+  font-family: "Cinzel", serif;
+  margin-bottom: 1.2rem;
+  color: #fff;
+  text-align: left;
+}
+
+.Z_about_split-desc {
+  color: #ccc;
+  font-size: 1.15rem;
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.Z_about_split-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+}
+
+.Z_about_split-feature {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.Z_about_split-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.Z_about_split-feature-text {
+  color: #eee;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .Z_about_split-container {
+    flex-direction: column;
+  }
+  .Z_about_split-left,
+  .Z_about_split-right {
+    flex: unset;
+    width: 100%;
+    min-width: 0;
+  }
+  .Z_about_split-right {
+    padding: 2rem 1.2rem;
+  }
+  .Z_about_split-title {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .Z_about_split-right {
+    padding: 1.2rem 0.5rem;
+  }
+  .Z_about_split-title {
+    font-size: 1.2rem;
+  }
+  .Z_about_split-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .Z_about_split-feature-text {
+    font-size: 1rem;
+  }
+}
+
+/* Testimonials Section */
+.Z_about_testimonials {
+  width: 100%;
+  background: #111;
+  padding: 4rem 0 4rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Z_about_testimonials-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.Z_about_testimonials-slider {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.Z_about_testimonial-slide {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  transition: opacity 0.5s;
+}
+
+.Z_about_testimonial-slide.active {
+  display: flex;
+}
+
+.Z_about_testimonial-content {
+  background: #181818;
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.Z_about_testimonial-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  border: 3px solid #333;
+}
+
+.Z_about_testimonial-quote {
+  font-size: 1.3rem;
+  color: #fff;
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  line-height: 1.5;
+}
+
+.Z_about_testimonial-author {
+  color: #aaa;
+  font-size: 1.1rem;
+  font-family: "Cinzel", serif;
+}
+
+.Z_about_testimonials-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.Z_about_testimonials-prev,
+.Z_about_testimonials-next {
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Z_about_testimonials-prev:hover,
+.Z_about_testimonials-next:hover {
+  background: #444;
+}
+
+@media (max-width: 600px) {
+  .Z_about_testimonials {
+    padding: 2rem 0;
+  }
+  .Z_about_testimonial-content {
+    padding: 1.2rem 0.5rem;
+  }
+  .Z_about_testimonial-img {
+    width: 60px;
+    height: 60px;
+  }
+  .Z_about_testimonial-quote {
+    font-size: 1rem;
+  }
+  .Z_about_testimonial-author {
+    font-size: 0.95rem;
+  }
+  .Z_about_testimonials-controls {
+    margin-top: 1rem;
+  }
+}
+
+/* Swiper Image Slider Section */
+.Z_about_image_slider {
+  width: 100vw;
+  max-width: 100%;
+  background: url('../images/inner-background-img-3.jpg') center center/cover no-repeat;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0 auto 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.Z_about_image_slider::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(20, 20, 20, 0.7);
+  z-index: 0;
+}
+
+.Z_about_swiper {
+  width: 100vw;
+  max-width: 100vw;
+  height: 400px;
+  position: relative;
+  z-index: 1;
+}
+
+.Z_about_slider_img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+@media (max-width: 900px) {
+  .Z_about_swiper {
+    height: 325px;
+  }
+  .Z_about_slider_img {
+    height: 250px;
+  }
+}
+
+@media (max-width: 600px) {
+  .Z_about_slider_img {
+    height: 160px;
+  }
+  .Z_about_image_slider {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .Z_about_swiper .swiper-button-prev,
+  .Z_about_swiper .swiper-button-next {
+    display: none !important;
+  }
+}
+
+.Z_about_card,
+.Z_about_card_body {
+  /* background: #181818 !important; */
+  color: #fff !important;
+}
+.Z_about_card_title {
+  color: #fff !important;
+}
+.Z_about_card_desc {
+  color: #ccc !important;
+}
+.Z_about_card_btn {
+  background: #e63946 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 24px !important;
+  padding: 0.6rem 1.5rem !important;
+  font-size: 1rem !important;
+  font-family: "Cinzel", serif !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+  margin-top: 0.5rem !important;
+  box-shadow: none !important;
+}
+.Z_about_card_btn:hover {
+  background: #a82834 !important;
+  color: #fff !important;
 }
