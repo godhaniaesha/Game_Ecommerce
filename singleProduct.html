@@ -37,11 +37,7 @@
                             <h2 class="x_product-title">Falldown Republic</h2>
                             <div class="x_product-price mb-3">£95.00</div>
                             <div class="d-flex align-items-center mb-3 ">
-                                <div class="input-group x_qty-group w-auto me-3">
-                                    <button class="btn btn-outline-light x_qty-btn x_qty-minus" type="button" disabled>-</button>
-                                    <input type="text" class="form-control text-center x_qty-input" value="1" style="max-width: 50px;" readonly>
-                                    <button class="btn btn-outline-light x_qty-btn x_qty-plus" type="button">+</button>
-                                </div>
+                                <button class="btn btn-outline-light x_add-cart-btn px-md-4 px-3 me-2">BUY NOW</button>
                                 <button class="btn btn-outline-light x_add-cart-btn px-md-4 px-3">ADD TO CART</button>
                             </div>
                             <div class="x_product-meta x_line_tb mb-2">
@@ -214,31 +210,7 @@
                 }
             });
 
-            // Quantity counter logic
-            function updateQtyBtns(qty) {
-                if (qty <= 1) {
-                    $('.x_qty-minus').attr('disabled', true);
-                } else {
-                    $('.x_qty-minus').attr('disabled', false);
-                }
-            }
-            updateQtyBtns(1);
-            $('.x_qty-plus').on('click', function () {
-                var $input = $('.x_qty-input');
-                var val = parseInt($input.val()) || 1;
-                val++;
-                $input.val(val);
-                updateQtyBtns(val);
-            });
-            $('.x_qty-minus').on('click', function () {
-                var $input = $('.x_qty-input');
-                var val = parseInt($input.val()) || 1;
-                if (val > 1) {
-                    val--;
-                    $input.val(val);
-                    updateQtyBtns(val);
-                }
-            });
+           
         });
     </script>
 </body>

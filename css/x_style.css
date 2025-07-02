@@ -47,6 +47,49 @@ body {
     }
 }
 
+.x_contact-hero-section {
+  background: url("../images/blog_hero.jpg") top center/cover
+    no-repeat;
+  min-height: 380px;
+  position: relative;
+  z-index: 1;
+}
+.x_contact-hero-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .5);
+}
+
+.xs_contact-hero-section {
+  background: url("../images/blog_hero.jpg") top center/cover
+    no-repeat;
+  min-height: 380px;
+  position: relative;
+  z-index: 1;
+}
+.xs_contact-hero-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .5);
+}
 .x_game-shop {
     background: url("../images/shop-background.jpg") fixed;
 }
@@ -305,8 +348,8 @@ body {
 }
 
 .x_blog-post {
-    background: #fff;
-    border-radius: 8px;
+    /* background: #fff;
+    border-radius: 8px; */
     /* box-shadow: 0 2px 12px #0001; */
     padding: 0 0 1.5rem 0;
 }
@@ -371,6 +414,41 @@ body {
 .x_blog-sidebar {
     border-left: 1px solid #eee;
     padding-left: 2rem;
+}
+
+@media (max-width: 1200px) {
+    .x_blog-sidebar {
+        padding-left: 0rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .x_blog-sidebar {
+        display: none !important;
+    }
+
+    .x_blog-main {
+        padding-right: 0rem;
+    }
+
+    .offcanvas.offcanvas-end {
+        width: 85vw;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .x_blog-post {
+        padding: 0px 20px !important;
+    }
+}
+@media (max-width: 425px) {
+    .x_blog-post {
+        padding: 0px 10px !important;
+    }
+    .x_blog-media iframe {
+        height: 220px !important;
+    }
 }
 
 .x_blog-top-title {
@@ -495,6 +573,7 @@ body {
 .x_blog-quote-section {
     margin-bottom: 2.5rem;
 }
+
 .x_blog-quote-bg {
     /* background-image: url('../images/shop-background-image.jpg') center ; */
     /* border-radius: 8px; */
@@ -506,16 +585,18 @@ body {
     justify-content: flex-start;
     font-size: 19px;
 }
+
 .x_blog-quote-content {
     color: #fffbe6;
     font-size: 22px;
-        font-family: "Marcellus", serif;
+    font-family: "Marcellus", serif;
     font-weight: 400;
     margin: 0;
     position: relative;
     z-index: 2;
     line-height: 1.3;
 }
+
 .x_blog-quote-icon {
     font-size: 2.5rem;
     color: #fffbe6;
@@ -523,14 +604,124 @@ body {
     margin-right: 0.5rem;
     vertical-align: top;
 }
+
 @media (max-width: 767.98px) {
     .x_blog-quote-bg {
         padding: 1.2rem 1rem 1.2rem 2rem;
     }
+
     .x_blog-quote-content {
         font-size: 1.1rem;
     }
+
     .x_blog-quote-icon {
         font-size: 1.5rem;
     }
 }
+
+
+/* privacy policy css */
+
+.x_privacy {
+    background-image: url("../images/shop-background-image.jpg");
+}
+
+.x_privacy-title {
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: #fffbe6;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px #000a;
+}
+
+.x_privacy-heading {
+    font-size: 1.3rem;
+    color: #ad9d79;
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+    font-weight: 500;
+}
+
+.x_privacy-content {
+    padding-left: 5rem !important;
+    padding-right: 5rem !important;
+}
+
+.x_privacy-content ul {
+    padding-left: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.x_privacy-content li {
+    margin-bottom: 0.5rem;
+}
+
+.x_privacy-content a {
+    color: #80cbc4;
+    text-decoration: underline;
+}
+
+.x_privacy-content a:hover {
+    color: #fffbe6;
+}
+
+.x_text-secondary {
+    color: #8f99a3;
+}
+
+@media (max-width: 767.98px) {
+    .x_privacy-title {
+        font-size: 1.5rem;
+    }
+
+    .x_privacy-content {
+        font-size: 0.98rem;
+        padding: 0rem 1.2rem !important;
+    }
+
+    .x_privacy-heading {
+        font-size: 1.08rem;
+    }
+
+}
+
+/* services */
+
+.x_ser_sec{
+    background-image: url("../images/shop-background-image.jpg");
+}
+
+.x_service-card {
+    border: none;
+    border-radius: 14px;
+    transition: box-shadow 0.2s, transform 0.2s;
+    /* background: #fff; */
+    background-color: rgba(0, 0, 0, .3);
+    border-color: rgba(0, 0, 0, .3);
+}
+
+.x_service-card:hover {
+    box-shadow: 0 8px 32px #0002;
+    transform: translateY(-4px) scale(1.03);
+}
+
+.x_service-card .card-title {
+    font-weight: 600;
+    color: #ad9d79;
+}
+
+.x_service-card .card-text {
+    font-size: 1.05rem;
+}
+
+.x_text_color {
+    color: #ebebea;
+}
+
+
+@media (max-width: 767.98px) {
+    .x_service-card {
+        margin-bottom: 1.5rem;
+    }
+}
+
