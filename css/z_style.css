@@ -7,7 +7,7 @@ body {
 .Z_about_hero {
   position: relative;
   width: 100%;
-  height: 45vh;
+  /* height: 45vh; */
   min-height: 350px;
   background: url("../images/About2.jpeg") center center/cover no-repeat;
   display: flex;
@@ -38,7 +38,8 @@ body {
 
 /* Content Section */
 .Z_about_content {
-  background: #191919;
+  /* background: #191919; */
+  background-image: url(../images/shop-background-image.jpg);
   padding: 3rem 0 3rem 0;
 }
 
@@ -292,7 +293,7 @@ body {
 }
 
 .Z_about_testimonial-content {
-  background: #181818;
+  /* background: #181818; */
   border-radius: 18px;
   padding: 2.5rem 2rem;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
@@ -382,7 +383,8 @@ body {
 .Z_about_image_slider {
   width: 100vw;
   max-width: 100%;
-  background: url('../images/inner-background-img-3.jpg') center center/cover no-repeat;
+  background: url("../images/inner-background-img-3.jpg") center center/cover
+    no-repeat;
   padding-top: 60px;
   padding-bottom: 60px;
   margin: 0 auto 0 auto;
@@ -391,9 +393,12 @@ body {
 }
 
 .Z_about_image_slider::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(20, 20, 20, 0.7);
   z-index: 0;
 }
@@ -452,19 +457,647 @@ body {
   color: #ccc !important;
 }
 .Z_about_card_btn {
-  background: #e63946 !important;
+  background: transparent !important;
   color: #fff !important;
-  border: none !important;
+  border: 2px solid #fff !important;
   border-radius: 24px !important;
   padding: 0.6rem 1.5rem !important;
   font-size: 1rem !important;
   font-family: "Cinzel", serif !important;
   cursor: pointer !important;
-  transition: background 0.2s !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s !important;
   margin-top: 0.5rem !important;
   box-shadow: none !important;
 }
 .Z_about_card_btn:hover {
-  background: #a82834 !important;
+  background: #fff !important;
+  color: #181818 !important;
+  border-color: #fff !important;
+}
+
+.Z_about_card_img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 2.5px solid #fff;
+  display: block;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+@media (max-width: 1200px) {
+  .Z_about_card_img {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (max-width: 900px) {
+  .Z_about_card_img {
+    width: 48px;
+    height: 48px;
+  }
+}
+@media (max-width: 600px) {
+  .Z_about_card_img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* --- Contact Page Gaming Theme --- */
+.contact-hero-section {
+  background: url("../images/contact-us-background-image.jpg") top center/cover
+    no-repeat;
+  min-height: 380px;
+  position: relative;
+  z-index: 1;
+}
+.contact-hero-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact-hero-title {
+  color: #fff;
+  font-size: 2.7rem;
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 16px #ad9d79;
+}
+.breadcrumb-nav {
+  color: #fff;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+.breadcrumb-nav .active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.contact-bg-wrap {
+  background: url("../images/Cart.jpg") bottom center/cover no-repeat;
+  position: relative;
+}
+.contact-bg-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background: rgba(10,10,10,0.75); */
+  z-index: 1;
+}
+.contact-bg-wrap > * {
+  position: relative;
+  z-index: 2;
+}
+.contact-main-section,
+.contact-map-section {
+  background: none !important;
+}
+.contact-form-card {
+  background: rgb(65 65 71 / 51%);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+  color: #fff;
+}
+.contact-form-title {
+  font-family: "Cinzel", serif;
+  font-size: 34px;
+  font-weight: 700;
+  text-align: center;
+  color: #ad9d79;
+}
+.contact-form-desc {
+  color: #bdbdbd;
+  font-size: 1rem;
+}
+.contact-input {
+  background: #181828;
+  border: 1.5px solid #2a004f;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.2s;
+}
+.contact-input:focus {
+  border-color: #b97aff;
+  box-shadow: 0 0 0 2px #b97aff33;
+  background: #181828;
+  color: #fff;
+}
+.contact-send-btn {
+  background: #ad9d79 !important;
   color: #fff !important;
+  font-weight: 600;
+  border-radius: 0 18px 18px 0;
+  padding: 0.7rem 2.2rem;
+  border: none;
+  margin-top: 0.5rem;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(185, 122, 255, 0.1);
+}
+.contact-send-btn:hover {
+  background: linear-gradient(90deg, #7f3cff 0%, #b97aff 100%);
+  color: #fff;
+}
+
+.contact-info-card {
+  background: rgb(65 65 71 / 51%);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+  color: #fff;
+  min-height: 100%;
+}
+.contact-info-title {
+  color: #fff;
+  font-size: 1.1rem;
+  font-family: "Cinzel", serif;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.contact-info-text {
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+.contact-social-icons a {
+  color: #b97aff;
+  font-size: 1.3rem;
+  margin-right: 0.7rem;
+  transition: color 0.2s;
+}
+.contact-social-icons a:last-child {
+  margin-right: 0;
+}
+.contact-social-icons a:hover {
+  color: #fff;
+}
+
+.contact-map-section {
+  background: #181828;
+  padding: 0 0 40px 0;
+}
+.map-embed-wrapper {
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+  background: #222;
+}
+
+/* Footer Section */
+.contact-footer-section {
+  background: linear-gradient(120deg, #1a003a 0%, #2a004f 100%);
+  color: #fff;
+}
+.footer-logo {
+  color: #fff;
+  font-family: "Cinzel", serif;
+}
+.footer-links a {
+  color: #b97aff;
+  margin: 0 0.3rem;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive Tweaks */
+@media (max-width: 991px) {
+  .contact-form-card,
+  .contact-info-card {
+    margin-bottom: 1.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .contact-hero-title {
+    font-size: 1.5rem;
+  }
+  .contact-form-title {
+    font-size: 1.1rem;
+  }
+  .contact-form-card,
+  .contact-info-card {
+    padding: 1.2rem !important;
+  }
+  .footer-logo {
+    font-size: 1.2rem;
+  }
+  .map-embed-wrapper {
+    height: 180px;
+  }
+}
+
+/* Newsletters */
+
+.Z_newsletter-bg {
+  background: url("../images/Newsletter.jpeg") center center/cover no-repeat;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.Z_newsletter-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0 0 0 / 76%);
+  z-index: 1;
+}
+.Z_newsletter-content,
+.Z_newsletter-form {
+  position: relative;
+  z-index: 2;
+}
+.Z_newsletter-subtitle {
+  color: #ad9d79;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+.Z_newsletter-title {
+  color: #fff;
+  font-size: 1.9rem;
+  font-family: "Cinzel", serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 16px #ad9d79;
+}
+.Z_newsletter-form {
+  width: 100%;
+  max-width: 500px;
+}
+.Z_newsletter-input {
+  background: rgba(20, 20, 30, 0.85);
+  border: 1.5px solid #2a004f;
+  color: #fff;
+  border-radius: 0 !important;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
+  min-width: 180px;
+  transition: border-color 0.2s;
+}
+.Z_newsletter-input:focus {
+  border-color: #b97aff;
+  box-shadow: 0 0 0 2px #b97aff33;
+  background: #181828;
+  color: #fff;
+}
+.Z_newsletter-btn {
+  background: #ad9d79 !important;
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 0 !important;
+  padding: 0.7rem 2.2rem;
+  border: none;
+  letter-spacing: 0.05em;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px rgba(185, 122, 255, 0.1);
+  font-size: 1rem;
+}
+.Z_newsletter-btn:hover {
+  background: linear-gradient(90deg, #7f3cff 0%, #b97aff 100%);
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .Z_newsletter-title {
+    font-size: 1.3rem;
+  }
+  .Z_newsletter-bg {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem !important;
+  }
+  .Z_newsletter-form {
+    max-width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .Z_newsletter-title {
+    font-size: 1.1rem;
+  }
+  .Z_newsletter-bg {
+    min-height: 120px;
+    padding: 1rem !important;
+  }
+  .Z_newsletter-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* --- Dark Classic Cart Page Styles --- */
+.Z_cart_darkbg {
+  background: url("../images/shop-background-image.jpg") center center/cover
+    no-repeat !important;
+  min-height: 100vh;
+}
+.Z_cart_box {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent;
+  padding: 2.5rem 1.2rem 2rem 1.2rem;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.18);
+}
+.Z_cart_table {
+  background: transparent;
+  color: #fff;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 0;
+}
+.Z_cart_th,
+.Z_cart_td {
+  border: 1px solid #fff2;
+  padding: 1.1rem 0.7rem;
+  text-align: left;
+  font-size: 1.05rem;
+}
+.Z_cart_th {
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: capitalize;
+}
+.Z_cart_td {
+  background: transparent;
+  color: #eee;
+  vertical-align: middle;
+}
+.Z_cart_img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  background: #222;
+  border: 1px solid #fff2;
+}
+.Z_cart_name {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.08rem;
+}
+.Z_cart_removebtn {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid #fff2;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  margin: 0 auto;
+  box-shadow: none;
+  padding: 0;
+}
+.Z_cart_removebtn:hover {
+  background: #e74c3c;
+  color: #fff;
+  border-color: #e74c3c;
+}
+.Z_cart_qtybox {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #232323;
+  border: 1px solid #fff2;
+  border-radius: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  width: max-content;
+}
+.Z_cart_qtybtn {
+  background: none;
+  border: 1px solid #fff2;
+  color: #fff;
+  border-radius: 0.2rem;
+  width: 2rem;
+  height: 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+.Z_cart_qtybtn:hover {
+  background: #181818;
+  border-color: #fff;
+}
+.Z_cart_qtyinput {
+  width: 2.2rem;
+  background: transparent;
+  color: #fff;
+  border: none;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  outline: none;
+}
+.Z_cart_couponform {
+  max-width: 340px;
+}
+.Z_cart_couponinput {
+  background: transparent;
+  border: 1px solid #fff2;
+  color: #fff;
+  border-radius: 0.2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  flex: 1 1 auto;
+}
+.Z_cart_btn {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.2rem;
+  border: 1px solid #fff2;
+  background: none;
+  color: #fff;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.Z_cart_btnoutline:hover {
+  background: #fff;
+  color: #232323;
+  border-color: #fff;
+}
+.Z_cart_totals {
+  margin-top: 2.5rem;
+  border: 1px solid #fff2;
+  border-radius: 0.3rem;
+  padding: 1.5rem 1.2rem;
+  color: #fff;
+  background: transparent;
+}
+.Z_cart_totals_title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.2rem;
+}
+@media (max-width: 900px) {
+  .Z_cart_box {
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+  }
+  .Z_cart_totals {
+    padding: 1rem 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .Z_cart_box {
+    padding: 0.5rem 0.1rem 0.5rem 0.1rem;
+  }
+  .Z_cart_table th,
+  .Z_cart_table td {
+    font-size: 0.92rem;
+    padding: 0.5rem 0.2rem;
+  }
+  .Z_cart_img {
+    width: 32px;
+    height: 32px;
+  }
+  .Z_cart_couponform {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .Z_cart_btn {
+    width: 100%;
+    padding: 0.6rem 0;
+  }
+}
+
+.Z_cart_bgimg {
+  background: url("../images/Cart.jpg") center center/cover no-repeat !important;
+  object-fit: cover !important;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+.Z_cart_bgimg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 0;
+  pointer-events: none;
+}
+.container,
+.Z_cart_tablewrap,
+.Z_cart_summarycard {
+  position: relative;
+  z-index: 1;
+}
+
+/* No major changes needed, but ensure .Z_cart_th and .Z_cart_td look good with 3 columns. */
+.Z_cart_table th,
+.Z_cart_table td {
+  text-align: left;
+  padding: 1.1rem 0.7rem;
+  font-size: 1.05rem;
+}
+@media (max-width: 600px) {
+  .Z_cart_table th,
+  .Z_cart_table td {
+    font-size: 0.92rem;
+    padding: 0.5rem 0.2rem;
+  }
+}
+
+.Z_cart_table th:last-child,
+.Z_cart_table td:last-child {
+  text-align: center;
+  width: 70px;
+}
+@media (max-width: 600px) {
+  .Z_cart_removebtn {
+    font-size: 1.1rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  .Z_cart_table th:last-child,
+  .Z_cart_table td:last-child {
+    width: 44px;
+  }
+}
+
+/* --- Modern Cart Input Styles --- */
+.Z_Minput_form {
+  display: flex;
+  max-width: 100%;
+}
+.Z_Minput_input {
+  background: transparent !important;
+  border: 1px solid #fff2 !important;
+  color: #fff !important;
+  border-radius: 0 !important;
+  padding: 0.8rem 1rem !important;
+  font-size: 1rem !important;
+  flex: 1 1 auto !important;
+  min-width: 120px !important;
+  box-shadow: none !important;
+}
+.Z_Minput_input::placeholder {
+  color: #ccc !important;
+  opacity: 1 !important ;
+}
+.Z_Minput_btn {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+  border: 1px solid #fff2;
+  background: none;
+  color: #fff;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  margin-left: -1px !important;
+  box-shadow: none;
+  text-wrap: nowrap;
+}
+/* .Z_Minput_btn:hover {
+  background: #fff;
+  color: #232323;
+  border-color: #fff;
+} */
+@media (max-width: 600px) {
+  .Z_Minput_form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .Z_Minput_btn {
+    width: 100%;
+    border-radius: 0.2rem;
+    margin-left: 0;
+  }
+  .Z_Minput_input {
+    border-radius: 0.2rem;
+  }
 }
