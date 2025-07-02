@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GameForge – Hero Slider</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- Custom Style -->
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+    }
+
+    .d_hero_section {
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .d_hero_slide {
+      height: 100vh;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .d_hero_slide1 {
+      background-image: url('https://images.unsplash.com/photo-1623965024780-3e0f4e70eb7b?auto=format&fit=crop&w=1920&q=80');
+    }
+
+    .d_hero_slide2 {
+      background-image: url('https://images.unsplash.com/photo-1619441207975-91874c3b2033?auto=format&fit=crop&w=1920&q=80');
+    }
+
+    .d_hero_slide3 {
+      background-image: url('https://images.unsplash.com/photo-1606813904812-04c671a4258b?auto=format&fit=crop&w=1920&q=80');
+    }
+
+    .d_hero_overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(0, 0, 0, 0.85), rgba(18, 18, 18, 0.7));
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .d_hero_content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .d_hero_title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(138, 119, 90, 0.8);
+    }
+
+    .d_hero_subtitle {
+      font-size: 1.4rem;
+      margin: 1rem 0 2rem;
+      color: #ccc;
+    }
+
+    .d_cta_btn {
+      background: #8a775a;
+      color: #fff;
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      border-radius: 50px;
+      box-shadow: 0 0 15px rgba(138, 119, 90, 0.7);
+      transition: 0.4s ease;
+    }
+
+    .d_cta_btn:hover {
+      background: #a68f70;
+      box-shadow: 0 0 25px rgba(138, 119, 90, 1);
+      color: #fff;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(255, 255, 255, 0.3);
+      padding: 20px;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 768px) {
+      .d_hero_title {
+        font-size: 2rem;
+      }
+
+      .d_hero_subtitle {
+        font-size: 1rem;
+      }
+
+      .d_cta_btn {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section id="d_hero_slider" class="carousel slide d_hero_section" data-ride="carousel">
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active d_hero_slide d_hero_slide1">
+        <div class="d_hero_overlay"></div>
+        <div class="d_hero_content text-center">
+          <h1 class="d_hero_title animate__animated animate__fadeInDown">Enter the Battleground</h1>
+          <p class="d_hero_subtitle animate__animated animate__fadeInUp">Gear up for victory</p>
+          <a href="#store" class="btn d_cta_btn animate__animated animate__fadeInUp">Shop Now</a>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item d_hero_slide d_hero_slide2">
+        <div class="d_hero_overlay"></div>
+        <div class="d_hero_content text-center">
+          <h1 class="d_hero_title animate__animated animate__fadeInDown">Power Up Your Setup</h1>
+          <p class="d_hero_subtitle animate__animated animate__fadeInUp">Only pro-grade gear</p>
+          <a href="#gear" class="btn d_cta_btn animate__animated animate__fadeInUp">Explore Gear</a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item d_hero_slide d_hero_slide3">
+        <div class="d_hero_overlay"></div>
+        <div class="d_hero_content text-center">
+          <h1 class="d_hero_title animate__animated animate__fadeInDown">Unleash the Legend</h1>
+          <p class="d_hero_subtitle animate__animated animate__fadeInUp">Fuel your passion</p>
+          <a href="#community" class="btn d_cta_btn animate__animated animate__fadeInUp">Join Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <a class="carousel-control-prev" href="#d_hero_slider" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#d_hero_slider" role="button" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  </section>
+
+  <!-- Bootstrap & jQuery JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

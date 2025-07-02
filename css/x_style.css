@@ -48,6 +48,8 @@ body {
 }
 
 .x_game-shop {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
     background: url("../images/shop-background.jpg") fixed;
 }
 
