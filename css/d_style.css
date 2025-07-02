@@ -1,4 +1,64 @@
 body {
-    background-color: #000;
+    background-color: #1a1a1a;
     color: #fff;
+}
+.navbar {
+    background-color: #212529;
+}
+.d_hero-section {
+    background: url('https://placehold.co/1920x600/2a2a2a/ffffff?text=Featured+Game') no-repeat center center;
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.d_hero-section .container {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 15px;
+}
+.d_section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+.d_game-card {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    transition: transform 0.2s;
+}
+.d_game-card:hover {
+    transform: scale(1.05);
+}
+.card-title, .card-text {
+    color: #fff;
+}
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+.d_genre-card {
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    text-align: center;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+.d_genre-card:hover {
+    background-color: #0d6efd;
+}
+.d_genre-card a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+footer {
+    background-color: #212529;
+    padding: 2rem 0;
+    margin-top: 4rem;
 }

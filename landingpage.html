@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Unconquered – Eldritch</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #18151a;
+        }
+
+        /* Sticky Header */
+        .d_header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgb(24, 21, 26) !important;
+            backdrop-filter: blur(6px);
+            padding: 1rem 0;
+            transition: background 0.3s ease;
+        }
+
+        .d_navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: 0 auto;
+            background: transparent !important;
+            border-radius: 2rem;
+            padding: 0.3rem 1.5rem;
+            position: relative;
+        }
+
+        .d_logo {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-decoration: none;
+        }
+
+        .d_logo-icon {
+            width: 40px;
+            height: 40px;
+            filter: invert(1);
+        }
+
+        .d_nav {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .d_nav-link {
+            color: #fff;
+            font-weight: 500;
+            font-size: 1.1rem;
+            text-decoration: none;
+            letter-spacing: 0.08em;
+            padding: 0.3rem 1rem;
+            border-radius: 0.5rem;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .d_nav-link:hover,
+        .d_nav-link.d_active {
+            background: rgba(255, 255, 255, 0.12);
+            color: #c55978;
+        }
+
+        .d_nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 25;
+        }
+
+        /* Hero Section */
+        .d_hero-section {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #heroCarousel {
+            height: 100%;
+        }
+
+        .carousel-inner {
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-item {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 0.2s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .d_hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(24, 21, 26, 0.85);
+            z-index: 1;
+        }
+
+        .d_hero-content-wrapper {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .d_hero-title {
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: 1.2rem;
+            color: #fff;
+            text-transform: uppercase;
+            text-shadow: 0 4px 32px #000, 0 0 12px #c55978;
+        }
+
+        .d_hero-divider {
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(90deg, #fff 0%, #c55978 100%);
+            margin: 0.5rem auto;
+            border-radius: 2px;
+        }
+
+        .d_hero-subtitle {
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            max-width: 600px;
+            text-shadow: 0 2px 8px #000;
+        }
+
+        .d_hero-btn {
+            background: #c55978;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 0.8rem 2.5rem;
+            border: none;
+            border-radius: 2rem;
+            box-shadow: 0 4px 24px 0 #c5597888;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            letter-spacing: 0.1em;
+        }
+
+        .d_hero-btn:hover {
+            background: #fff;
+            color: #c55978;
+            transform: translateY(-2px) scale(1.04);
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            border-radius: 50%;
+            padding: 1rem;
+            width: 3rem;
+            height: 3rem;
+        }
+
+        #heroCarousel .carousel-item:nth-child(1) {
+            background-image: url('https://www.wallpaperflare.com/static/740/453/289/for-honor-ubisoft-montreal-battles-warriors-wallpaper.jpg');
+        }
+
+        #heroCarousel .carousel-item:nth-child(2) {
+            background-image: url('https://w0.peakpx.com/wallpaper/876/1012/HD-wallpaper-new-world-2022-video-game-poster.jpg');
+        }
+
+        #heroCarousel .carousel-item:nth-child(3) {
+            background-image: url('https://w0.peakpx.com/wallpaper/255/450/HD-wallpaper-video-game-dungeons-dragons-dark-alliance.jpg');
+        }
+
+        /* Featured games start */
+        .db_featured_games_section {
+            background: linear-gradient(135deg, #18151a 0%, #2a2530 50%, #18151a 100%);
+            position: relative;
+            padding: 4rem 0;
+        }
+
+        .db_games_container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .db_game_slider {
+            display: flex;
+            gap: 2rem;
+            padding: 0 2rem;
+            scroll-behavior: smooth;
+            /* overflow-x: hidden; */
+            transition: transform 0.5s ease;
+        }
+
+        .db_game_card {
+            min-width: 280px;
+            max-width: 280px;
+            background: linear-gradient(145deg, #1e1b22, #2a2530);
+            border: 1px solid rgba(197, 89, 120, 0.2);
+            /* border-radius: 15px; */
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            display: flex;
+            /* Added for new layout */
+            flex-direction: column;
+            /* Added for new layout */
+            height: 400px;
+            /* Adjust as needed */
+        }
+
+        .db_game_card:hover {
+
+            box-shadow: 0 20px 40px rgba(197, 89, 120, 0.3);
+            border-color: #c55978;
+        }
+
+        .db_game_img_wrapper {
+            position: absolute;
+            /* Changed to absolute */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Image fills the entire card */
+            overflow: hidden;
+            z-index: 0;
+            /* Ensure image is behind content overlay */
+        }
+
+        .db_game_img_wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .db_game_card:hover .db_game_img_wrapper img {
+            transform: scale(1.1);
+        }
+
+        .db_game_img_overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Overlay covers the entire image */
+            background: linear-gradient(to top, rgba(24, 21, 26, 0.95) 0%, transparent 100%);
+            z-index: 1;
+        }
+
+        .db_game_icons {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            gap: 8px;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .db_game_card:hover .db_game_icons {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .db_game_icons button {
+            background: rgba(255, 255, 255, 0.9);
+            color: #18151a;
+            border: none;
+            font-size: 14px;
+            padding: 8px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .db_game_icons button:hover {
+            background: #c55978;
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .db_game_content {
+            padding: 1.5rem;
+            color: #fff;
+            position: relative;
+            /* Changed to relative */
+            z-index: 2;
+            /* Ensure content is above image overlay */
+            margin-top: auto;
+            /* Pushes content to the bottom */
+            background: linear-gradient(to top, rgba(24, 21, 26, 0.95) 0%, transparent 100%);
+            /* Gradient background for content */
+        }
+
+        .db_game_title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .db_game_price {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #c55978;
+            margin-bottom: 1rem;
+        }
+
+        .db_game_tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .db_tag {
+            background: rgba(197, 89, 120, 0.2);
+            color: #fff;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 500;
+            border: 1px solid rgba(197, 89, 120, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .db_tag:hover {
+            background: #c55978;
+            transform: scale(1.05);
+        }
+
+        .db_game_menu {
+            color: #888;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .db_game_menu:hover {
+            color: #c55978;
+        }
+
+        /* Scroll Buttons */
+        .db_scroll_btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #c55978, #8b4a63);
+            border: none;
+            color: white;
+            font-size: 1.3rem;
+            padding: 1rem;
+            z-index: 10;
+            cursor: pointer;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(197, 89, 120, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .db_scroll_btn:hover {
+            background: linear-gradient(135deg, #fff, #f0f0f0);
+            color: #c55978;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 25px rgba(197, 89, 120, 0.6);
+        }
+
+        .db_left_arrow {
+            left: 10px;
+        }
+
+        .db_right_arrow {
+            right: 10px;
+        }
+
+        .db_section_header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+        }
+
+        .db_section_title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .db_section_title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #c55978, transparent);
+            border-radius: 2px;
+        }
+
+        .db_view_all_btn {
+            background: transparent;
+            color: #c55978;
+            border: 2px solid #c55978;
+            padding: 0.6rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .db_view_all_btn:hover {
+            background: #c55978;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(197, 89, 120, 0.4);
+        }
+
+        /* Footer */
+        .d_footer {
+            background-color: #151316;
+            padding-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        .d_footer-logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 0.15rem;
+            color: #fff;
+        }
+
+        .d_footer_text {
+            color: #cec2c2;
+        }
+
+        .d_footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .d_footer-links a {
+            color: #cec2c2;
+            text-decoration: none;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .d_footer-links a:hover {
+            color: #c55978;
+        }
+
+        .d_footer-social a {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+
+        .d_footer-social a:hover {
+            color: #c55978;
+        }
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .d_nav-toggle {
+                display: block;
+            }
+
+            .d_nav.d-lg-flex {
+                display: none !important;
+            }
+
+            .offcanvas {
+                width: 250px;
+            }
+
+            .offcanvas-body .d_nav-link {
+                font-size: 1.2rem;
+                padding: 0.8rem 1rem;
+                display: block;
+            }
+
+            .db_game_card {
+                min-width: 250px;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .d_navbar {
+                padding: 0.5rem !important;
+            }
+
+            .d_hero-title {
+                font-size: 1.8rem;
+                letter-spacing: 0.15rem;
+            }
+
+            .d_footer {
+                text-align: center;
+            }
+
+            .d_footer-logo {
+                text-align: center;
+            }
+
+            .d_footer-social {
+                justify-content: center;
+            }
+
+            .db_section_title {
+                font-size: 2rem;
+            }
+
+            .db_game_card {
+                min-width: 220px;
+                max-width: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="d_header">
+        <nav class="d_navbar">
+            <a href="#" class="d_logo">
+                <img src="https://cdn-icons-png.flaticon.com/512/616/616494.png" alt="Logo" class="d_logo-icon" />
+                ELDRITCH
+            </a>
+            <button class="d_nav-toggle d-lg-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#dbOffcanvasNav" aria-controls="dbOffcanvasNav">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="d_nav d-lg-flex mb-0">
+                <li><a href="home.html" class="d_nav-link d_active">Home</a></li>
+                <li><a href="games.html" class="d_nav-link">Games</a></li>
+                <li><a href="about.html" class="d_nav-link">About</a></li>
+                <li><a href="contact.html" class="d_nav-link">Contact</a></li>
+                <li><a href="#" class="d_nav-link"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="#" class="d_nav-link"><i class="fas fa-user"></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="dbOffcanvasNav"
+        aria-labelledby="dbOffcanvasNavLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="dbOffcanvasNavLabel">Menu</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column gap-2">
+            <a href="home.html" class="d_nav-link d_active">Home</a>
+            <a href="games.html" class="d_nav-link">Games</a>
+            <a href="about.html" class="d_nav-link">About</a>
+            <a href="contact.html" class="d_nav-link">Contact</a>
+            <a href="#" class="d_nav-link"><i class="fas fa-shopping-cart"></i></a>
+            <a href="#" class="d_nav-link"><i class="fas fa-user"></i></a>
+        </div>
+    </div>
+
+    <section class="d_hero-section">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="d_hero-overlay"></div>
+                    <div class="d_hero-content-wrapper">
+                        <h1 class="d_hero-title">THE UNCONQUERED</h1>
+                        <div class="d_hero-divider"></div>
+                        <div class="d_hero-subtitle">It seemed to be a sort of monster, or symbol representing a
+                            monster,<br /> of a
+                            form which only a diseased fancy could conceive.</div>
+                        <a href="#" class="d_hero-btn">BUY THEME</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d_hero-overlay"></div>
+                    <div class="d_hero-content-wrapper">
+                        <h1 class="d_hero-title">ELDRITCH HORROR</h1>
+                        <div class="d_hero-divider"></div>
+                        <div class="d_hero-subtitle">Beyond time and sanity, the void gazes back.<br /> What will you do
+                            when it
+                            calls your name?</div>
+                        <a href="#" class="d_hero-btn">EXPLORE NOW</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d_hero-overlay"></div>
+                    <div class="d_hero-content-wrapper">
+                        <h1 class="d_hero-title">RISE OF THE VOID</h1>
+                        <div class="d_hero-divider"></div>
+                        <div class="d_hero-subtitle">Whispers in the dark, forgotten tomes, and eternal war.<br /> The
+                            rise begins
+                            now.</div>
+                        <a href="#" class="d_hero-btn">JOIN THE FIGHT</a>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="db_featured_games_section">
+        <div class="a_header_container">
+            <div class="db_section_header">
+                <h2 class="db_section_title">Featured Games</h2>
+                <a href="#" class="db_view_all_btn">View All Featured</a>
+            </div>
+
+            <div class="db_games_container">
+                <button class="db_scroll_btn db_left_arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="db_game_slider" id="gameSlider">
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/638230/header.jpg"
+                                alt="Yakuza Kiwami" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">Yakuza Kiwami</h6>
+                            <p class="db_game_price">$167.00</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">Action</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/header.jpg"
+                                alt="Destiny 2" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">Destiny 2</h6>
+                            <p class="db_game_price">$89.99</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">FPS</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg"
+                                alt="Red Dead Redemption 2" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">Red Dead Redemption 2</h6>
+                            <p class="db_game_price">$199.99</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">Adventure</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1238810/header.jpg"
+                                alt="Cyberpunk 2077" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">Cyberpunk 2077</h6>
+                            <p class="db_game_price">$129.99</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">RPG</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg"
+                                alt="ELDEN RING" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">ELDEN RING</h6>
+                            <p class="db_game_price">$179.99</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">Souls-like</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg"
+                                alt="Battlefield 2042" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">Battlefield 2042</h6>
+                            <p class="db_game_price">$149.99</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">Shooter</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1966720/header.jpg"
+                                alt="Hogwarts Legacy" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">Hogwarts Legacy</h6>
+                            <p class="db_game_price">$189.99</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">Magic</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="db_game_card">
+                        <div class="db_game_img_wrapper">
+                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/header.jpg"
+                                alt="Marvel's Spider-Man" />
+                            <div class="db_game_img_overlay"></div>
+                        </div>
+                        <div class="db_game_icons">
+                            <button><i class="fas fa-heart"></i></button>
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="db_game_content">
+                            <h6 class="db_game_title">Marvel's Spider-Man</h6>
+                            <p class="db_game_price">$159.99</p>
+                            <div class="db_game_tags">
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <span class="db_tag">Featured Games</span>
+                                    <span class="db_tag">Superhero</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h db_game_menu"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+                <button class="db_scroll_btn db_right_arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="d_footer text-white">
+        <div class="container py-5">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h4 class="d_footer-logo mb-3">ELDRITCH</h4>
+                    <p class="d_footer_text">A realm where ancient horrors dwell and forgotten heroes rise again.
+                        Unleash your
+                        legend in the shadows.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3">Quick Links</h5>
+                    <ul class="list-unstyled d_footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3">Contact</h5>
+                    <ul class="list-unstyled d_footer_text">
+                        <li><i class="fas fa-envelope me-2"></i> support@eldritch.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-location-dot me-2"></i> Eldritch HQ, Darkrealm</li>
+                    </ul>
+                    <div class="d_footer-social mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4" />
+            <div class="text-center d_footer_text small">
+                &copy; 2025 ELDRITCH. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const gameSlider = document.querySelector('.db_game_slider');
+    const leftArrow = document.querySelector('.db_left_arrow');
+    const rightArrow = document.querySelector('.db_right_arrow');
+
+    let currentCardIndex = 0; // Tracks the index of the first visible card
+    const cardWidth = 280; // As defined in .db_game_card min-width/max-width
+    const gapWidth = 32; // 2rem = 32px (assuming 1rem = 16px)
+    const cardWidthWithGap = cardWidth + gapWidth; // Total space one card occupies
+
+    function updateSliderPosition() {
+        const sliderPadding = parseFloat(getComputedStyle(gameSlider).paddingLeft); // Get left padding dynamically
+        const totalCards = document.querySelectorAll('.db_game_card').length;
+        const visibleWidth = gameSlider.clientWidth - (2 * sliderPadding); // Visible area excluding padding
+
+        // Calculate how many cards can fully fit in the visible area
+        const cardsFullyVisible = Math.floor(visibleWidth / cardWidthWithGap);
+
+        // Calculate the maximum index we can scroll to while keeping cards fully visible
+        // We subtract cardsFullyVisible because the last 'cardsFullyVisible' cards need to be visible
+        const maxCardIndex = Math.max(0, totalCards - cardsFullyVisible);
+        
+        // Ensure currentCardIndex does not exceed maxCardIndex
+        currentCardIndex = Math.min(currentCardIndex, maxCardIndex);
+
+        // Calculate the translation value based on the current card index
+        // We move by `cardWidthWithGap` for each step
+        const translateXValue = currentCardIndex * cardWidthWithGap;
+
+        gameSlider.style.transform = `translateX(-${translateXValue}px)`;
+
+        // Update arrow visibility based on currentCardIndex
+        leftArrow.style.opacity = currentCardIndex === 0 ? '0.5' : '1';
+        rightArrow.style.opacity = currentCardIndex >= maxCardIndex ? '0.5' : '1';
+    }
+
+    leftArrow.addEventListener('click', () => {
+        if (currentCardIndex > 0) {
+            currentCardIndex--;
+            updateSliderPosition();
+        }
+    });
+
+    rightArrow.addEventListener('click', () => {
+        const sliderPadding = parseFloat(getComputedStyle(gameSlider).paddingLeft);
+        const totalCards = document.querySelectorAll('.db_game_card').length;
+        const visibleWidth = gameSlider.clientWidth - (2 * sliderPadding);
+        const cardsFullyVisible = Math.floor(visibleWidth / cardWidthWithGap);
+        const maxCardIndex = Math.max(0, totalCards - cardsFullyVisible);
+
+        if (currentCardIndex < maxCardIndex) {
+            currentCardIndex++;
+            updateSliderPosition();
+        }
+    });
+
+    // Auto-scroll functionality
+    let autoScrollInterval;
+
+    function startAutoScroll() {
+        stopAutoScroll(); // Clear any existing interval before starting a new one
+        autoScrollInterval = setInterval(() => {
+            const sliderPadding = parseFloat(getComputedStyle(gameSlider).paddingLeft);
+            const totalCards = document.querySelectorAll('.db_game_card').length;
+            const visibleWidth = gameSlider.clientWidth - (2 * sliderPadding);
+            const cardsFullyVisible = Math.floor(visibleWidth / cardWidthWithGap);
+            const maxCardIndex = Math.max(0, totalCards - cardsFullyVisible);
+
+            if (currentCardIndex >= maxCardIndex) {
+                currentCardIndex = 0; // Loop back to the beginning
+            } else {
+                currentCardIndex++;
+            }
+            updateSliderPosition();
+        }, 4000);
+    }
+
+    function stopAutoScroll() {
+        clearInterval(autoScrollInterval);
+    }
+
+    // Start auto-scroll
+    startAutoScroll();
+
+    // Pause auto-scroll on hover
+    const gamesSection = document.querySelector('.db_featured_games_section');
+    gamesSection.addEventListener('mouseenter', stopAutoScroll);
+    gamesSection.addEventListener('mouseleave', startAutoScroll);
+
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        // Recalculate everything on resize to ensure correct positioning
+        updateSliderPosition();
+    });
+
+    // Initialize slider position on load
+    window.addEventListener('load', updateSliderPosition);
+
+    // Add click effects to game cards
+    document.querySelectorAll('.db_game_card').forEach(card => {
+        card.addEventListener('click', function () {
+            const title = this.querySelector('.db_game_title').textContent;
+            console.log(`Clicked on: ${title}`);
+            // Add your game card click logic here
+        });
+    });
+
+    // Add heart icon toggle functionality
+    document.querySelectorAll('.db_game_icons button').forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.stopPropagation();
+            const icon = this.querySelector('i');
+
+            if (icon.classList.contains('fa-heart')) {
+                icon.classList.toggle('fas');
+                icon.classList.toggle('far');
+                this.style.background = icon.classList.contains('fas') ? '#c55978' : 'rgba(255, 255, 255, 0.9)';
+                this.style.color = icon.classList.contains('fas') ? '#fff' : '#18151a';
+            }
+        });
+    });
+</script>
+
+</body>
+
+</html>
