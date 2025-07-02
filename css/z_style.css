@@ -4,6 +4,20 @@ body {
 }
 
 /* Hero Section */
+
+.Z_cart_hero {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/caart.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 34%;
+}
+
 .Z_about_hero {
   position: relative;
   width: 100%;
@@ -15,6 +29,7 @@ body {
   justify-content: center;
 }
 
+.Z_cart_hero-overlay,
 .Z_about_hero-overlay {
   position: absolute;
   top: 0;
@@ -50,7 +65,7 @@ body {
 }
 
 .Z_about_intro {
-  text-align: left;
+  text-align: center;
   margin-bottom: 2.5rem;
 }
 
@@ -124,6 +139,7 @@ body {
 }
 
 @media (max-width: 600px) {
+  .Z_cart_hero,
   .Z_about_hero {
     height: 30vh;
     min-height: 180px;
@@ -184,7 +200,7 @@ body {
 }
 
 .Z_about_split-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-family: "Cinzel", serif;
   margin-bottom: 1.2rem;
   color: #fff;
@@ -293,7 +309,7 @@ body {
 }
 
 .Z_about_testimonial-content {
-  /* background: #181818; */
+  background: #00000070;
   border-radius: 18px;
   padding: 2.5rem 2rem;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
@@ -356,6 +372,11 @@ body {
 .Z_about_testimonials-next:hover {
   background: #444;
 }
+@media only screen and (max-width: 1024px) {
+  .Z_about_feature {
+    flex: 1 1 180px;
+  }
+}
 
 @media (max-width: 600px) {
   .Z_about_testimonials {
@@ -379,13 +400,41 @@ body {
   }
 }
 
+@media (max-width: 576px) {
+  .Z_about_testimonial_heading {
+    font-size: 1.8rem !important;
+  }
+  .Z_about_testimonial_subheading {
+    font-size: 1.1rem !important;
+  }
+  .Z_about_testimonial_intro {
+    font-size: 16px !important;
+  }
+  .Z_about_feature {
+    flex-direction: column;
+    text-align: center;
+  }
+  .Z_about_icon {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .Z_about_testimonial_heading {
+    font-size: 24px !important;
+  }
+  .Z_about_testimonial_subheading {
+    font-size: 15px !important;
+  }
+  .Z_about_testimonial_intro {
+    font-size: 14px !important;
+  }
+}
+
 /* Swiper Image Slider Section */
 .Z_about_image_slider {
   width: 100vw;
   max-width: 100%;
-  background: url("../images/inner-background-img-3.jpg") center center/cover
-    no-repeat;
-  padding-top: 60px;
+  padding-top: 25px;
   padding-bottom: 60px;
   margin: 0 auto 0 auto;
   position: relative;
@@ -399,7 +448,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(20, 20, 20, 0.7);
   z-index: 0;
 }
 
@@ -943,9 +991,10 @@ body {
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 .Z_cart_btnoutline:hover {
-  background: #fff;
-  color: #232323;
-  border-color: #fff;
+  background-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 0 2px rgb(253 253 253 / 75%), 0 0 14px rgba(255, 255, 255, 0.5),
+    0 0 33px rgb(255 255 255 / 0%), 0 0 55px rgb(255 255 255 / 2%);
 }
 .Z_cart_totals {
   margin-top: 2.5rem;
@@ -1069,6 +1118,7 @@ body {
   color: #ccc !important;
   opacity: 1 !important ;
 }
+
 .Z_Minput_btn {
   font-size: 1rem;
   font-weight: 500;
@@ -1082,11 +1132,14 @@ body {
   box-shadow: none;
   text-wrap: nowrap;
 }
-/* .Z_Minput_btn:hover {
-  background: #fff;
-  color: #232323;
-  border-color: #fff;
-} */
+
+.Z_Minput_btn:hover {
+  background-color: transparent !important;
+  color: #fff !important;
+  box-shadow: 0 0 2px rgb(253 253 253 / 75%), 0 0 14px rgba(255, 255, 255, 0.5),
+    0 0 33px rgb(255 255 255 / 0%), 0 0 55px rgb(255 255 255 / 2%);
+}
+
 @media (max-width: 600px) {
   .Z_Minput_form {
     flex-direction: column;
