@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Product</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/x_style.css">
+
+</head>
+
+<body>
+
+
+    <!-- x_game-product-section START -->
+    <section class="x_game-shop a_header_container">
+        <div class=" x_game-product-section py-5">
+            <div class="x_space">
+
+                <div class="row">
+                    <!-- Thumbnails -->
+                    <div class="col-md-1 d-none d-md-flex flex-column align-items-center x_thumb-list">
+                        <img src="./images/gg1.png" class="img-fluid mb-3 x_thumb-img" alt="thumb1">
+                        <img src="./images/gg1.png" class="img-fluid mb-3 x_thumb-img" alt="thumb2">
+                        <img src="./images/gg2.png" class="img-fluid mb-3 x_thumb-img" alt="thumb3">
+                        <img src="./images/gg3.png" class="img-fluid x_thumb-img" alt="thumb4">
+                    </div>
+                    <!-- Main Image -->
+                    <div class="col-md-5 text-center x_main-img-wrap">
+                        <img src="./images/gg1.png" class="img-fluid x_main-img" alt="main">
+                    </div>
+                    <!-- Product Info -->
+                    <div class="col-md-6 x_product-info text-white">
+                        <div class="x_shop_info mt-3 mt-sm-0">
+                            <h2 class="x_product-title">Falldown Republic</h2>
+                            <div class="x_product-price mb-3">£95.00</div>
+                            <div class="d-flex align-items-center mb-3 ">
+                                <div class="input-group x_qty-group w-auto me-3">
+                                    <button class="btn btn-outline-light x_qty-btn x_qty-minus" type="button" disabled>-</button>
+                                    <input type="text" class="form-control text-center x_qty-input" value="1" style="max-width: 50px;" readonly>
+                                    <button class="btn btn-outline-light x_qty-btn x_qty-plus" type="button">+</button>
+                                </div>
+                                <button class="btn btn-outline-light x_add-cart-btn px-md-4 px-3">ADD TO CART</button>
+                            </div>
+                            <div class="x_product-meta x_line_tb mb-2">
+                                <div>SKU: 004</div>
+                                <div>Category: Games</div>
+                                <div>Tags: ps4, xbox one</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tabs -->
+                <div class="row mt-md-5 mt-4">
+                    <div class="col-12">
+                        <ul class="nav nav-tabs x_tabs " id="x_productTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active x_tab-link" id="desc-tab" data-bs-toggle="tab"
+                                    data-bs-target="#desc" type="button" role="tab">Description</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link x_tab-link" id="addinfo-tab" data-bs-toggle="tab"
+                                    data-bs-target="#addinfo" type="button" role="tab">Additional Information</button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link x_tab-link" id="reviews-tab" data-bs-toggle="tab"
+                                    data-bs-target="#reviews" type="button" role="tab">Reviews (0)</button>
+                            </li>
+                        </ul>
+                        <div class="tab-content x_tab-content p-4 bg-opacity-75" id="x_productTabContent">
+                            <div class="tab-pane fade show active" id="desc" role="tabpanel">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean commodo ligula eget
+                                dolor.
+                                Aenean massa. Cum sociis Theme natoque penatibus et magnis dis parturient montes,
+                                nascetur
+                                ridiculus mus. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+                                Phasellus
+                                viverra nulla ut metus varius laoreet. Quisque rutrum.
+                            </div>
+                            <div class="tab-pane fade" id="addinfo" role="tabpanel">
+                                <div class="x_additional-info">
+                                    <h5 class="mb-3">Additional information</h5>
+                                    <div class="row mb-2">
+                                        <div class="col-4 col-md-2">Weight</div>
+                                        <div class="col-8 col-md-10">0.100 kg</div>
+                                    </div>
+                                    <div class="row mb-2">
+                                        <div class="col-4 col-md-2">Dimensions</div>
+                                        <div class="col-8 col-md-10">30 × 15 × 3 cm</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="reviews" role="tabpanel">
+                                <div class="x_reviews">
+                                    <h5 class="mb-3">Reviews</h5>
+                                    <p>There are no reviews yet.</p>
+                                    <p>Be the first to review <b>“Falldown Republic”</b></p>
+                                    <p class="mb-1">Your email address will not be published. Required fields are marked
+                                        *</p>
+                                    <form class="x_review-form">
+                                        <div class="mb-2">Your rating *</div>
+                                        <div class="mb-3 x_rating-stars">
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <i class="fa-regular fa-star"></i>
+                                            <div class="invalid-feedback d-block x_rating-error" style="display:none;"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="review" class="form-label">Your review *</label>
+                                            <textarea class="form-control bg-transparent text-white border-secondary"
+                                                id="review" rows="4"></textarea>
+                                            <div class="invalid-feedback d-block x_review-error" style="display:none;"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="name" class="form-label">Name *</label>
+                                            <input type="text"
+                                                class="form-control bg-transparent text-white border-secondary"
+                                                id="name">
+                                            <div class="invalid-feedback d-block x_name-error" style="display:none;"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="email" class="form-label">Email *</label>
+                                            <input type="email"
+                                                class="form-control bg-transparent text-white border-secondary"
+                                                id="email">
+                                            <div class="invalid-feedback d-block x_email-error" style="display:none;"></div>
+                                        </div>
+                                        <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" id="saveInfo">
+                                            <label class="form-check-label" for="saveInfo">
+                                                Save my name, email, and website in this browser for the next time I
+                                                comment.
+                                            </label>
+                                        </div>
+                                        <button type="submit" class="x_btn btn btn-outline-light w-100">SUBMIT</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- x_game-product-section END -->
+    <!-- Bootstrap JS & jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Image thumbnail click to main image swap
+        $(document).ready(function () {
+            $('.x_thumb-img').on('click', function () {
+                var newSrc = $(this).attr('src');
+                $('.x_main-img').attr('src', newSrc);
+                $('.x_thumb-img').removeClass('active');
+                $(this).addClass('active');
+            });
+            // Set first thumb as active on load
+            $('.x_thumb-img').first().addClass('active');
+
+            // Star rating click
+            $('.x_rating-stars i').on('click', function () {
+                var index = $(this).index();
+                $('.x_rating-stars i').each(function (i) {
+                    if (i <= index) {
+                        $(this).removeClass('fa-regular').addClass('fa-solid');
+                    } else {
+                        $(this).removeClass('fa-solid').addClass('fa-regular');
+                    }
+                });
+                // Store rating value
+                $('.x_review-form').data('rating', index + 1);
+            });
+
+            // Review form validation
+            $('.x_review-form').on('submit', function (e) {
+                var valid = true;
+                var rating = $(this).data('rating') || 0;
+                var review = $('#review').val().trim();
+                var name = $('#name').val().trim();
+                var email = $('#email').val().trim();
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                // Reset errors
+                $('.x_rating-error, .x_review-error, .x_name-error, .x_email-error').hide().text("");
+                $('#review, #name, #email').removeClass('is-invalid');
+                $('.x_rating-stars').removeClass('is-invalid');
+                // Validate fields
+                if (rating === 0) {
+                    $('.x_rating-error').text('Please select a rating.').show();
+                    $('.x_rating-stars').addClass('is-invalid');
+                    valid = false;
+                }
+                if (review.length < 5) {
+                    $('.x_review-error').text('Please enter a review (min 5 characters).').show();
+                    $('#review').addClass('is-invalid');
+                    valid = false;
+                }
+                if (name.length < 2) {
+                    $('.x_name-error').text('Please enter your name.').show();
+                    $('#name').addClass('is-invalid');
+                    valid = false;
+                }
+                if (!emailPattern.test(email)) {
+                    $('.x_email-error').text('Please enter a valid email address.').show();
+                    $('#email').addClass('is-invalid');
+                    valid = false;
+                }
+                if (!valid) {
+                    e.preventDefault();
+                }
+            });
+
+            // Quantity counter logic
+            function updateQtyBtns(qty) {
+                if (qty <= 1) {
+                    $('.x_qty-minus').attr('disabled', true);
+                } else {
+                    $('.x_qty-minus').attr('disabled', false);
+                }
+            }
+            updateQtyBtns(1);
+            $('.x_qty-plus').on('click', function () {
+                var $input = $('.x_qty-input');
+                var val = parseInt($input.val()) || 1;
+                val++;
+                $input.val(val);
+                updateQtyBtns(val);
+            });
+            $('.x_qty-minus').on('click', function () {
+                var $input = $('.x_qty-input');
+                var val = parseInt($input.val()) || 1;
+                if (val > 1) {
+                    val--;
+                    $input.val(val);
+                    updateQtyBtns(val);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
