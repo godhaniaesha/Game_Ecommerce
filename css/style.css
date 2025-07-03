@@ -239,3 +239,7 @@ body {
     margin: 0 auto 16px auto;
   }
 }
+.form-control:focus {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}

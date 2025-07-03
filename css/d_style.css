@@ -12,7 +12,7 @@ html {
   /* background: #121212; */
   background-image: url("../images/inner-background-img-3.jpg");
   border-bottom: 1px solid #8a775a;
-  padding: 2px 20px;
+  padding: 5px 20px;
   position: sticky;
   top: 0;
   z-index: 1040;

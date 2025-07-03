@@ -671,8 +671,8 @@ s_bg_img_overlay,
   transition: border-color 0.2s;
 }
 .contact-input:focus {
-  border-color: #b97aff;
-  box-shadow: 0 0 0 2px #b97aff33;
+  border-color: #8a775a;
+  box-shadow: 0 0 0 2px #8a775a33;
   background: #181828;
   color: #fff;
 }
@@ -689,7 +689,7 @@ s_bg_img_overlay,
   box-shadow: 0 2px 12px rgba(185, 122, 255, 0.1);
 }
 .contact-send-btn:hover {
-  background: linear-gradient(90deg, #7f3cff 0%, #b97aff 100%);
+  background: linear-gradient(90deg, #7f3cff 0%, #8a775a 100%);
   color: #fff;
 }
 
@@ -712,7 +712,7 @@ s_bg_img_overlay,
   font-size: 1rem;
 }
 .contact-social-icons a {
-  color: #b97aff;
+  color: #8a775a;
   font-size: 1.3rem;
   margin-right: 0.7rem;
   transition: color 0.2s;
@@ -745,7 +745,7 @@ s_bg_img_overlay,
   font-family: "Cinzel", serif;
 }
 .footer-links a {
-  color: #b97aff;
+  color: #8a775a;
   margin: 0 0.3rem;
   text-decoration: none;
   font-size: 1rem;
@@ -837,8 +837,8 @@ s_bg_img_overlay,
   transition: border-color 0.2s;
 }
 .Z_newsletter-input:focus {
-  border-color: #b97aff;
-  box-shadow: 0 0 0 2px #b97aff33;
+  border-color: #8a775a;
+  box-shadow: 0 0 0 2px #8a775a33;
   background: #181828;
   color: #fff;
 }
@@ -855,7 +855,7 @@ s_bg_img_overlay,
   font-size: 1rem;
 }
 .Z_newsletter-btn:hover {
-  background: linear-gradient(90deg, #7f3cff 0%, #b97aff 100%);
+  background: linear-gradient(90deg, #7f3cff 0%, #8a775a 100%);
   color: #fff;
 }
 @media (max-width: 900px) {
