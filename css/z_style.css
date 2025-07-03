@@ -724,7 +724,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgb(0 0 0 / 76%);
+  background: rgb(0 0 0 / 55%);
   z-index: 1;
 }
 .Z_newsletter-content,
@@ -813,7 +813,6 @@ body {
 .Z_cart_darkbg {
   background: url("../images/shop-background-image.jpg") center center/cover
     no-repeat !important;
-  min-height: 100vh;
 }
 .Z_cart_box {
   max-width: 1200px;

@@ -27,7 +27,7 @@
                     <li class="nav-item "><a class="nav-link active" href="#">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">News</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
                 </ul>
 
                 <form class="d_search_form ">
@@ -36,11 +36,20 @@
                 </form>
 
                 <div class="d_social_icons me-3">
-                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                    <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
                 </div>
 
-                <div class="d_user_icon" title="User Profile">
-                    <i class="fas fa-user-circle"></i>
+                 <div class="d_user_icon_wrapper position-relative">
+                    <div class="d_user_icon" id="db_user_icon" title="User Profile">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+
+                    <div class="d_user_dropdown" id="db_user_dropdown">
+                        <ul>
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
@@ -67,7 +76,7 @@
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="d_social_icons_offcanvas">
-                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
                 <a href="#"><i class="fas fa-user-circle"></i></a>
             </div>
         </aside>
@@ -212,7 +221,7 @@
         </div>
     </section>
     <footer class="d_footer text-white">
-        <div class="container py-5">
+        <div class="container py-md-3 ">
             <div class="row gy-4">
                 <div class="col-md-4">
                     <h4 class="d_footer-logo mb-3">ELDRITCH</h4>
@@ -220,13 +229,22 @@
                         Unleash your
                         legend in the shadows.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-2 col-6">
                     <h5 class="text-white mb-3">Quick Links</h5>
                     <ul class="list-unstyled d_footer-links">
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="games.html">Games</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="landingpage.html">Home</a></li>
+                        <li><a href="games.html" class="active">Games</a></li>
+                        <li><a href="About_us.html">About</a></li>
+                        <li><a href="Contact_us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h5 class="text-white mb-3">Our Policy</h5>
+                    <ul class="list-unstyled d_footer-links">
+                        <li><a href="landingpage.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="Privacy.html">Privacy</a></li>
+                        <li><a href="services.html">Service</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -359,7 +377,21 @@
                 }
             });
 
-           
+
+        });
+    </script>
+     <script>
+        const dbUserIcon = document.getElementById('db_user_icon');
+        const dbUserDropdown = document.getElementById('db_user_dropdown');
+
+        dbUserIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dbUserDropdown.style.display = dbUserDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            dbUserDropdown.style.display = 'none';
         });
     </script>
 </body>
