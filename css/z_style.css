@@ -1196,7 +1196,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  min-height: 55vh;
+  /* min-height: 55vh; */
 }
 
 .Z_profile_card {
@@ -1464,7 +1464,7 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+  /* box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18); */
 }
 
 .Z_profile_avatar {

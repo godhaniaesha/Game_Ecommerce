@@ -51,7 +51,7 @@ html {
 
 .d_main .d_navbar .nav-link:hover,
 .d_main .d_navbar .nav-link:focus,
-.d_main .d_navbar .nav-link.active {
+.d_main .d_navbar .nav-link.active,.d_user_icon.active i,.d_offcanvas_menu .navbar-nav .nav-link.active,.d_social_icons_offcanvas a.active i{
   color: #8a775a;
 }
 
@@ -1314,7 +1314,7 @@ html {
   font-size: 14px;
 }
 
-.d_user_dropdown ul li a:hover {
+.d_user_dropdown ul li a:hover ,.d_user_icon_wrapper .d_user_dropdown li a.active{
   background: #333;
   color: #8a775a;
 }
