@@ -374,7 +374,7 @@ body {
 }
 
 .x_blog-main {
-    padding-right: 2rem;
+    padding-right: 2rem !important;
 }
 
 .x_blog-post {
@@ -446,6 +446,10 @@ body {
     padding-left: 2rem;
 }
 
+
+.offcanvas-header .btn-close:focus {
+    box-shadow: none !important;
+}
 @media (max-width: 1200px) {
     .x_blog-sidebar {
         padding-left: 0rem;
@@ -458,7 +462,7 @@ body {
     }
 
     .x_blog-main {
-        padding-right: 0rem;
+        padding-right: 0rem !important;
     }
 
     .offcanvas.offcanvas-end {
@@ -575,6 +579,7 @@ body {
 
 .x_blog-category-item {
     font-size: 1.08rem;
+    color: #d5d1d1;
     /* color: #222; */
     padding: 0.5rem 0 0.5rem 0.2rem;
     background: none;
@@ -786,3 +791,40 @@ color: #d5d1d1 !important;
     opacity: 0.6;
     cursor: not-allowed;
 }
+
+/* card css */
+.x_card {
+  background-color: #1e1e2f;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.x_img_wrapper {
+  position: relative;
+}
+
+.x_main_img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.x_overlay_content {
+  background: rgba(0, 0, 0, 0.7);
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.x_game_title {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.x_price {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #fff;
+  margin: 0;
+}
+
+
