@@ -172,15 +172,21 @@
                             <i id="gridView" class="fa-solid fa-grip active mx-2 text-white"></i>
                             <i id="listView" class="fa-solid fa-list me-2 text-white "></i>
                         </div>
-                        <div class="s_sort-dropdown">
-                            <label for="sortSelect" class="me-2 text-white">Sort By:</label>
-                            <select id="sortSelect" class="form-select d-inline-block" style="width: auto;">
-                                <option value="featured">Featured</option>
-                                <option value="name-asc">Alphabetically, A-Z</option>
-                                <option value="name-desc">Alphabetically, Z-A</option>
-                                <option value="price-asc">Price, low to high</option>
-                                <option value="price-desc">Price, high to low</option>
-                            </select>
+                        <div class="dropdown s_sort-dropdown">
+                            <button class="btn btn-dark dropdown-toggle" type="button" id="sortDropdownBtn"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Sort By: <span id="selectedSort" style="color: #ad9d79;">Featured</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sortDropdownBtn">
+                                <li><a class="dropdown-item active" href="#" data-value="featured">Featured</a></li>
+                                <li><a class="dropdown-item" href="#" data-value="name-asc">Alphabetically, A-Z</a></li>
+                                <li><a class="dropdown-item" href="#" data-value="name-desc">Alphabetically, Z-A</a>
+                                </li>
+                                <li><a class="dropdown-item" href="#" data-value="price-asc">Price, low to high</a></li>
+                                <li><a class="dropdown-item" href="#" data-value="price-desc">Price, high to low</a>
+                                </li>
+                            </ul>
+
                         </div>
                     </div>
 
@@ -315,11 +321,30 @@
                 }
             });
         }
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
 
+                // Remove active class from all
+                document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
+
+                // Add active to selected
+                item.classList.add('active');
+
+                // Update visible text
+                const label = item.textContent;
+                const value = item.getAttribute('data-value');
+                document.getElementById('selectedSort').textContent = label;
+
+                // Set value manually to trigger sorting
+                filterCards(value);
+            });
+        });
         function filterCards() {
             const selectedPrices = Array.from(document.querySelectorAll('input[name="price"]:checked')).map(i => i.value);
             const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(i => i.value);
-            const sortValue = document.getElementById('sortSelect').value;
+            const sortValue = document.querySelector('.dropdown-item.active')?.dataset.value || "featured";
+
 
             const filtered = cardsData.filter(card => {
                 const price = parseFloat(card.price.replace('$', ''));
@@ -343,13 +368,15 @@
         filterCards();
 
         // Sort dropdown event
-        document.getElementById('sortSelect').addEventListener('change', filterCards);
+         document.getElementById('sortSelect').addEventListener('change', filterCards);
 
         // Checkbox filter event binding
         const allFilters = document.querySelectorAll('input[name="price"], input[name="category"]');
         allFilters.forEach(input => {
             input.addEventListener('change', filterCards);
         });
+
+      
     </script>
 </body>
 
