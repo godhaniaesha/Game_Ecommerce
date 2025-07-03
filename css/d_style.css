@@ -9,7 +9,8 @@ html {
 
 /* Sticky Header */
 .d_main .d_header {
-  background: #121212;
+  /* background: #121212; */
+  background-image: url("../images/inner-background-img-3.jpg");
   border-bottom: 1px solid #8a775a;
   padding: 2px 20px;
   position: sticky;
@@ -49,7 +50,8 @@ html {
 }
 
 .d_main .d_navbar .nav-link:hover,
-.d_main .d_navbar .nav-link:focus,.d_main .d_navbar .nav-link.active {
+.d_main .d_navbar .nav-link:focus,
+.d_main .d_navbar .nav-link.active {
   color: #8a775a;
 }
 
@@ -92,7 +94,8 @@ html {
   transition: color 0.3s ease;
 }
 
-.d_main .d_social_icons a:hover {
+.d_main .d_social_icons a:hover,
+.d_main .d_social_icons.active a {
   color: #8a775a;
 }
 
@@ -338,7 +341,7 @@ html {
 }
 
 #heroCarousel .carousel-item:nth-child(2) {
-    background-position: top center;
+  background-position: top center;
   background-image: url("https://bayanbox.ir/view/1205724778593642759/crysis-best-widescreen-background-awesome-desktop-1920x1080-hd-wallpaper-1333558.jpg");
 }
 
@@ -349,7 +352,7 @@ html {
 /* Featured games start */
 .db_featured_games_section {
   /* background: linear-gradient(135deg, #18151a 0%, #2a2530 50%, #18151a 100%); */
-  background-image: url('../images/inner-background-img-3.jpg');
+  background-image: url("../images/inner-background-img-3.jpg");
   position: relative;
   padding: 4rem 0;
 }
@@ -545,11 +548,10 @@ html {
   background: linear-gradient(135deg, #8a775a, #8b4a63);
   border: none;
   color: white;
-  font-size: 1.3rem;
+  font-size: 1rem;
   padding: 1rem;
   z-index: 10;
   cursor: pointer;
-  border-radius: 50%;
   width: 50px;
   height: 50px;
   display: flex;
@@ -622,7 +624,7 @@ html {
 /* Footer */
 .d_footer {
   /* background-color: #151316; */
-  background-image: url('../images/inner-background-img-3.jpg');
+  background-image: url("../images/inner-background-img-3.jpg");
   padding-top: 3rem;
   padding-bottom: 2rem;
 }
@@ -648,7 +650,8 @@ html {
   transition: color 0.2s ease-in-out;
 }
 
-.d_footer-links a:hover {
+.d_footer-links a:hover,
+.d_footer-links a.active {
   color: #8a775a;
 }
 
@@ -696,7 +699,7 @@ html {
   }
 
   .d_hero-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     letter-spacing: 0.15rem;
   }
 
@@ -713,17 +716,19 @@ html {
   }
 
   .db_section_title {
-    font-size: 2rem;
+    font-size: 1.3rem;
   }
 
   .db_game_card {
     min-width: 220px;
     max-width: 220px;
   }
+  .d_main .d_logo {
+    font-size: 1rem;
+  }
 }
 
 /* category start  */
-
 
 .d_category_section {
   padding: 60px 0;
@@ -923,7 +928,7 @@ html {
 /* comming soon start  */
 
 .d_coming_wrapper {
-    background-image: url('../images/inner-background-img-3.jpg');
+  background-image: url("../images/inner-background-img-3.jpg");
   font-family: "Poppins", sans-serif;
   color: #fff;
 }
@@ -1184,4 +1189,132 @@ html {
   .d_founder_section .d_member_content {
     flex: 1;
   }
+}
+
+@media (max-width: 576px) {
+  .d_hero-section {
+    height: 50vh;
+  }
+  .d_hero-btn {
+    font-size: 12px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 1rem;
+    letter-spacing: 0.1em;
+  }
+  .d_hero-content-wrapper {
+    gap: 1rem;
+  }
+  .d_hero-subtitle {
+    font-size: 0.9rem;
+  }
+  .d_hero-section .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    border-radius: 50%;
+    padding: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  /* category section  */
+  .d_category_section .d_section_title {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  .d_category_section,
+  .db_featured_games_section,
+  .d_feature_section,
+  .d_coming_wrapper .d_coming_section,.d_founder_section  {
+    padding: 30px 0px;
+  }
+  .db_section_header {
+    padding: 0px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  .db_view_all_btn {
+    padding: 0.6rem 0.5rem;
+  }
+  .db_scroll_btn {
+    padding: 0.5rem;
+    width: 34px;
+    height: 34px;
+  }
+
+  /* feature section  */
+  .d_feature_section .d_feature_title {
+    font-size: 1.3rem;
+  }
+  .d_feature_section .d_feature_text {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+  }
+  .d_feature_section .d_feature_btn {
+    padding: 8px 25px;
+    font-size: 0.8rem;
+  }
+
+  /* comming soon section  */
+  .d_coming_wrapper .d_coming_section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  .d_coming_wrapper .d_slider_nav {
+    margin: 0;
+  }
+  .d_coming_wrapper .d_arrow_btn {
+    /* padding: 0.5rem; */
+    font-size: 1rem;
+    width: 34px;
+    height: 34px;
+  }
+
+  /* footer section  */
+  .d_footer {
+    padding: 30px 0;
+  }
+  .d_footer-logo {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* user dropdown  */
+.d_user_icon_wrapper {
+  position: relative;
+}
+
+.d_user_dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid #444;
+  border-radius: 5px;
+  padding: 10px 0;
+  min-width: 160px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.d_user_dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.d_user_dropdown ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.d_user_dropdown ul li a:hover {
+  background: #333;
+  color: #8a775a;
 }
