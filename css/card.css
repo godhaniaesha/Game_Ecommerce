@@ -24,7 +24,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgb(107 107 108), transparent);
+  background: linear-gradient(to top, rgb(48, 48, 49), transparent);
   z-index: 1;
 }
 .card-actions {
@@ -85,3 +85,22 @@ body {
 .game-card:hover .card-actions {
   bottom: 0;
 }
+.custom-cart-btn {
+  background: linear-gradient(135deg, #8a775a, #5e4d3a); /* brown-golden gradient */
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 12px 0 12px 0;
+  box-shadow: 0 4px 15px rgba(138, 119, 90, 0.4); /* matched to #8a775a */
+  transition: all 0.3s ease;
+}
+
+.custom-cart-btn:hover {
+  background: linear-gradient(135deg, #5e4d3a, #8a775a); /* reversed for hover */
+  box-shadow: 0 6px 20px rgba(138, 119, 90, 0.6);
+  transform: scale(1.05);
+}
+
