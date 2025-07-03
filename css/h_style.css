@@ -1,0 +1,140 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.login-page {
+  height: 100vh;
+  background: url(/images/login.jpg) no-repeat center center/cover;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+}
+
+.form-box {
+  border: 1px solid #ffffff8f;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 20px;
+  color: #fff;
+  width: 100%;
+  margin: auto;
+  padding-top: 26px;
+}
+.login-content h2 {
+  font-size: 32px;
+  font-weight: 600;
+}
+.form-control:focus {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.form-control::placeholder {
+  color: #000000af;
+  font-family: "Poppins", sans-serif;
+}
+.form-check-input {
+  background-color: transparent;
+}
+.form-check-input:focus {
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+a {
+  text-decoration: none;
+}
+.social-icons .icon {
+  background-color: #fff;
+  border-radius: 4px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+}
+.login-content {
+  padding: 48px;
+    color: #fff;
+}
+.robot-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.login-page-last {
+  font-size: 12px;
+}
+.verify-btn{
+	width: 80%;
+}
+
+@media (max-width: 1200px) {
+  .login-content {
+    padding: 24px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+  .login-content h2 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 992px) {
+  .login-content {
+    padding: 12px;
+  }
+  .login-content h2 {
+    font-size: 28px;
+  }
+
+  label {
+    font-size: 12px;
+  }
+  .small {
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .login-content {
+    padding: 36px;
+  }
+  label {
+    font-size: 12px;
+  }
+  .small {
+    font-size: 12px;
+  }
+}
+@media (max-width: 640px) {
+  label {
+    font-size: 12px;
+  }
+  .small {
+    font-size: 12px;
+  }
+  .login-content {
+    padding: 22px;
+  }
+  
+}
+@media (max-width: 400px) {
+  .login-content {
+    padding: 8px;
+  }
+  .verify-btn{
+	width: 100%;
+  }
+}

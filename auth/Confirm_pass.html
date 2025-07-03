@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forget Password</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/h_style.css" />
+  </head>
+
+  <body>
+    <div class="login-page">
+      <div class="overlay">
+        <div class="container">
+          <div class="row form-box rounded-4 overflow-hidden justify-content-center">
+            <!-- Left Image -->
+            <div
+              class="col-lg-6 col-md-6 d-none d-md-flex justify-content-center align-items-end img-part"
+            >
+              <img
+                src="/images/login.webp"
+                alt="robot"
+                class="img-fluid robot-img"
+              />
+            </div>
+
+            <!-- Right Form -->
+            <div
+              class="col-12 col-lg-5 col-md-6 d-flex align-items-center justify-content-center"
+            >
+              <div class="text-center login-content w-100">
+                <h2 class="mb-5">Forget Password</h2>
+                <form>
+                  <!-- New Password -->
+                  <div class="mb-3 text-start">
+                    <label for="newPassword" class="mb-1 text-white">New Password</label>
+                    <div class="input-group position-relative">
+                      <input
+                        type="password"
+                        class="form-control rounded-end py-2 px-4 pe-5 text-black"
+                        placeholder="Enter New Password"
+                        id="newPassword"
+                      />
+                      <i
+                        class="fa-solid fa-eye-slash"
+                        id="toggleNewPassword"
+                        style="
+                          position: absolute;
+                          top: 50%;
+                          right: 15px;
+                          transform: translateY(-50%);
+                          cursor: pointer;
+                          color: #888;
+                        "
+                      ></i>
+                    </div>
+                  </div>
+
+                  <!-- Confirm Password -->
+                  <div class="mb-3 text-start">
+                    <label for="confirmPassword" class="mb-1 text-white">Confirm Password</label>
+                    <div class="input-group position-relative">
+                      <input
+                        type="password"
+                        class="form-control rounded-end py-2 px-4 pe-5 text-black"
+                        placeholder="Confirm Password"
+                        id="confirmPassword"
+                      />
+                      <i
+                        class="fa-solid fa-eye-slash"
+                        id="toggleConfirmPassword"
+                        style="
+                          position: absolute;
+                          top: 50%;
+                          right: 15px;
+                          transform: translateY(-50%);
+                          cursor: pointer;
+                          color: #888;
+                        "
+                      ></i>
+                    </div>
+                  </div>
+
+                  <!-- Reset Button -->
+                  <button
+                    type="submit"
+                    class="btn btn-light w-100 rounded-pill py-2 mt-3"
+                  >
+                    Reset Password
+                  </button>
+
+                  <!-- Link to Login -->
+                  <p class="text-center text-white-50 login-page-last mt-3">
+                    I remember my password?
+                    <a href="/auth/Login.html" class="text-white">Sign In</a>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toggle Script -->
+    <script>
+      const toggleNewPassword = document.getElementById("toggleNewPassword");
+      const newPasswordInput = document.getElementById("newPassword");
+
+      toggleNewPassword.addEventListener("click", () => {
+        const type =
+          newPasswordInput.type === "password" ? "text" : "password";
+        newPasswordInput.type = type;
+        toggleNewPassword.classList.toggle("fa-eye");
+        toggleNewPassword.classList.toggle("fa-eye-slash");
+      });
+
+      const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+      const confirmPasswordInput = document.getElementById("confirmPassword");
+
+      toggleConfirmPassword.addEventListener("click", () => {
+        const type =
+          confirmPasswordInput.type === "password" ? "text" : "password";
+        confirmPasswordInput.type = type;
+        toggleConfirmPassword.classList.toggle("fa-eye");
+        toggleConfirmPassword.classList.toggle("fa-eye-slash");
+      });
+    </script>
+  </body>
+</html>
