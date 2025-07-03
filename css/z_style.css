@@ -1268,7 +1268,7 @@ s_bg_img_overlay,
 }
 
 .Z_profile_name {
-  font-size: 1.8rem;
+  font-size: 20px;
   font-weight: 600;
   color: #ffffff;
   margin-bottom: 5px;
@@ -1458,6 +1458,7 @@ s_bg_img_overlay,
   }
   .Z_profile_section_title {
     font-size: 0.95rem;
+    font-weight: 200;
   }
   .Z_profile_input {
     font-size: 0.9rem;
@@ -1515,19 +1516,20 @@ s_bg_img_overlay,
 
 @media (max-width: 600px) {
   .Z_profile_avatar-wrap {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
   .Z_profile_avatar {
-    width: 65px;
-    height: 65px;
+    width: 100px;
+    height: 100px;
+    margin-bottom: -10px !important;
   }
   .Z_profile_avatar_upload_btn {
-    width: 26px;
-    height: 26px;
+    width: 35px;
+    height: 35px;
     font-size: 1rem;
-    bottom: 4px;
-    right: 4px;
+    bottom: -8px;
+    right: -3px;
   }
 }
 

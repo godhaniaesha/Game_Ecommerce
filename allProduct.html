@@ -95,7 +95,7 @@
             <nav>
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link " href="landingpage.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link active"  href="allProduct.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="allProduct.html">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
@@ -234,16 +234,20 @@
                     </div>
                 </div>
                 <!-- Product Display Area -->
-                <div class="d-block d-lg-none">
-                    <button class="btn border text-white" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">Filters
-                    </button>
-                </div>
+
                 <div class="col-xl-9 col-lg-8">
-                    <div class="d-flex justify-content-between align-items-center mb-4 my-3 my-md-0">
-                        <div class="d-flex d-sm-block">
+                    <div class="d-flex px-md-4  justify-content-between align-items-center mb-3">
+                        <div class="d-none">
                             <i id="gridView" class="fa-solid fa-grip active mx-2 text-white"></i>
-                            <i id="listView" class="fa-solid fa-list me-2 text-white "></i>
+                            <i id="listView" class="fa-solid fa-list me-2 text-white d-md-block d-none"></i>
+                        </div>
+                        <!-- <div class="mb-3">
+                            <span id="productCount" >Showing 6 products</span>
+                        </div> -->
+                        <div class="d-block d-lg-none">
+                            <button class="btn border text-white" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#filterOffcanvas" aria-controls="filterOffcanvas">Filters
+                            </button>
                         </div>
                         <div class="dropdown s_sort-dropdown">
                             <button class="btn btn-dark dropdown-toggle" type="button" id="sortDropdownBtn"
@@ -261,12 +265,11 @@
                             </ul>
 
                         </div>
+
                     </div>
 
                     <!-- Products Count -->
-                    <div class="mb-3">
-                        <span id="productCount" >Showing 6 products</span>
-                    </div>
+
 
                     <!-- Grid View -->
                     <div id="gridContainer" class="row"></div>
@@ -289,7 +292,7 @@
                 <div class="col-md-2 col-6">
                     <h5 class="text-white mb-3">Quick Links</h5>
                     <ul class="list-unstyled d_footer-links">
-                        <li><a href="landingpage.html" >Home</a></li>
+                        <li><a href="landingpage.html">Home</a></li>
                         <li><a href="games.html" class="active">Games</a></li>
                         <li><a href="About_us.html">About</a></li>
                         <li><a href="Contact_us.html">Contact</a></li>
@@ -298,10 +301,10 @@
                 <div class="col-md-2 col-6">
                     <h5 class="text-white mb-3">Our Policy</h5>
                     <ul class="list-unstyled d_footer-links">
-                        <li><a href="landingpage.html" >Home</a></li>
+                        <li><a href="landingpage.html">Home</a></li>
                         <li><a href="Contact_us.html">Blog</a></li>
                         <li><a href="Privacy.html">Privacy</a></li>
-                         <li><a href="services.html">Games</a></li>
+                        <li><a href="services.html">Games</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -345,7 +348,7 @@
 
         function createGridCard(cardData) {
             return `
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 d-flex justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-6 col-xl-4  mb-4 d-flex justify-content-center">
               <div class="game-card position-relative">
                 <img src="${cardData.image}" alt="${cardData.title}" class="card-img-top" />
                 <div class="position-absolute card-content">
@@ -357,12 +360,10 @@
                   <h3 class="mb-0">${cardData.price}</h3>
                 </div>
                 <div class="card-actions d-flex align-items-center gap-3">
-                  <div class="d_main_button">
-                    <button class="custom-cart-btn" onclick="addToCart(${cardData.id})">ADD TO CART</button>
+                  <div class="d_main_button w-100" >
+                    <button class="custom-cart-btn w-100" onclick="addToCart(${cardData.id})">ADD TO CART</button>
                     <div class="d_border"></div>
                   </div>
-                  <i class="fa-regular fa-heart text-white" onclick="toggleWishlist(${cardData.id})"></i>
-                  <i class="fa-solid fa-ellipsis text-white"></i>
                 </div>
               </div>
             </div>
@@ -371,20 +372,24 @@
 
         function createListCard(cardData) {
             return `
-        <div class="card mb-3 list-card">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <img src="${cardData.image}" class="img-fluid rounded-start h-100" alt="${cardData.title}">
+        <div class="card mb-3 list-card border-1 border-light " style="background: rgba(34,34,34,0.92) url('../images/inner-background-img-3.jpg'); background-blend-mode: darken, normal; color:#fff; border:none; box-shadow: 0 8px 32px 0 rgba(0,0,0,0.35), 0 1.5px 6px 0 rgba(0,0,0,0.25);">
+          <div class="row g-0 align-items-center">
+            <div class="col-sm-4 d-flex align-items-center justify-content-center" style="min-height:180px;">
+              <div style="background:rgba(24,24,24,0.95); border-radius:16px; padding:12px; display:flex; align-items:center; justify-content:center; width:130px; height:130px;">
+                <img src="${cardData.image}" alt="${cardData.title}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px; box-shadow:0 2px 8px rgba(0,0,0,0.2); background:#181818;" />
+              </div>
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">${cardData.title}</h5>
-                <p class="card-text fw-bold">${cardData.price}</p>
-                <p class="card-text"><small class="text-muted">${cardData.description}</small></p>
-                <div class="d-flex align-items-center">
-                  <button class="btn btn-sm s_cart_btn" onclick="addToCart(${cardData.id})">ADD TO CART</button>
-                  <i class="fa-regular fa-heart fs-5 mx-2" onclick="toggleWishlist(${cardData.id})"></i>
-                  <i class="fa-solid fa-eye fs-6 mx-2" onclick="viewDetails(${cardData.id})"></i>
+            <div class="col-sm-8">
+              <div class="card-body d-flex flex-column justify-content-between h-100" style="min-height: 160px;">
+                <div>
+                  <h5 class="card-title mb-2" style="color:#ad9d79;">${cardData.title}</h5>
+                  <p class="card-text fw-bold mb-1 text-white" >${cardData.price}</p>
+                  <p class="card-text mb-2 text-white"><small class="">${cardData.description}</small></p>
+                </div>
+                <div class="d-flex align-items-center gap-3 mt-auto">
+                  <button class="btn btn-sm s_cart_btn text-nowrap" onclick="addToCart(${cardData.id})">ADD TO CART</button>
+                                    <i class="fa-solid fa-eye fs-6" onclick="viewDetails(${cardData.id})"style="cursor:pointer;"></i>
+
                 </div>
               </div>
             </div>
@@ -489,7 +494,7 @@
         filterCards();
 
         // Sort dropdown event
-         document.getElementById('sortSelect').addEventListener('change', filterCards);
+        document.getElementById('sortSelect').addEventListener('change', filterCards);
 
         // Checkbox filter event binding
         const allFilters = document.querySelectorAll('input[name="price"], input[name="category"]');
@@ -497,7 +502,7 @@
             input.addEventListener('change', filterCards);
         });
 
-      
+
     </script>
     <script>
         (function () {
