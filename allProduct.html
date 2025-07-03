@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Games Store</title>
-
+ 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="./css/style.css" />
@@ -16,23 +16,23 @@
             --bs-offcanvas-width: 350px;
             background-color: #1a1a1a;
         }
-
+ 
          .s_sort-dropdown .btn,
         .s_sort-dropdown .btn.show,
         .s_sort-dropdown .btn:hover {
             background-color: #1a1a1a;
             border: 1px solid #444;
         }
-
+ 
         .s_sort-dropdown .dropdown-menu {
             background-color: #1a1a1a;
         }
-
+ 
         .dropdown-menu-dark .dropdown-item:hover {
             background: #333;
             color: #8a775a;
         }
-
+ 
         .dropdown-menu-dark .dropdown-item.active {
             background: #333;
             color: #8a775a;
@@ -42,13 +42,13 @@
                 padding: 0px 8% !important;
             }
         }
-
+ 
         @media (max-width:375px) {
             .offcanvas {
                 --bs-offcanvas-width: 300px;
             }
         }
-
+ 
         @media (max-width:320px) {
             .offcanvas {
                 --bs-offcanvas-width: 280px;
@@ -56,7 +56,7 @@
         }
     </style>
 </head>
-
+ 
 <body>
     <!-- Hero Section Start -->
     <div class="Z_cards_hero">
@@ -64,7 +64,7 @@
             <h1 class="Z_about_title">GameForge Store</h1>
         </div>
     </div>
-
+ 
     <div class="s_body_img">
         <div class="py-5">
             <h2 class="text-center" style="color: #ad9d79;">Games Store</h2>
@@ -93,7 +93,7 @@
                                     </div>
                                 </div>
                             </div>
-
+ 
                             <!-- Category Filter -->
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -118,7 +118,7 @@
                                     </div>
                                 </div>
                             </div>
-
+ 
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                                     </div>
                                 </div>
                             </div>
-
+ 
                             <!-- Category Filter -->
                             <div class="accordion-item">
                                 <h2 class="accordion-header">
@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
                             </div>
-
+ 
                         </div>
                     </div>
                 </div>
@@ -189,7 +189,8 @@
                 <div class="col-xl-9 col-lg-8">
                     <div class="d-flex justify-content-between align-items-center mb-4 my-3 my-md-0">
                         <div class="d-flex d-sm-block">
-                            <i id="gridView" class="fa-solid fa-grip active mx-2 text-white"></i>
+ 
+   <i id="gridView" class="fa-solid fa-grip active mx-2 text-white"></i>
                             <i id="listView" class="fa-solid fa-list me-2 text-white "></i>
                         </div>
                         <div class="dropdown s_sort-dropdown">
@@ -206,27 +207,28 @@
                                 <li><a class="dropdown-item" href="#" data-value="price-desc">Price, high to low</a>
                                 </li>
                             </ul>
-
+ 
                         </div>
                     </div>
-
+ 
                     <!-- Products Count -->
                     <div class="mb-3">
                         <span id="productCount" style="color: #ad9d79;">Showing 6 products</span>
                     </div>
-
+ 
                     <!-- Grid View -->
                     <div id="gridContainer" class="row"></div>
-
+ 
                     <!-- List View -->
                     <div id="listContainer" class="d-none"></div>
                 </div>
             </div>
         </div>
-    </div>
-
+ 
+ </div>
+ 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+ 
     <script>
         const cardsData = [
             { id: 1, title: "The Elder Scrolls V Skyrim", price: "$144.00", image: "/images/card_img1.png", description: "Epic fantasy adventure game", category: "Action" },
@@ -236,12 +238,12 @@
             { id: 5, title: "Assassin's Creed Valhalla", price: "$79.99", image: "/images/card_img5.png", description: "Viking action RPG adventure", category: "Action" },
             { id: 6, title: "Cyberpunk 2077", price: "$159.99", image: "/images/card_img6.png", description: "Futuristic RPG adventure", category: "Shooter" }
         ];
-
+ 
         const gridBtn = document.getElementById('gridView');
         const listBtn = document.getElementById('listView');
         const gridContainer = document.getElementById('gridContainer');
         const listContainer = document.getElementById('listContainer');
-
+ 
         function createGridCard(cardData) {
             return `
         <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
@@ -268,7 +270,7 @@
           </div>
         </div>`;
         }
-
+ 
         function createListCard(cardData) {
             return `
         <div class="card mb-3 list-card">
@@ -291,43 +293,43 @@
           </div>
         </div>`;
         }
-
+ 
         function addToCart(id) {
             const card = cardsData.find(c => c.id === id);
             alert(`Added "${card.title}" to cart!`);
         }
-
+ 
         function toggleWishlist(id) {
             const card = cardsData.find(c => c.id === id);
             alert(`Added "${card.title}" to wishlist!`);
         }
-
+ 
         function viewDetails(id) {
             const card = cardsData.find(c => c.id === id);
             alert(`Viewing details for "${card.title}"`);
         }
-
+ 
         gridBtn.addEventListener('click', () => {
             gridContainer.classList.remove('d-none');
             listContainer.classList.add('d-none');
             gridBtn.classList.add('active');
             listBtn.classList.remove('active');
         });
-
+ 
         listBtn.addEventListener('click', () => {
             gridContainer.classList.add('d-none');
             listContainer.classList.remove('d-none');
             listBtn.classList.add('active');
             gridBtn.classList.remove('active');
         });
-
+ 
         function sortCards(cards, sortValue) {
             return [...cards].sort((a, b) => {
                 const priceA = parseFloat(a.price.replace('$', ''));
                 const priceB = parseFloat(b.price.replace('$', ''));
                 const nameA = a.title.toLowerCase();
                 const nameB = b.title.toLowerCase();
-
+ 
                 switch (sortValue) {
                     case 'name-asc':
                         return nameA.localeCompare(nameB);
@@ -345,18 +347,18 @@
         document.querySelectorAll('.dropdown-item').forEach(item => {
             item.addEventListener('click', e => {
                 e.preventDefault();
-
+ 
                 // Remove active class from all
                 document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
-
+ 
                 // Add active to selected
                 item.classList.add('active');
-
+ 
                 // Update visible text
                 const label = item.textContent;
                 const value = item.getAttribute('data-value');
                 document.getElementById('selectedSort').textContent = label;
-
+ 
                 // Set value manually to trigger sorting
                 filterCards(value);
             });
@@ -365,32 +367,32 @@
             const selectedPrices = Array.from(document.querySelectorAll('input[name="price"]:checked')).map(i => i.value);
             const selectedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(i => i.value);
             const sortValue = document.querySelector('.dropdown-item.active')?.dataset.value || "featured";
-
-
+ 
+ 
             const filtered = cardsData.filter(card => {
                 const price = parseFloat(card.price.replace('$', ''));
                 const priceMatch = selectedPrices.length === 0 || selectedPrices.some(range => {
                     const [min, max] = range.split('-').map(Number);
                     return price >= min && price <= max;
                 });
-
+ 
                 const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(card.category);
-
+ 
                 return priceMatch && categoryMatch;
             });
-
+ 
             const sorted = sortCards(filtered, sortValue);
             gridContainer.innerHTML = sorted.map(createGridCard).join('');
             listContainer.innerHTML = sorted.map(createListCard).join('');
             document.getElementById('productCount').innerText = `Showing ${sorted.length} products`;
         }
-
+ 
         // Initialize
         filterCards();
-
+ 
         // Sort dropdown event
         // document.getElementById('sortSelect').addEventListener('change', filterCards);
-
+ 
         // Checkbox filter event binding
         const allFilters = document.querySelectorAll('input[name="price"], input[name="category"]');
         allFilters.forEach(input => {
@@ -398,5 +400,6 @@
         });
     </script>
 </body>
-
+ 
 </html>
+ 
