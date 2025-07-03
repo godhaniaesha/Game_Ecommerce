@@ -66,28 +66,28 @@
                   </div>
 
                   <!-- Password with eye icon -->
-                  <div class="mb-3">
-                    <div class="input-group position-relative">
-                      <input
-                        type="password"
-                        class="form-control rounded-end py-2 px-4 pe-5 text-black"
-                        placeholder="Enter Password"
-                        id="passwordInput"
-                      />
-                      <i
-                        class="fa-solid fa-eye-slash"
-                        id="togglePassword"
-                        style="
-                          position: absolute;
-                          top: 50%;
-                          right: 15px;
-                          transform: translateY(-50%);
-                          cursor: pointer;
-                          color: #888;
-                        "
-                      ></i>
-                    </div>
-                  </div>
+                  <div class="mb-3 position-relative">
+  <input
+    type="password"
+    class="form-control rounded-end py-2 px-4 pe-5 text-black"
+    placeholder="Enter Password"
+    id="db_password_input"
+  />
+  <i
+    class="fa-solid fa-eye-slash"
+    id="db_toggle_password"
+    style="
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #888;
+      z-index: 5;
+    "
+  ></i>
+</div>
+
 
                   <!-- Sign In Button -->
                   <button
@@ -145,5 +145,16 @@
         </div>
       </div>
     </div>
+    <script>
+  const db_togglePassword = document.getElementById("db_toggle_password");
+  const db_passwordInput = document.getElementById("db_password_input");
+
+  db_togglePassword.addEventListener("click", () => {
+    const isPassword = db_passwordInput.type === "password";
+    db_passwordInput.type = isPassword ? "text" : "password";
+    db_togglePassword.classList.toggle("fa-eye");
+    db_togglePassword.classList.toggle("fa-eye-slash");
+  });
+</script>
   </body>
 </html>
