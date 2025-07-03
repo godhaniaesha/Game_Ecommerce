@@ -23,10 +23,10 @@
             <!-- Desktop Nav -->
             <nav class="d_navbar navbar navbar-expand-lg d-none d-lg-flex">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                    <li class="nav-item "><a class="nav-link active" href="allProduct.html">Games</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">News</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="landingpage.html">Home</a></li>
+                    <li class="nav-item "><a class="nav-link" href="allProduct.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
                 </ul>
 
@@ -39,7 +39,7 @@
                     <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
                 </div>
 
-                 <div class="d_user_icon_wrapper position-relative">
+                <div class="d_user_icon_wrapper position-relative">
                     <div class="d_user_icon" id="db_user_icon" title="User Profile">
                         <i class="fas fa-user-circle"></i>
                     </div>
@@ -48,7 +48,7 @@
                         <ul>
                             <li><a href="./auth/Login.html">Sign in</a></li>
                             <li><a href="./auth/ForgetPass.html">Change Password</a></li>
-                            <li><a href="#">My Profile</a></li>
+                            <li><a href="Profile.html">My Profile</a></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
@@ -65,12 +65,12 @@
         <aside class="d_offcanvas_menu" id="d_offcanvas_menu">
             <button class="close_btn" aria-label="Close Menu">&times;</button>
             <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="allProduct.html">Games</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="landingpage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
                 </ul>
             </nav>
             <form class="d_search_form_offcanvas">
@@ -79,7 +79,7 @@
             </form>
             <div class="d_social_icons_offcanvas">
                 <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
-                <a href="#"><i class="fas fa-user-circle"></i></a>
+                <a href="Profile.html"><i class="fas fa-user-circle"></i></a>
             </div>
         </aside>
     </div>
@@ -218,7 +218,7 @@
             </div>
         </div>
     </section>
-     <footer class="d_footer text-white">
+    <footer class="d_footer text-white">
         <div class="container py-md-3 ">
             <div class="row gy-4">
                 <div class="col-md-4">
@@ -310,7 +310,7 @@
             });
         })();
     </script>
-     <script>
+    <script>
         const dbUserIcon = document.getElementById('db_user_icon');
         const dbUserDropdown = document.getElementById('db_user_dropdown');
 

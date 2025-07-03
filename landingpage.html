@@ -52,7 +52,7 @@
                         <ul>
                             <li><a href="./auth/Login.html">Sign in</a></li>
                             <li><a href="./auth/ForgetPass.html">Change Password</a></li>
-                            <li><a href="#">My Profile</a></li>
+                            <li><a href="Profile.html">My Profile</a></li>
                             <li><a href="#">Logout</a></li>
                         </ul>
                     </div>
@@ -69,22 +69,20 @@
         <!-- Offcanvas Mobile Menu -->
         <aside class="d_offcanvas_menu" id="d_offcanvas_menu">
             <button class="close_btn" aria-label="Close Menu">&times;</button>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="allProduct.html">Games</a></li>
-                    <li><a href="#">News</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
+            <nav> <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="landingpage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
+                </ul></nav>
             <form class="d_search_form_offcanvas">
                 <input type="search" placeholder="Search games..." />
                 <button type="submit"><i class="fas fa-search"></i></button>
             </form>
             <div class="d_social_icons_offcanvas">
                 <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
-                <a href="#"><i class="fas fa-user-circle"></i></a>
+                <a href="Profile.html"><i class="fas fa-user-circle"></i></a>
             </div>
         </aside>
     </div>

@@ -1,3 +1,8 @@
+.payment_model_bg{
+  background-image: url('../images/inner-background-img-3.jpg') !important;
+  /* background-color: #1a1a1a; */
+  color: white !important ;
+}
 .payment-method {
   display: flex;
   justify-content: space-between;
@@ -18,24 +23,25 @@
   font-weight: 500;
 }
 .confirm-btn {
-  background-color: #202224;
+  border: 2px solid #8a775a00;
+  background-color: #8a775a;
   color: #fff;
 }
 .cancel-btn {
-  border: 2px solid #202224;
-  color: #202224;
+  border: 2px solid #8a775a;
+  color: #8a775a;
   font-weight: 600;
 }
 .confirm-btn:hover {
-  border: 2px solid #202224;
-  color: #202224;
+  border: 2px solid #8a775a;
+  color: #8a775a;
 }
 .confirm-btn:hover a {
-  color: #202224;
+  color: #8a775a;
   font-weight: 600;
 }
 .cancel-btn:hover {
-  background-color: #202224;
+  background-color: #8a775a;
   color: #fff;
 }
 .confirm-btn a {
@@ -58,13 +64,13 @@
   left: 50%;
   width: 10px;
   height: 10px;
-  background: #202224;
+  background: #8a775a;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: transform 0.2s ease;
 }
 .payment-method.active .custom-radio {
-  border-color: #202224;
+  border-color: #8a775a;
 }
 .payment-method.active .custom-radio::after {
   transform: translate(-50%, -50%) scale(1);
@@ -97,7 +103,7 @@
 }
 .paypal-btn {
   background-color: #ffc439;
-  color: #202224;
+  color: #8a775a;
   font-weight: 500;
   border-radius: 8px;
   padding: 10px;
@@ -146,12 +152,12 @@
   margin-bottom: 12px;
   text-decoration: none;
   font-size: 14px;
-  color: #555;
+  color: #8a775a;
 }
 
 .terms {
   font-size: 12px;
-  color: #888;
+  color: #8a775a;
   margin-top: 20px;
   text-align: center;
 }
@@ -173,8 +179,8 @@
 }
 
 .checkbox-item.active .custom-checkbox {
-  border-color: #202224;
-  background-color: #202224;
+  border-color: #8a775a;
+  background-color: #8a775a;
 }
 
 .custom-checkbox::after {
@@ -203,4 +209,12 @@
   .modal-content {
     padding: 0;
   }
+}
+
+.payment_model_bg .form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #86b6fe00;
+    outline: 0;
+    box-shadow: 0 0 0 .25rem rgba(13, 109, 253, 0);
 }
