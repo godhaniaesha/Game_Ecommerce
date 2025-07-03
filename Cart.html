@@ -1,97 +1,272 @@
 <!DOCTYPE html>
 <html lang="en">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart</title>
     <link rel="stylesheet" href="./css/z_style.css">
     <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-        integrity="sha512-Z2XmjHeHdTxuJLU2vKHnvGnLnGcjQnF+bR+Uu1S5RC27pR8AxuObR3o3GbZcGZ4P4M0O2YzvhKT0yCtDNoMGlw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/d_style.css">
 </head>
- 
-<body class="Z_cart_darkbg">
+
+<body>
     <!-- Hero Section Start -->
-    <div class="Z_cart_hero">
-        <div class="Z_cart_hero-overlay">
-            <h1 class="Z_about_title">YOUR CART</h1>
+    <div class="d_main">
+        <!-- Header -->
+        <header class="d_header d-flex align-items-center justify-content-between">
+            <div class="d_logo">
+                <i class="fas fa-dragon"></i> GameForge
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="d_navbar navbar navbar-expand-lg d-none d-lg-flex">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link " href="landingpage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
+                </ul>
+
+                <form class="d_search_form ">
+                    <input type="search" placeholder="Search games..." />
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+
+                <div class="d_social_icons active me-3">
+                    <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
+                </div>
+
+                <div class="d_user_icon_wrapper position-relative">
+                    <div class="d_user_icon" id="db_user_icon" title="User Profile">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+
+                    <div class="d_user_dropdown" id="db_user_dropdown">
+                        <ul>
+                            <li><a href="./auth/Login.html">Sign in</a></li>
+                            <li><a href="./auth/ForgetPass.html">Change Password</a></li>
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+
+            <!-- Mobile Toggler -->
+            <button class="d_toggler_btn d-lg-none" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+
+        <!-- Offcanvas Mobile Menu -->
+        <aside class="d_offcanvas_menu" id="d_offcanvas_menu">
+            <button class="close_btn" aria-label="Close Menu">&times;</button>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="allProduct.html">Games</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <form class="d_search_form_offcanvas">
+                <input type="search" placeholder="Search games..." />
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="d_social_icons_offcanvas">
+                <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
+                <a href="#"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </aside>
+    </div>
+    <div class="Z_cart_darkbg">
+        <div class="Z_cart_hero">
+            <div class="Z_cart_hero-overlay">
+                <h1 class="Z_about_title">YOUR CART</h1>
+            </div>
+        </div>
+        <!-- Hero Section End -->
+        <div class="container py-5">
+            <div class="Z_cart_box mx-auto">
+                <div class="Z_cart_table_scroll text-nowrap" style="overflow-x:auto; width:100%; ">
+                    <table class="Z_cart_table w-100 mb-0">
+                        <thead>
+                            <tr>
+                                <th class="Z_cart_th">Product</th>
+                                <th class="Z_cart_th">Category</th>
+                                <th class="Z_cart_th">Price</th>
+                                <th class="Z_cart_th">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="Z_cart_td">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="./images/gg1.png" alt="Explore the Firefly" class="Z_cart_img">
+                                        <span class="Z_cart_name">Explore the Firefly</span>
+                                    </div>
+                                </td>
+                                <td class="Z_cart_td">Action</td>
+                                <td class="Z_cart_td">£35.00</td>
+                                <td class="Z_cart_td text-center">
+                                    <button class="Z_cart_removebtn"><i class="fa-solid fa-xmark"></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="Z_cart_td">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="./images/gg2.png" alt="Danger Zone" class="Z_cart_img">
+                                        <span class="Z_cart_name">Danger Zone</span>
+                                    </div>
+                                </td>
+                                <td class="Z_cart_td">Adventure</td>
+                                <td class="Z_cart_td">£65.00</td>
+                                <td class="Z_cart_td text-center">
+                                    <button class="Z_cart_removebtn"><i class="fa-solid fa-xmark"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row g-2 align-items-center mt-3">
+                    <div class="col-md-6">
+                        <form class="d-flex Z_Minput_form">
+                            <input type="text" class="form-control Z_Minput_input" placeholder="Coupon code">
+                            <button class="Z_Minput_btn ms-md-2 ms-0" type="submit">APPLY COUPON</button>
+                        </form>
+                    </div>
+                    <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                        <button class="Z_Minput_btn">UPDATE CART</button>
+                    </div>
+                </div>
+                <div class="Z_cart_totals mt-4">
+                    <div class="Z_cart_totals_title mb-2">Cart totals</div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal</span>
+                        <span>£100.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Total</span>
+                        <span>£100.00</span>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button class="Z_cart_btn Z_cart_btnoutline">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Hero Section End -->
-    <div class="container py-5">
-        <div class="Z_cart_box mx-auto">
-            <div class="Z_cart_table_scroll text-nowrap" style="overflow-x:auto; width:100%; ">
-                <table class="Z_cart_table w-100 mb-0">
-                    <thead>
-                        <tr>
-                            <th class="Z_cart_th">Product</th>
-                            <th class="Z_cart_th">Category</th>
-                            <th class="Z_cart_th">Price</th>
-                            <th class="Z_cart_th">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="Z_cart_td">
-                                <div class="d-flex align-items-center gap-3">
-                                    <img src="./images/gg1.png" alt="Explore the Firefly" class="Z_cart_img">
-                                    <span class="Z_cart_name">Explore the Firefly</span>
-                                </div>
-                            </td>
-                            <td class="Z_cart_td">Action</td>
-                            <td class="Z_cart_td">£35.00</td>
-                            <td class="Z_cart_td text-center">
-                                <button class="Z_cart_removebtn"><i class="fa-solid fa-xmark"></i></button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="Z_cart_td">
-                                <div class="d-flex align-items-center gap-3">
-                                    <img src="./images/gg2.png" alt="Danger Zone" class="Z_cart_img">
-                                    <span class="Z_cart_name">Danger Zone</span>
-                                </div>
-                            </td>
-                            <td class="Z_cart_td">Adventure</td>
-                            <td class="Z_cart_td">£65.00</td>
-                            <td class="Z_cart_td text-center">
-                                <button class="Z_cart_removebtn"><i class="fa-solid fa-xmark"></i></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="row g-2 align-items-center mt-3">
-                <div class="col-md-6">
-                    <form class="d-flex Z_Minput_form">
-                        <input type="text" class="form-control Z_Minput_input" placeholder="Coupon code">
-                        <button class="Z_Minput_btn ms-md-2 ms-0" type="submit">APPLY COUPON</button>
-                    </form>
+    <footer class="d_footer text-white">
+        <div class="container py-md-3 ">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h4 class="d_footer-logo mb-3">ELDRITCH</h4>
+                    <p class="d_footer_text">A realm where ancient horrors dwell and forgotten heroes rise again.
+                        Unleash your
+                        legend in the shadows.</p>
                 </div>
-                <div class="col-md-6 text-md-end mt-2 mt-md-0">
-                    <button class="Z_Minput_btn">UPDATE CART</button>
+                <div class="col-md-2 col-6">
+                    <h5 class="text-white mb-3">Quick Links</h5>
+                    <ul class="list-unstyled d_footer-links">
+                        <li><a href="landingpage.html" class="active">Home</a></li>
+                        <li><a href="games.html">Games</a></li>
+                        <li><a href="About_us.html">About</a></li>
+                        <li><a href="Contact_us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h5 class="text-white mb-3">Our Policy</h5>
+                    <ul class="list-unstyled d_footer-links">
+                        <li><a href="landingpage.html" class="active">Home</a></li>
+                        <li><a href="Contact_us.html">Blog</a></li>
+                        <li><a href="games.html">Privacy</a></li>
+                        <li><a href="About_us.html">Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3">Contact</h5>
+                    <ul class="list-unstyled d_footer_text">
+                        <li><i class="fas fa-envelope me-2"></i> support@eldritch.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-location-dot me-2"></i> Eldritch HQ, Darkrealm</li>
+                    </ul>
+                    <div class="d_footer-social mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="Z_cart_totals mt-4">
-                <div class="Z_cart_totals_title mb-2">Cart totals</div>
-                <div class="d-flex justify-content-between mb-2">
-                    <span>Subtotal</span>
-                    <span>£100.00</span>
-                </div>
-                <div class="d-flex justify-content-between mb-2">
-                    <span>Total</span>
-                    <span>£100.00</span>
-                </div>
-                <div class="text-end mt-3">
-                    <button class="Z_cart_btn Z_cart_btnoutline">BUY NOW</button>
-                </div>
+            <hr class="border-secondary mt-4" />
+            <div class="text-center d_footer_text small">
+                &copy; 2025 ELDRITCH. All rights reserved.
             </div>
         </div>
-    </div>
+    </footer>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const dbUserIcon = document.getElementById('db_user_icon');
+        const dbUserDropdown = document.getElementById('db_user_dropdown');
+
+        dbUserIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dbUserDropdown.style.display = dbUserDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            dbUserDropdown.style.display = 'none';
+        });
+    </script>
+    <script>
+        (function () {
+            const toggler = document.querySelector('.d_toggler_btn');
+            const offcanvas = document.getElementById('d_offcanvas_menu');
+            const closeBtn = offcanvas.querySelector('.close_btn');
+
+            toggler.addEventListener('click', () => {
+                offcanvas.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                offcanvas.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!offcanvas.contains(e.target) && !toggler.contains(e.target)) {
+                    offcanvas.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    offcanvas.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Sticky header scroll effect
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('.d_header');
+                if (window.scrollY > 20) {
+                    header.classList.add('d_scrolled');
+                } else {
+                    header.classList.remove('d_scrolled');
+                }
+            });
+        })();
+    </script>
 </body>
- 
+
 </html>
