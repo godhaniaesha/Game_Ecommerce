@@ -17,6 +17,27 @@
             background-color: #1a1a1a;
         }
 
+        .s_sort-dropdown .btn,
+        .s_sort-dropdown .btn.show,
+        .s_sort-dropdown .btn:hover {
+            background-color: #1a1a1a;
+            border: 1px solid #444;
+        }
+
+        .s_sort-dropdown .dropdown-menu {
+            background-color: #1a1a1a;
+        }
+
+        .dropdown-menu-dark .dropdown-item:hover {
+            background: #333;
+            color: #8a775a;
+        }
+
+        .dropdown-menu-dark .dropdown-item.active {
+            background: #333;
+            color: #8a775a;
+        }
+
         @media (max-width: 991px) {
             .a_header_container {
                 padding: 0px 8% !important;
@@ -41,7 +62,7 @@
     <!-- Hero Section Start -->
     <div class="Z_cards_hero">
         <div class="Z_cart_hero-overlay">
-            <h1 class="Z_about_title">Profile</h1>
+            <h1 class="Z_about_title">GameForge Store</h1>
         </div>
     </div>
 
@@ -192,7 +213,7 @@
 
                     <!-- Products Count -->
                     <div class="mb-3">
-                        <span id="productCount" class="text-muted">Showing 6 products</span>
+                        <span id="productCount" style="color: #ad9d79;">Showing 6 products</span>
                     </div>
 
                     <!-- Grid View -->
@@ -224,42 +245,43 @@
 
         function createGridCard(cardData) {
             return `
-            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 d-flex justify-content-center">
-              <div class="game-card position-relative">
-                <img src="${cardData.image}" alt="${cardData.title}" class="card-img-top" />
-                <div class="position-absolute card-content">
-                  <div class="icons d-flex gap-2 mb-3">
-                    <i class="fa-brands fa-apple"></i>
-                    <i class="fa-brands fa-windows"></i>
-                  </div>
-                  <h3>${cardData.title}</h3>
-                  <h3 class="mb-0">${cardData.price}</h3>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4">
+          <div class="card s_card text-bg-dark position-relative overflow-hidden h-100">
+            <div class="s_img-container position-relative">
+              <img src="${cardData.image}" class="card-img" alt="${cardData.title}">
+              <div class="card-img-overlay mt-auto">
+                <h5 class="card-title">${cardData.title}</h5>
+                <p class="card-text">${cardData.price}</p>
+              </div>
+              <div class="s_overlay-content d-flex flex-column justify-content-end p-3">
+                <div class="text-white">
+                  <h5 class="card-title mb-1">${cardData.title}</h5>
+                  <p class="card-text mb-2">${cardData.price}</p>
+                  <p class="card-text mb-2">${cardData.description}</p>
                 </div>
-                <div class="card-actions d-flex align-items-center gap-3">
-                  <div class="d_main_button">
-                    <button class="custom-cart-btn" onclick="addToCart(${cardData.id})">ADD TO CART</button>
-                    <div class="d_border"></div>
-                  </div>
-                  <i class="fa-regular fa-heart text-white" onclick="toggleWishlist(${cardData.id})"></i>
-                  <i class="fa-solid fa-ellipsis text-white"></i>
+                <div class="d-flex align-items-center justify-content-between">
+                  <button class="btn btn-sm s_cart_btn" onclick="addToCart(${cardData.id})">ADD TO CART</button>
+                  <i class="fa-regular fa-heart text-white fs-5" onclick="toggleWishlist(${cardData.id})"></i>
+                  <i class="fa-solid fa-eye text-white fs-6" onclick="viewDetails(${cardData.id})"></i>
                 </div>
               </div>
             </div>
-          `;
+          </div>
+        </div>`;
         }
 
         function createListCard(cardData) {
             return `
-        <div class="card mb-3 list-card">
+        <div class="card mb-3 list-card s_card1">
           <div class="row g-0">
             <div class="col-md-4">
               <img src="${cardData.image}" class="img-fluid rounded-start h-100" alt="${cardData.title}">
             </div>
-            <div class="col-md-8">
-              <div class="card-body">
+            <div class="col-md-8 " >
+              <div class="card-body" >
                 <h5 class="card-title">${cardData.title}</h5>
                 <p class="card-text fw-bold">${cardData.price}</p>
-                <p class="card-text"><small class="text-muted">${cardData.description}</small></p>
+                <p class="card-text"><small >${cardData.description}</small></p>
                 <div class="d-flex align-items-center">
                   <button class="btn btn-sm s_cart_btn" onclick="addToCart(${cardData.id})">ADD TO CART</button>
                   <i class="fa-regular fa-heart fs-5 mx-2" onclick="toggleWishlist(${cardData.id})"></i>
