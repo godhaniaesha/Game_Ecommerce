@@ -211,7 +211,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pagination-container d-flex justify-content-center mt-4">
+                    <div class="pagination-container d-flex justify-content-center mt-4 x_review-form">
                         <button id="prevPage" class="x_pagination-btn me-2"><i
                                 class="fa-solid fa-chevron-left me-1"></i> </button>
                         <div id="pageNumbers" class="d-flex gap-2"></div>
@@ -269,11 +269,12 @@
                 </div>
                 <!-- Blog Sidebar (Mobile/Tablet Offcanvas) -->
 
-                <div class="offcanvas offcanvas-end" style="background-color: #2a2a2a;"  tabindex="-1" id="xBlogSidebarOffcanvas"
-                    aria-labelledby="xBlogSidebarOffcanvasLabel">
+                <div class="offcanvas offcanvas-end" style="background-color: #2a2a2a;" tabindex="-1"
+                    id="xBlogSidebarOffcanvas" aria-labelledby="xBlogSidebarOffcanvasLabel">
                     <div class="offcanvas-header">
                         <h5 class="offcanvas-title" id="xBlogSidebarOffcanvasLabel"></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" style="color: #d5d1d1; filter: invert(1) brightness(80%);"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                            style="color: #d5d1d1; filter: invert(1) brightness(80%);"></button>
                     </div>
                     <div class="offcanvas-body">
                         <div class="x_blog-widget mb-4">
@@ -405,11 +406,11 @@
                 // Update page numbers
                 pageNumbers.innerHTML = '';
                 for (let i = 1; i <= totalPages; i++) {
-                    const button = document.createElement('button');
-                    button.className = `btn ${i === page ? 'btn-primary' : 'btn-outline-primary'}`;
-                    button.textContent = i;
-                    button.onclick = () => showPage(i);
-                    pageNumbers.appendChild(button);
+                    const div = document.createElement('div');
+                    div.className = `pagination-btn ${i === page ? 'active' : ''}`;
+                    div.textContent = i;
+                    div.onclick = () => showPage(i);
+                    pageNumbers.appendChild(div);
                 }
 
                 currentPage = page;
