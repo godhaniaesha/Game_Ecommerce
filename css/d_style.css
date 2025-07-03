@@ -337,15 +337,17 @@ html {
 }
 
 #heroCarousel .carousel-item:nth-child(1) {
-  background-image: url("https://www.wallpaperflare.com/static/740/453/289/for-honor-ubisoft-montreal-battles-warriors-wallpaper.jpg");
+ background-position: top center;
+  background-image: url("https://ubistatic-a.akamaihd.net/0071/Assassins_Creed_Valhalla/000100405_en-GB_Twilight_Pack.jpg");
 }
 
 #heroCarousel .carousel-item:nth-child(2) {
   background-position: top center;
-  background-image: url("https://bayanbox.ir/view/1205724778593642759/crysis-best-widescreen-background-awesome-desktop-1920x1080-hd-wallpaper-1333558.jpg");
+  background-image: url("../images/111.jpg");
 }
 
 #heroCarousel .carousel-item:nth-child(3) {
+  
   background-image: url("https://steamcdn-a.akamaihd.net/steam/apps/299230/ss_2d2569f0cc10fe68ed08074c57e2a8e99da3e6ec.1920x1080.jpg?t=1478686715");
 }
 
