@@ -405,6 +405,39 @@
     });
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const promoCheckbox = document.querySelector(".promo-code");
+
+    promoCheckbox.addEventListener("click", function () {
+      promoCheckbox.classList.toggle("active");
+    });
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dbContinueBtn = document.getElementById("db_continue_btn");
+    const modal1El = document.getElementById("paymentModal");
+    const modal2El = document.getElementById("paymentModal2");
+    const modal2 = new bootstrap.Modal(modal2El);
+
+    // Handle continue button
+    dbContinueBtn.addEventListener("click", () => {
+      bootstrap.Modal.getInstance(modal1El)?.hide();
+      modal2.show();
+    });
+
+    // Handle payment method selection
+    const methods = document.querySelectorAll(".payment-method");
+    methods.forEach(method => {
+      method.addEventListener("click", () => {
+        methods.forEach(m => m.classList.remove("active"));
+        method.classList.add("active");
+      });
+    });
+  });
+</script>
+
 
 </body>
 
