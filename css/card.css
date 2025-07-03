@@ -4,11 +4,13 @@ body {
 .game-card {
   width: 280px;
   height: 455px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   overflow: hidden;
   position: relative;
   transition: transform 0.3s;
+  clip-path: polygon(26px 0%, 100% 0%, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0% 100%, 0% 26px);
 }
+
 .game-card:hover {
   transform: translateY(-5px);
 }
@@ -26,6 +28,7 @@ body {
   height: 100%;
   background: linear-gradient(to top, rgb(48, 48, 49), transparent);
   z-index: 1;
+  
 }
 .card-actions {
   z-index: 2; /* Keep actions above the gradient */
@@ -93,7 +96,9 @@ body {
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 1px;
-  border-radius: 12px 0 12px 0;
+  /* border-radius: 20px 0 20px 0; */
+   clip-path: polygon(12px 0%, 100% 0%, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0% 100%, 0% 12px);
+
   box-shadow: 0 4px 15px rgba(138, 119, 90, 0.4); /* matched to #8a775a */
   transition: all 0.3s ease;
 }
@@ -103,4 +108,5 @@ body {
   box-shadow: 0 6px 20px rgba(138, 119, 90, 0.6);
   transform: scale(1.05);
 }
+
 
