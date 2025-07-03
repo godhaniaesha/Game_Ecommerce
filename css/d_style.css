@@ -835,6 +835,9 @@ html {
     background-color: #555;
     border-radius: 5px;
   }
+  .d_category_section {
+    padding: 34px 0;
+  }
 }
 
 /* informative section  */
@@ -1232,7 +1235,6 @@ html {
     padding: 0px 0px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
     gap: 12px;
   }
@@ -1264,7 +1266,7 @@ html {
     margin-bottom: 20px;
   }
   .d_coming_wrapper .d_slider_nav {
-    margin: 0;
+    margin-top: 20px;
   }
   .d_coming_wrapper .d_arrow_btn {
     /* padding: 0.5rem; */

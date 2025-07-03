@@ -81,7 +81,7 @@ s_bg_img_overlay,
 .Z_about_content {
   /* background: #191919; */
   background-image: url(../images/shop-background-image.jpg);
-  padding: 3rem 0 3rem 0;
+  padding: 3rem 0 0rem 0;
 }
 
 .Z_about_container {
@@ -337,7 +337,7 @@ s_bg_img_overlay,
 }
 
 .Z_about_testimonial-content {
-  background: #00000070;
+  background: #181818;
   border-radius: 18px;
   padding: 2.5rem 2rem;
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.25);
@@ -463,7 +463,7 @@ s_bg_img_overlay,
   width: 100vw;
   max-width: 100%;
   padding-top: 25px;
-  padding-bottom: 60px;
+  padding-bottom: 25px;
   margin: 0 auto 0 auto;
   position: relative;
   overflow: hidden;
@@ -510,7 +510,7 @@ s_bg_img_overlay,
   }
   .Z_about_image_slider {
     padding-top: 32px;
-    padding-bottom: 32px;
+    padding-bottom: 0px !important;
   }
 }
 

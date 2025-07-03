@@ -448,7 +448,7 @@ body {
 .pagination-btn {
     border: 1px solid #d5d1d1;
     color: #d5d1d1;
-    padding: 5px 12px;
+    padding: 5px 10px;
     margin: 0 5px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -490,13 +490,13 @@ body {
 
 @media (max-width: 768px) {
     .x_blog-post {
-        padding: 0px 20px !important;
+        padding: 0px 25px !important;
     }
 }
 
 @media (max-width: 425px) {
     .x_blog-post {
-        padding: 0px 10px !important;
+        padding: 0px 15px !important;
     }
 
     .x_blog-media iframe {
@@ -740,6 +740,14 @@ body {
         font-size: 1.08rem;
     }
 
+}
+@media (max-width: 425px) {
+.x_fs_small{
+    font-size: 16px;
+}
+.x_service-card .card-text{
+    font-size: 14px !important;
+}
 }
 
 /* services */

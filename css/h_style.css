@@ -97,7 +97,8 @@ a {
     padding: 12px;
   }
   .login-content h2 {
-    font-size: 28px;
+    font-size: 26px;
+    taxt-wrap: nowrap;
   }
 
   label {
