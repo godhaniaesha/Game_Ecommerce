@@ -132,6 +132,10 @@ body {
   justify-content: space-between;
   transition: bottom 0.3s;
 }
+.card-actions .custom-cart-btn{
+  text-wrap: nowrap;
+  font-size: 15px !important;
+}
 .game-card:hover .card-actions {
   bottom: 0;
 }
@@ -208,7 +212,7 @@ body {
   }
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   #gridContainer > .col-lg-4,
   #gridContainer > .col-md-6,
   #gridContainer > .col-sm-6,
@@ -216,8 +220,17 @@ body {
     flex: 0 0 50%;
     max-width: 50%;
   }
+} */
+@media screen and (max-width:576px) {
+  #gridContainer > .col-lg-4,
+  #gridContainer > .col-md-6,
+  #gridContainer > .col-sm-6,
+  #gridContainer > .col-12 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
 }
-
 @media only screen and (max-width: 425px) {
   .d_offcan_width {
     width: 76% !important;
@@ -225,9 +238,7 @@ body {
 }
 
 @media (max-width: 425px) {
-  #gridContainer > .col-lg-4,
-  #gridContainer > .col-md-6,
-  #gridContainer > .col-sm-6,
+  
   #gridContainer > .col-12 {
     flex: 0 0 100%;
     max-width: 100%;

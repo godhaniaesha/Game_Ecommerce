@@ -876,6 +876,7 @@ html {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 20px;
+  text-wrap:nowrap !important;
   color: #8a775a;
   text-align: center;
 }

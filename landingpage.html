@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/d_style.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/s_style.css" />
+    <link rel="stylesheet" href="./css/z_style.css" />
 
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 
 <body>
@@ -222,211 +224,24 @@
         </div>
     </section>
     <section class="db_featured_games_section">
-        <div class="container">
-            <div class="db_section_header">
-                <h2 class="db_section_title">Featured Games</h2>
-                <a href="#" class="db_view_all_btn">View All Featured</a>
-            </div>
-
-            <div class="db_games_container">
-                <button class="db_scroll_btn db_left_arrow">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-
-                <div class="db_game_slider" id="gameSlider">
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/638230/header.jpg"
-                                alt="Yakuza Kiwami" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">Yakuza Kiwami</h6>
-                            <p class="db_game_price">$167.00</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">Action</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1085660/header.jpg"
-                                alt="Destiny 2" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">Destiny 2</h6>
-                            <p class="db_game_price">$89.99</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">FPS</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg"
-                                alt="Red Dead Redemption 2" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">Red Dead Redemption 2</h6>
-                            <p class="db_game_price">$199.99</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">Adventure</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1238810/header.jpg"
-                                alt="Cyberpunk 2077" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">Cyberpunk 2077</h6>
-                            <p class="db_game_price">$129.99</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">RPG</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg"
-                                alt="ELDEN RING" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">ELDEN RING</h6>
-                            <p class="db_game_price">$179.99</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">Souls-like</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg"
-                                alt="Battlefield 2042" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">Battlefield 2042</h6>
-                            <p class="db_game_price">$149.99</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">Shooter</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1966720/header.jpg"
-                                alt="Hogwarts Legacy" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">Hogwarts Legacy</h6>
-                            <p class="db_game_price">$189.99</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">Magic</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="db_game_card">
-                        <div class="db_game_img_wrapper">
-                            <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/header.jpg"
-                                alt="Marvel's Spider-Man" />
-                            <div class="db_game_img_overlay"></div>
-                        </div>
-                        <div class="db_game_icons">
-                            <button><i class="fa fa-cart-plus"></i></button>
-                            <button><i class="fas fa-search"></i></button>
-                        </div>
-                        <div class="db_game_content">
-                            <h6 class="db_game_title">Marvel's Spider-Man</h6>
-                            <p class="db_game_price">$159.99</p>
-                            <div class="db_game_tags">
-                                <div class="d-flex gap-2 flex-wrap">
-                                    <span class="db_tag">Featured Games</span>
-                                    <span class="db_tag">Superhero</span>
-                                </div>
-                                <i class="fas fa-ellipsis-h db_game_menu"></i>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <button class="db_scroll_btn db_right_arrow">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
+      <div class="container">
+        <div class="db_section_header">
+            <h2 class="db_section_title">Featured Games</h2>
+            <a href="#" class="db_view_all_btn">View All</a>
         </div>
+        <div class="swiper mySwiper py-4 mt-3">
+            <div class="swiper-wrapper" id="swiperCards">
+                <!-- Cards will be injected here by JS -->
+            </div>
+            <!-- Add navigation buttons
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        Add pagination
+        <div class="swiper-pagination"></div> -->
+        </div>
+      </div>
     </section>
+
     <!-- Feature Section -->
     <section class="d_feature_section">
         <div class="container">
@@ -439,7 +254,7 @@
 
                 <!-- Content -->
                 <div class="d_feature_content">
-                    <h2 class="d_feature_title"><i class="fa-solid fa-fire-flame-curved mr-2"></i>Seasonal Game Launch
+                    <h2 class="d_feature_title"><i class="fa-solid fa-fire-flame-curved me-2"></i>Seasonal Game Launch
                     </h2>
                     <p class="d_feature_text">
                         Dive into the most anticipated games of the year! From action-packed adventures to immersive
@@ -462,7 +277,7 @@
     <div class="d_coming_wrapper">
         <section class="d_coming_section">
             <div class="container">
-                <h2><i class="fa-solid fa-bolt mr-2"></i>Upcoming Premium Games</h2>
+                <h2><i class="fa-solid fa-bolt me2"></i>Upcoming Premium Games</h2>
 
                 <div class="d_coming_slider">
 
@@ -751,27 +566,25 @@
         function updateSliderPosition() {
             const sliderPadding = parseFloat(getComputedStyle(gameSlider).paddingLeft); // Get left padding dynamically
             const totalCards = document.querySelectorAll('.db_game_card').length;
-            const visibleWidth = gameSlider.clientWidth - (2 * sliderPadding); // Visible area excluding padding
+            const visibleWidth = gameSlider.parentElement.offsetWidth; // Use container width, not slider width
+            const totalWidth = totalCards * cardWidthWithGap;
+            let translateXValue = currentCardIndex * cardWidthWithGap;
 
-            // Calculate how many cards can fully fit in the visible area
-            const cardsFullyVisible = Math.floor(visibleWidth / cardWidthWithGap);
+            // Calculate the maximum translateX so the last card is flush with the right edge
+            const maxTranslateX = Math.max(0, totalWidth - visibleWidth);
 
-            // Calculate the maximum index we can scroll to while keeping cards fully visible
-            // We subtract cardsFullyVisible because the last 'cardsFullyVisible' cards need to be visible
-            const maxCardIndex = Math.max(0, totalCards - cardsFullyVisible);
-
-            // Ensure currentCardIndex does not exceed maxCardIndex
-            currentCardIndex = Math.min(currentCardIndex, maxCardIndex);
-
-            // Calculate the translation value based on the current card index
-            // We move by `cardWidthWithGap` for each step
-            const translateXValue = currentCardIndex * cardWidthWithGap;
+            // If we're about to scroll past the end, clamp to maxTranslateX
+            if (translateXValue > maxTranslateX) {
+                translateXValue = maxTranslateX;
+                // Optionally, update currentCardIndex so left arrow works as expected
+                currentCardIndex = Math.round(maxTranslateX / cardWidthWithGap);
+            }
 
             gameSlider.style.transform = `translateX(-${translateXValue}px)`;
 
-            // Update arrow visibility based on currentCardIndex
+            // Update arrow visibility
             leftArrow.style.opacity = currentCardIndex === 0 ? '0.5' : '1';
-            rightArrow.style.opacity = currentCardIndex >= maxCardIndex ? '0.5' : '1';
+            rightArrow.style.opacity = translateXValue >= maxTranslateX ? '0.5' : '1';
         }
 
         leftArrow.addEventListener('click', () => {
@@ -782,16 +595,18 @@
         });
 
         rightArrow.addEventListener('click', () => {
-            const sliderPadding = parseFloat(getComputedStyle(gameSlider).paddingLeft);
             const totalCards = document.querySelectorAll('.db_game_card').length;
-            const visibleWidth = gameSlider.clientWidth - (2 * sliderPadding);
-            const cardsFullyVisible = Math.floor(visibleWidth / cardWidthWithGap);
-            const maxCardIndex = Math.max(0, totalCards - cardsFullyVisible);
+            const visibleWidth = gameSlider.parentElement.offsetWidth;
+            const totalWidth = totalCards * cardWidthWithGap;
+            const maxTranslateX = Math.max(0, totalWidth - visibleWidth);
 
-            if (currentCardIndex < maxCardIndex) {
+            let nextTranslateX = (currentCardIndex + 1) * cardWidthWithGap;
+            if (nextTranslateX > maxTranslateX) {
+                currentCardIndex = Math.round(maxTranslateX / cardWidthWithGap);
+            } else {
                 currentCardIndex++;
-                updateSliderPosition();
             }
+            updateSliderPosition();
         });
 
         // Auto-scroll functionality
@@ -802,11 +617,11 @@
             autoScrollInterval = setInterval(() => {
                 const sliderPadding = parseFloat(getComputedStyle(gameSlider).paddingLeft);
                 const totalCards = document.querySelectorAll('.db_game_card').length;
-                const visibleWidth = gameSlider.clientWidth - (2 * sliderPadding);
-                const cardsFullyVisible = Math.floor(visibleWidth / cardWidthWithGap);
-                const maxCardIndex = Math.max(0, totalCards - cardsFullyVisible);
+                const visibleWidth = gameSlider.parentElement.offsetWidth;
+                const totalWidth = totalCards * cardWidthWithGap;
+                const maxTranslateX = Math.max(0, totalWidth - visibleWidth);
 
-                if (currentCardIndex >= maxCardIndex) {
+                if (currentCardIndex >= maxTranslateX) {
                     currentCardIndex = 0; // Loop back to the beginning
                 } else {
                     currentCardIndex++;
@@ -912,6 +727,68 @@
             dbUserDropdown.style.display = 'none';
         });
     </script>
+    <script>
+        // Example cards data (replace with your real data if needed)
+        const cardsData = [
+            { id: 1, title: "The Elder Scrolls V Skyrim", price: "$144.00", image: "/images/card_img1.png" },
+            { id: 2, title: "Grand Theft Auto V", price: "$89.99", image: "/images/card_img2.png" },
+            { id: 3, title: "Call of Duty: Modern Warfare", price: "$129.00", image: "/images/card_img3.png" },
+            { id: 4, title: "FIFA 24", price: "$99.99", image: "/images/card_img4.png" },
+            { id: 5, title: "Assassin's Creed Valhalla", price: "$79.99", image: "/images/card_img5.png" },
+            { id: 6, title: "Cyberpunk 2077", price: "$159.99", image: "/images/card_img6.png" }
+        ];
+
+        function renderSwiperCards() {
+            const swiperCards = document.getElementById('swiperCards');
+            swiperCards.innerHTML = cardsData.map(card => `
+                <div class="swiper-slide d-flex justify-content-center">
+                    <div class="game-card position-relative">
+                        <img src="${card.image}" alt="${card.title}" class="card-img-top" />
+                        <div class="position-absolute card-content">
+                            <div class="icons d-flex gap-2 mb-3">
+                                <i class="fa-brands fa-apple"></i>
+                                <i class="fa-brands fa-windows"></i>
+                            </div>
+                            <h3>${card.title}</h3>
+                            <h3 class="mb-0">${card.price}</h3>
+                        </div>
+                        <div class="card-actions d-flex align-items-center gap-3">
+                            <div class="d_main_button">
+                                <button class="custom-cart-btn">ADD TO CART</button>
+                                <div class="d_border"></div>
+                            </div>
+                            <i class="fa-regular fa-heart text-white"></i>
+                            <i class="fa-solid fa-ellipsis text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderSwiperCards();
+            new Swiper('.mySwiper', {
+                slidesPerView: 3,
+                spaceBetween: 24,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    0: { slidesPerView: 1 },
+                    576: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 }
+                }
+            });
+        });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </body>
 
 </html>
