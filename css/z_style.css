@@ -18,6 +18,19 @@ body {
   background-position-y: 34%;
 }
 
+.Z_cards_hero {
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/bg1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: 34%;
+}
+
 .Z_profile_hero {
   position: relative;
   width: 100%;
@@ -41,7 +54,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-
+s_bg_img_overlay,
 .Z_cart_hero-overlay,
 .Z_about_hero-overlay {
   position: absolute;
@@ -152,6 +165,7 @@ body {
 }
 
 @media (max-width: 600px) {
+  .Z_cards_hero,
   .Z_profile_hero,
   .Z_cart_hero,
   .Z_about_hero {
