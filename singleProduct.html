@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/x_style.css">
     <link rel="stylesheet" href="./css/d_style.css">
+    <link rel="stylesheet" href="./css/card.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 </head>
 
@@ -162,7 +165,7 @@
                                 <div class="x_reviews">
                                     <h5 class="mb-3">Reviews</h5>
                                     <p>There are no reviews yet.</p>
-                                    <p>Be the first to review <b>“Falldown Republic”</b></p>
+                                    <p>Be the first to review <b>"Falldown Republic"</b></p>
                                     <p class="mb-1">Your email address will not be published. Required fields are marked
                                         *</p>
                                     <form class="x_review-form">
@@ -212,6 +215,18 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <!-- slider -->
+                <h3 class="mb-3 mt-5" style="font-weight:600; color: #8a775a;">More Like This</h3>
+                <div class="swiper mySwiper py-4 mt-3">
+                    <div class="swiper-wrapper" id="swiperCards">
+                        <!-- Cards will be injected here by JS -->
+                    </div>
+                    <!-- Add navigation buttons
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    Add pagination
+                    <div class="swiper-pagination"></div> -->
                 </div>
             </div>
         </div>
@@ -390,6 +405,68 @@
             dbUserDropdown.style.display = 'none';
         });
     </script>
+    <script>
+        // Example cards data (replace with your real data if needed)
+        const cardsData = [
+            { id: 1, title: "The Elder Scrolls V Skyrim", price: "$144.00", image: "/images/card_img1.png" },
+            { id: 2, title: "Grand Theft Auto V", price: "$89.99", image: "/images/card_img2.png" },
+            { id: 3, title: "Call of Duty: Modern Warfare", price: "$129.00", image: "/images/card_img3.png" },
+            { id: 4, title: "FIFA 24", price: "$99.99", image: "/images/card_img4.png" },
+            { id: 5, title: "Assassin's Creed Valhalla", price: "$79.99", image: "/images/card_img5.png" },
+            { id: 6, title: "Cyberpunk 2077", price: "$159.99", image: "/images/card_img6.png" }
+        ];
+
+        function renderSwiperCards() {
+            const swiperCards = document.getElementById('swiperCards');
+            swiperCards.innerHTML = cardsData.map(card => `
+                <div class="swiper-slide d-flex justify-content-center">
+                    <div class="game-card position-relative">
+                        <img src="${card.image}" alt="${card.title}" class="card-img-top" />
+                        <div class="position-absolute card-content">
+                            <div class="icons d-flex gap-2 mb-3">
+                                <i class="fa-brands fa-apple"></i>
+                                <i class="fa-brands fa-windows"></i>
+                            </div>
+                            <h3>${card.title}</h3>
+                            <h3 class="mb-0">${card.price}</h3>
+                        </div>
+                        <div class="card-actions d-flex align-items-center gap-3">
+                            <div class="d_main_button">
+                                <button class="custom-cart-btn">ADD TO CART</button>
+                                <div class="d_border"></div>
+                            </div>
+                            <i class="fa-regular fa-heart text-white"></i>
+                            <i class="fa-solid fa-ellipsis text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderSwiperCards();
+            new Swiper('.mySwiper', {
+                slidesPerView: 3,
+                spaceBetween: 24,
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    0: { slidesPerView: 1 },
+                    576: { slidesPerView: 1 },
+                    768: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                }
+            });
+        });
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 </body>
 
 </html>
