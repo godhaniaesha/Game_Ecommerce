@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/z_style.css">
-        <link rel="stylesheet" href="./css/d_style.css">
+    <link rel="stylesheet" href="./css/d_style.css">
 
     <title>Profile</title>
 </head>
@@ -65,13 +65,15 @@
         <!-- Offcanvas Mobile Menu -->
         <aside class="d_offcanvas_menu" id="d_offcanvas_menu">
             <button class="close_btn" aria-label="Close Menu">&times;</button>
-            <nav> <ul class="navbar-nav me-auto">
+            <nav>
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="landingpage.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
-                </ul></nav>
+                </ul>
+            </nav>
             <form class="d_search_form_offcanvas">
                 <input type="search" placeholder="Search games..." />
                 <button type="submit"><i class="fas fa-search"></i></button>
@@ -95,16 +97,16 @@
                 <div class="Z_profile_online_status"></div>
 
                 <div class="row w-100 m-0">
-                    <div class="col-12 col-md-4 mx-auto Z_profile_left d-flex flex-column align-items-center justify-content-center">
+                    <div
+                        class="col-12 col-md-4 mx-auto Z_profile_left d-flex flex-column align-items-center justify-content-center">
                         <div class="Z_profile_avatar-wrap">
                             <img src="images/Profile.jpg" alt="Profile Avatar" class="Z_profile_avatar"
                                 id="Z_profile_avatar_preview">
-                            <label for="Z_profile_avata
-                            r_input" class="Z_profile_avatar_upload_btn">
+                            <label for="Z_profile_avatar_input" class="Z_profile_avatar_upload_btn">
                                 <i class="fa fa-camera"></i>
                             </label>
-                            <input type="file" id="Z_profile_avatar_input" class="Z_profile_avatar_input" accept="image/*"
-                                style="display:none;">
+                            <input type="file" id="Z_profile_avatar_input" class="Z_profile_avatar_input"
+                                accept="image/*" style="display:none;">
                         </div>
                         <h2 class="Z_profile_name" id="Z_profile_name_heading">Maria Fernanda</h2>
                     </div>
@@ -113,7 +115,8 @@
                         <h3 class="Z_profile_section_title">
                             <i class="fas fa-info-circle"></i>
                             Bio & other details
-                            <button class="Z_profile_edit_btn" title="Edit Profile"><i class="fas fa-pen"></i>Edit</button>
+                            <button class="Z_profile_edit_btn" title="Edit Profile"><i
+                                    class="fas fa-pen"></i>Edit</button>
                         </h3>
 
                         <div class="Z_profile_details_grid" id="Z_profile_details_grid">
@@ -125,14 +128,16 @@
                             </div>
                             <div class="Z_profile_detail_item">
                                 <div class="Z_profile_detail_label">Email</div>
-                                <div class="Z_profile_detail_value" id="Z_profile_email_view">maria.fernanda@email.com</div>
+                                <div class="Z_profile_detail_value" id="Z_profile_email_view">maria.fernanda@email.com
+                                </div>
                                 <input type="email" class="Z_profile_input" id="Z_profile_email_input"
                                     value="maria.fernanda@email.com" style="display:none;">
                             </div>
                             <div class="Z_profile_detail_item">
                                 <div class="Z_profile_detail_label">Mobile Number</div>
                                 <div class="Z_profile_detail_value" id="Z_profile_mobile_view">+1 555-123-4567</div>
-                                <input type="tel" class="Z_profile_input" id="Z_profile_mobile_input" value="+1 555-123-4567" style="display:none;">
+                                <input type="tel" class="Z_profile_input" id="Z_profile_mobile_input"
+                                    value="+1 555-123-4567" style="display:none;">
                             </div>
                             <div class="Z_profile_detail_item">
                                 <div class="Z_profile_detail_label">Favorite Game</div>
@@ -163,7 +168,7 @@
             </div>
         </div>
     </section>
-  <footer class="d_footer text-white">
+    <footer class="d_footer text-white">
         <div class="container py-md-3 ">
             <div class="row gy-4">
                 <div class="col-md-4">
@@ -187,7 +192,7 @@
                         <li><a href="landingpage.html" class="">Home</a></li>
                         <li><a href="Contact_us.html">Blog</a></li>
                         <li><a href="Privacy.html">Privacy</a></li>
-                         <li><a href="services.html">Service</a></li>
+                        <li><a href="services.html">Service</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -212,34 +217,13 @@
         </div>
     </footer>
     <script>
-        function loadProfileImage() {
-            const imgData = localStorage.getItem('profileImage');
-            if (imgData) {
-                document.getElementById('Z_profile_avatar_preview').src = imgData;
-            }
-        }
+        // Helper: Get user_id from localStorage
+        const userId = localStorage.getItem('user_id');
+        let userData = null;
 
-        document.getElementById('Z_profile_avatar_input').addEventListener('change', function (event) {
-            const [file] = event.target.files;
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const base64 = e.target.result;
-                    document.getElementById('Z_profile_avatar_preview').src = base64;
-                    localStorage.setItem('profileImage', base64);
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        // Call this on page load
-        loadProfileImage();
-    </script>
-    <!-- Profile edit -->
-    <script>
-        // Field mapping for localStorage
+        // Field mapping for API
         const profileFields = [
-            { key: 'username', view: 'Z_profile_username_view', input: 'Z_profile_username_input', heading: 'Z_profile_name_heading' },
+            { key: 'name', view: 'Z_profile_username_view', input: 'Z_profile_username_input', heading: 'Z_profile_name_heading' },
             { key: 'email', view: 'Z_profile_email_view', input: 'Z_profile_email_input' },
             { key: 'mobile', view: 'Z_profile_mobile_view', input: 'Z_profile_mobile_input' },
             { key: 'game', view: 'Z_profile_game_view', input: 'Z_profile_game_input' },
@@ -247,36 +231,72 @@
             { key: 'country', view: 'Z_profile_country_view', input: 'Z_profile_country_input' },
         ];
 
-        // Load from localStorage
-        function loadProfile() {
-            let profile = {};
+        // Load user data from API
+        async function loadProfileFromAPI() {
+            if (!userId) {
+                alert('No user logged in.');
+                return;
+            }
             try {
-                profile = JSON.parse(localStorage.getItem('profileData')) || {};
-            } catch (e) { profile = {}; }
-            profileFields.forEach(f => {
-                const value = profile[f.key] || document.getElementById(f.input).value;
-                document.getElementById(f.view).textContent = value;
-                document.getElementById(f.input).value = value;
-                if (f.heading) {
-                    document.getElementById(f.heading).textContent = value;
+                const res = await fetch(`http://localhost:3000/users/${userId}`);
+                if (!res.ok) throw new Error('User not found');
+                userData = await res.json();
+                // Fill fields
+                profileFields.forEach(f => {
+                    const value = userData[f.key] || '';
+                    document.getElementById(f.view).textContent = value;
+                    document.getElementById(f.input).value = value;
+                    if (f.heading) {
+                        document.getElementById(f.heading).textContent = value;
+                    }
+                });
+                // Avatar
+                if (userData.avatar) {
+                    document.getElementById('Z_profile_avatar_preview').src = userData.avatar;
                 }
-            });
+            } catch (e) {
+                alert('Failed to load user profile.');
+            }
         }
 
-        // Save to localStorage
-        function saveProfile() {
-            const profile = {};
+        // Save to API
+        async function saveProfileToAPI() {
+            if (!userData) return;
+            // Update userData with new values
             profileFields.forEach(f => {
-                const value = document.getElementById(f.input).value;
-                profile[f.key] = value;
-                document.getElementById(f.view).textContent = value;
-                if (f.heading) {
-                    document.getElementById(f.heading).textContent = value;
-                }
+                userData[f.key] = document.getElementById(f.input).value;
             });
-            localStorage.setItem('profileData', JSON.stringify(profile));
+            // Avatar
+            userData.avatar = document.getElementById('Z_profile_avatar_preview').src;
+            // PUT to API
+            const res = await fetch(`http://localhost:3000/users/${userId}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData)
+            });
+            if (res.ok) {
+                // alert('Profile updated!');
+                setEditMode(false);
+                loadProfileFromAPI();
+            } else {
+                alert('Failed to update profile.');
+            }
         }
 
+        // Avatar upload
+        document.getElementById('Z_profile_avatar_input').addEventListener('change', function (event) {
+            const [file] = event.target.files;
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const base64 = e.target.result;
+                    document.getElementById('Z_profile_avatar_preview').src = base64;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Edit/save/cancel logic
         const editBtn = document.querySelector('.Z_profile_edit_btn');
         const saveBtn = document.getElementById('Z_profile_btn_save');
         const cancelBtn = document.getElementById('Z_profile_btn_cancel');
@@ -289,18 +309,51 @@
             editBtn.style.display = editing ? 'none' : '';
         }
         editBtn.addEventListener('click', () => setEditMode(true));
-        cancelBtn.addEventListener('click', () => { setEditMode(false); loadProfile(); });
-        saveBtn.addEventListener('click', () => {
-            saveProfile();
-            setEditMode(false);
-        });
+        cancelBtn.addEventListener('click', () => { setEditMode(false); loadProfileFromAPI(); });
+        saveBtn.addEventListener('click', saveProfileToAPI);
+
         // On page load
-        loadProfile();
+        loadProfileFromAPI();
         setEditMode(false);
+
+
+    </script>
+   
+    <script>
+        // Show first letter of user email in user icon if logged in
+        document.addEventListener('DOMContentLoaded', async function() {
+            const userId = localStorage.getItem('user_id');
+            const userIconDiv = document.getElementById('db_user_icon');
+            if (userId && userIconDiv) {
+                try {
+                    const res = await fetch(`http://localhost:3000/users/${userId}`);
+                    if (res.ok) {
+                        const user = await res.json();
+                        if (user.email && user.email.length > 0) {
+                            userIconDiv.innerHTML = `<span style="font-size:20px;font-weight:200;display:inline-block;width:2.2rem;height:2.2rem;line-height:2.2rem;text-align:center;background:#ad9d79;color:#fff;border-radius:50%;">${user.email[0].toUpperCase()}</span>`;
+                        }
+                    }
+                } catch (e) {
+                    // fallback: keep icon
+                }
+            }
+        });
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-      <script>
+    <script>
+        // Logout functionality
+        document.querySelectorAll('a').forEach(function (link) {
+            if (link.textContent.trim().toLowerCase() === 'logout') {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem('user_id');
+                    window.location.href = 'landingpage.html';
+                });
+            }
+        });
+    </script>
+    <script>
         const dbUserIcon = document.getElementById('db_user_icon');
         const dbUserDropdown = document.getElementById('db_user_dropdown');
 
@@ -314,7 +367,7 @@
             dbUserDropdown.style.display = 'none';
         });
     </script>
-      <script>
+    <script>
         (function () {
             const toggler = document.querySelector('.d_toggler_btn');
             const offcanvas = document.getElementById('d_offcanvas_menu');

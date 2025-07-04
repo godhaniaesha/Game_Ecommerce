@@ -64,7 +64,7 @@
                     type="submit"
                     class="btn btn-light w-100 rounded-pill py-2 mt-3"
                   >
-                    <a href="/auth/Confirm_pass.html" class="text-black "> Reset Password </a>
+                    Reset Password
                   </button>
 
                   <!-- Create Account -->
@@ -79,5 +79,30 @@
         </div>
       </div>
     </div>
+    <script>
+      document.querySelector("form").addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const email = this.querySelector('input[type="email"]').value.trim();
+
+        if (!email) {
+          alert("Please enter your email.");
+          return;
+        }
+
+        // Check if email exists
+        const res = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`);
+        const users = await res.json();
+
+        if (users.length > 0) {
+          // Store the user's id as forgot_id
+          localStorage.setItem("forgot_id", users[0].id);
+          // Redirect to Confirm_pass.html
+          window.location.href = "/auth/Confirm_pass.html";
+        } else {
+          alert("Email not found. Please enter a registered email.");
+        }
+      });
+    </script>
   </body>
 </html>

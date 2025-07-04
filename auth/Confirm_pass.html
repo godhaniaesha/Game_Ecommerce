@@ -86,20 +86,73 @@
 
   <!-- Password Toggle Script -->
   <script>
-    function setupPasswordToggle(inputId, toggleId) {
-      const input = document.getElementById(inputId);
-      const toggle = document.getElementById(toggleId);
+    // Password toggle for new password
+    const db_toggleNewPassword = document.getElementById("db_toggle_new_password");
+    const db_newPasswordInput = document.getElementById("db_new_password");
+    db_toggleNewPassword.addEventListener("click", () => {
+      const isPassword = db_newPasswordInput.type === "password";
+      db_newPasswordInput.type = isPassword ? "text" : "password";
+      db_toggleNewPassword.classList.toggle("fa-eye");
+      db_toggleNewPassword.classList.toggle("fa-eye-slash");
+    });
 
-      toggle.addEventListener("click", () => {
-        const isPassword = input.type === "password";
-        input.type = isPassword ? "text" : "password";
-        toggle.classList.toggle("fa-eye");
-        toggle.classList.toggle("fa-eye-slash");
+    // Password toggle for confirm password
+    const db_toggleConfirmPassword = document.getElementById("db_toggle_confirm_password");
+    const db_confirmPasswordInput = document.getElementById("db_confirm_password");
+    db_toggleConfirmPassword.addEventListener("click", () => {
+      const isPassword = db_confirmPasswordInput.type === "password";
+      db_confirmPasswordInput.type = isPassword ? "text" : "password";
+      db_toggleConfirmPassword.classList.toggle("fa-eye");
+      db_toggleConfirmPassword.classList.toggle("fa-eye-slash");
+    });
+
+    // Reset password logic
+    document.querySelector("form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const newPassword = db_newPasswordInput.value;
+      const confirmPassword = db_confirmPasswordInput.value;
+
+      if (!newPassword || !confirmPassword) {
+        alert("Please fill both password fields.");
+        return;
+      }
+      if (newPassword !== confirmPassword) {
+        alert("Passwords do not match.");
+        return;
+      }
+
+      const userId = localStorage.getItem("forgot_id")?.trim();
+      if (!userId) {
+        alert("No user selected for password reset.");
+        return;
+      }
+
+      console.log("Trying to fetch user with id:", userId);
+
+      // Fetch the full user object first
+      const userRes = await fetch(`http://localhost:3000/users/${userId}`);
+      if (!userRes.ok) {
+        alert("User not found.");
+        return;
+      }
+      const user = await userRes.json();
+      user.password = newPassword;
+
+      // PUT request to update the full user object
+      const res = await fetch(`http://localhost:3000/users/${userId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user)
       });
-    }
 
-    setupPasswordToggle("db_new_password", "db_toggle_new_password");
-    setupPasswordToggle("db_confirm_password", "db_toggle_confirm_password");
+      if (res.ok) {
+        localStorage.removeItem("forgot_id");
+        window.location.href = "/auth/Login.html";
+      } else {
+        alert("Failed to change password. Please try again.");
+      }
+    });
   </script>
 </body>
 

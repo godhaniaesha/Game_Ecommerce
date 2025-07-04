@@ -1,135 +1,189 @@
 {
   "categories": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Action",
       "image": "https://img.freepik.com/premium-photo/wallpaper-4k-gaming-background-crater_1008033-4418.jpg?semt=ais_items_boosted&w=740"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Adventure",
       "image": "https://us.v-cdn.net/6036147/uploads/1NR6808I4NPI/l-23-2-1200x675.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Puzzle",
       "image": "https://gameranx.com/wp-content/uploads/2022/11/uu-1024x576.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Racing",
       "image": "https://cdn.pixabay.com/photo/2024/04/22/07/14/cars-8711910_1280.jpg"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Shooter",
       "image": "https://t3.ftcdn.net/jpg/07/75/21/08/360_F_775210853_jYVCLjOvKOnCa2xG62C6h3F0WXLakKBA.jpg"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Sports",
       "image": "https://i.guim.co.uk/img/media/4cd2e3dfef9da0adb8f4ea1294d4d1097f50bd63/152_0_2234_1342/master/2234.jpg?width=465&dpr=1&s=none&crop=5%3A3"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Strategy",
       "image": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/09/Dawn-of-War-2.jpg"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Horror",
       "image": "https://tornightfire.com/wp-content/uploads/2021/10/Incantamentum-hero.jpg"
     }
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "title": "The Elder Scrolls V Skyrim",
-      "price": 144.00,
+      "price": 144,
       "image": "/images/card_img1.png",
       "description": "Epic fantasy adventure game",
-      "technology_ids": [1, 3],
+      "technology_ids": [
+        1,
+        3
+      ],
       "cat_id": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Grand Theft Auto V",
       "price": 89.99,
       "image": "/images/card_img2.png",
       "description": "Open world action adventure",
-      "technology_ids": [2, 3, 4],
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
       "cat_id": 8
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Call of Duty: Modern Warfare",
-      "price": 129.00,
+      "price": 129,
       "image": "/images/card_img3.png",
       "description": "First-person shooter game",
-      "technology_ids": [3, 5],
+      "technology_ids": [
+        3,
+        5
+      ],
       "cat_id": 7
     },
     {
-      "id": 4,
+      "id": "4",
       "title": "FIFA 24",
       "price": 99.99,
       "image": "/images/card_img4.png",
       "description": "Football simulation game",
-      "technology_ids": [2, 3, 4, 5],
+      "technology_ids": [
+        2,
+        3,
+        4,
+        5
+      ],
       "cat_id": 6
     },
     {
-      "id": 5,
+      "id": "5",
       "title": "Assassin's Creed Valhalla",
       "price": 79.99,
       "image": "/images/card_img5.png",
       "description": "Viking action RPG adventure",
-      "technology_ids": [3, 4],
+      "technology_ids": [
+        3,
+        4
+      ],
       "cat_id": 1
     },
     {
-      "id": 6,
+      "id": "6",
       "title": "Cyberpunk 2077",
       "price": 159.99,
       "image": "/images/card_img6.png",
       "description": "Futuristic RPG adventure",
-      "technology_ids": [3, 5],
+      "technology_ids": [
+        3,
+        5
+      ],
       "cat_id": 5
     },
     {
-      "id": 7,
+      "id": "7",
       "title": "The Legend of Zelda: Breath of the Wild",
-      "price": 120.00,
+      "price": 120,
       "image": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
       "description": "Open-world action-adventure game set in Hyrule.",
-      "technology_ids": [2, 3, 4],
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
       "cat_id": 2
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Among Us",
-      "price": 15.00,
+      "price": 15,
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
       "description": "Multiplayer social deduction game.",
-      "technology_ids": [1, 2, 3, 4, 5],
+      "technology_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
       "cat_id": 3
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Forza Horizon 5",
-      "price": 110.00,
+      "price": 110,
       "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
       "description": "Open-world racing game with stunning visuals.",
-      "technology_ids": [3, 5],
+      "technology_ids": [
+        3,
+        5
+      ],
       "cat_id": 4
     }
   ],
   "technology": [
-    { "id": 1, "name": "iOS", "image": "https://cdn-icons-png.flaticon.com/512/888/888857.png" },
-    { "id": 2, "name": "Android", "image": "https://cdn-icons-png.flaticon.com/512/888/888841.png" },
-    { "id": 3, "name": "Windows", "image": "https://cdn-icons-png.flaticon.com/512/732/732225.png" },
-    { "id": 4, "name": "MacOS", "image": "https://cdn-icons-png.flaticon.com/512/888/888879.png" },
-    { "id": 5, "name": "Linux", "image": "https://cdn-icons-png.flaticon.com/512/888/888847.png" }
+    {
+      "id": "1",
+      "name": "iOS",
+      "image": "https://cdn-icons-png.flaticon.com/512/888/888857.png"
+    },
+    {
+      "id": "2",
+      "name": "Android",
+      "image": "https://cdn-icons-png.flaticon.com/512/888/888841.png"
+    },
+    {
+      "id": "3",
+      "name": "Windows",
+      "image": "https://cdn-icons-png.flaticon.com/512/732/732225.png"
+    },
+    {
+      "id": "4",
+      "name": "MacOS",
+      "image": "https://cdn-icons-png.flaticon.com/512/888/888879.png"
+    },
+    {
+      "id": "5",
+      "name": "Linux",
+      "image": "https://cdn-icons-png.flaticon.com/512/888/888847.png"
+    }
   ],
   "cart": [
     {
@@ -147,6 +201,33 @@
       "price": 129,
       "quantity": 1,
       "image": "/images/card_img3.png"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "name": "krupali",
+      "email": "krupali.kalathiyainfotech@gmail.com",
+      "password": "Krups@123",
+      "avatar": "/images/user.jpg"
+    },
+    {
+      "id": "2",
+      "name": "aaa",
+      "email": "aaa@gmail.com",
+      "password": "Asd@123",
+      "avatar": "/images/user.jpg"
+    },
+    {
+      "id": "3",
+      "name": "joy",
+      "email": "joy@gmail.com",
+      "password": "Joy@1234",
+      "avatar": "data:image/jpeg;base64,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",
+      "mobile": "8200986329",
+      "game": "action",
+      "platform": "pc",
+      "country": "India"
     }
   ]
 }
