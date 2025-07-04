@@ -437,6 +437,52 @@
     });
   });
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    // Fetch cart data from json-server
+    fetch("http://localhost:3000/cart")
+        .then(res => res.json())
+        .then(cartItems => {
+            const tbody = document.querySelector(".Z_cart_table tbody");
+            tbody.innerHTML = ""; // Clear existing rows
+
+            if (cartItems.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center">Your cart is empty.</td></tr>`;
+                return;
+            }
+
+            cartItems.forEach(item => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="Z_cart_td">
+                            <div class="d-flex align-items-center gap-3">
+                                <img src="${item.image}" alt="${item.title}" class="Z_cart_img">
+                                <span class="Z_cart_name">${item.title}</span>
+                            </div>
+                        </td>
+                        <td class="Z_cart_td">${item.category || '-'}</td>
+                        <td class="Z_cart_td">$${item.price.toFixed(2)}</td>
+                        <td class="Z_cart_td text-center">
+                            <button class="Z_cart_removebtn" onclick="removeFromCart(${item.id})"><i class="fa-solid fa-xmark"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+        });
+});
+
+// Remove from cart function
+function removeFromCart(id) {
+    fetch(`http://localhost:3000/cart/${id}`, { method: "DELETE" })
+        .then(res => {
+            if (res.ok) {
+                location.reload();
+            } else {
+                alert("Failed to remove item from cart.");
+            }
+        });
+}
+</script>
 
 
 </body>

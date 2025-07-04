@@ -140,87 +140,7 @@
     <section class="d_category_section">
         <div class="container">
             <h2 class="d_section_title">Explore Game Categories</h2>
-            <div class="d_category_scroll_wrapper">
-
-                <!-- Action -->
-                <div class="d_category_card">
-                    <img src="https://img.freepik.com/premium-photo/wallpaper-4k-gaming-background-crater_1008033-4418.jpg?semt=ais_items_boosted&w=740"
-                        alt="Action Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Action</div>
-                    </div>
-                    <i class="fa-solid fa-bolt d_icon_top"></i>
-                </div>
-
-                <!-- Adventure -->
-                <div class="d_category_card">
-                    <img src="https://us.v-cdn.net/6036147/uploads/1NR6808I4NPI/l-23-2-1200x675.jpg"
-                        alt="Adventure Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Adventure</div>
-                    </div>
-                    <i class="fa-solid fa-compass d_icon_top"></i>
-                </div>
-
-                <!-- Puzzle -->
-                <div class="d_category_card">
-                    <img src="https://gameranx.com/wp-content/uploads/2022/11/uu-1024x576.jpg" alt="Puzzle Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Puzzle</div>
-                    </div>
-                    <i class="fa-solid fa-puzzle-piece d_icon_top"></i>
-                </div>
-
-                <!-- Racing -->
-                <div class="d_category_card">
-                    <img src="https://cdn.pixabay.com/photo/2024/04/22/07/14/cars-8711910_1280.jpg" alt="Racing Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Racing</div>
-                    </div>
-                    <i class="fa-solid fa-car d_icon_top"></i>
-                </div>
-
-                <!-- Shooter -->
-                <div class="d_category_card">
-                    <img src="https://t3.ftcdn.net/jpg/07/75/21/08/360_F_775210853_jYVCLjOvKOnCa2xG62C6h3F0WXLakKBA.jpg"
-                        alt="Shooter Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Shooter</div>
-                    </div>
-                    <i class="fa-solid fa-crosshairs d_icon_top"></i>
-                </div>
-
-                <!-- Sports -->
-                <div class="d_category_card">
-                    <img src="https://i.guim.co.uk/img/media/4cd2e3dfef9da0adb8f4ea1294d4d1097f50bd63/152_0_2234_1342/master/2234.jpg?width=465&dpr=1&s=none&crop=5%3A3"
-                        alt="Sports Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Sports</div>
-                    </div>
-                    <i class="fa-solid fa-futbol d_icon_top"></i>
-                </div>
-
-                <!-- Strategy -->
-                <div class="d_category_card">
-                    <img src="https://static1.thegamerimages.com/wordpress/wp-content/uploads/2021/09/Dawn-of-War-2.jpg"
-                        alt="Strategy Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Strategy</div>
-                    </div>
-                    <i class="fa-solid fa-chess-knight d_icon_top"></i>
-                </div>
-
-                <!-- Horror -->
-                <div class="d_category_card">
-                    <img src="https://tornightfire.com/wp-content/uploads/2021/10/Incantamentum-hero.jpg"
-                        alt="Horror Game" />
-                    <div class="d_category_overlay">
-                        <div class="d_category_text">Horror</div>
-                    </div>
-                    <i class="fa-solid fa-ghost d_icon_top"></i>
-                </div>
-
-            </div>
+            <div class="d_category_scroll_wrapper" id="categoryWrapper"></div>
         </div>
     </section>
     <section class="db_featured_games_section">
@@ -725,6 +645,45 @@
         // Close dropdown when clicking outside
         document.addEventListener('click', () => {
             dbUserDropdown.style.display = 'none';
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("http://localhost:3000/categories")
+                .then(res => res.json())
+                .then(categories => {
+                    const wrapper = document.getElementById("categoryWrapper");
+                    wrapper.innerHTML = ""; // Clear any existing content
+
+                    categories.forEach(cat => {
+                        // Choose icon based on category name
+                        let icon = "";
+                        switch (cat.name) {
+                            case "Action": icon = "fa-bolt"; break;
+                            case "Adventure": icon = "fa-compass"; break;
+                            case "Puzzle": icon = "fa-puzzle-piece"; break;
+                            case "Racing": icon = "fa-car"; break;
+                            case "Shooter": icon = "fa-crosshairs"; break;
+                            case "Sports": icon = "fa-futbol"; break;
+                            case "Strategy": icon = "fa-chess-knight"; break;
+                            case "Horror": icon = "fa-ghost"; break;
+                            default: icon = "fa-gamepad";
+                        }
+
+                        wrapper.innerHTML += `
+                <div class="d_category_card">
+                    <img src="${cat.image}" alt="${cat.name} Game" />
+                    <div class="d_category_overlay">
+                        <div class="d_category_text">${cat.name}</div>
+                    </div>
+                    <i class="fa-solid ${icon} d_icon_top"></i>
+                </div>
+                `;
+                    });
+                })
+                .catch(() => {
+                    document.getElementById("categoryWrapper").innerHTML = "<div class='text-danger'>Failed to load categories.</div>";
+                });
         });
     </script>
     <script>
