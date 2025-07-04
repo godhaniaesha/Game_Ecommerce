@@ -142,6 +142,8 @@
                                             <li><input type="checkbox" name="price" value="0-99"> $0 - $99</li>
                                             <li><input type="checkbox" name="price" value="100-199"> $100 - $199</li>
                                             <li><input type="checkbox" name="price" value="200-299"> $200 - $299</li>
+                                            <li><input type="checkbox" name="price" value="300-399"> $300 - $399</li>
+                                            <li><input type="checkbox" name="price" value="400-499"> $400 - $499</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -158,16 +160,7 @@
                                 <div id="collapseTwo" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <ul class="ps-0">
-                                            <li><input type="checkbox" name="category" value="Action"> Action</li>
-                                            <li><input type="checkbox" name="category" value="Adventure">Adventure</li>
-                                            <li><input type="checkbox" name="category" value="Puzzle">Puzzle</li>
-                                            <li><input type="checkbox" name="category" value="Racing">Racing</li>
-                                            <li><input type="checkbox" name="category" value="Shooter">Shooter</li>
-                                            <li><input type="checkbox" name="category" value="Sports">Sports</li>
-                                            <li><input type="checkbox" name="category" value="Strategy">Strategy</li>
-                                            <li><input type="checkbox" name="category" value="Horror">Horror</li>
-                                        </ul>
+                                        <ul class="ps-0" id="categoryFilterListDesktop"></ul>
                                     </div>
                                 </div>
                             </div>
@@ -199,6 +192,8 @@
                                             <li><input type="checkbox" name="price" value="0-99"> $0 - $99</li>
                                             <li><input type="checkbox" name="price" value="100-199"> $100 - $199</li>
                                             <li><input type="checkbox" name="price" value="200-299"> $200 - $299</li>
+                                            <li><input type="checkbox" name="price" value="300-399"> $300 - $399</li>
+                                            <li><input type="checkbox" name="price" value="400-499"> $400 - $499</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -216,16 +211,7 @@
                                 <div id="collapseMobileTwo" class="accordion-collapse collapse"
                                     data-bs-parent="#accordionExampleMobile">
                                     <div class="accordion-body">
-                                        <ul class="ps-0">
-                                            <li><input type="checkbox" name="category" value="Action"> Action</li>
-                                            <li><input type="checkbox" name="category" value="Adventure">Adventure</li>
-                                            <li><input type="checkbox" name="category" value="Puzzle">Puzzle</li>
-                                            <li><input type="checkbox" name="category" value="Racing">Racing</li>
-                                            <li><input type="checkbox" name="category" value="Shooter">Shooter</li>
-                                            <li><input type="checkbox" name="category" value="Sports">Sports</li>
-                                            <li><input type="checkbox" name="category" value="Strategy">Strategy</li>
-                                            <li><input type="checkbox" name="category" value="Horror">Horror</li>
-                                        </ul>
+                                        <ul class="ps-0" id="categoryFilterListMobile"></ul>
                                     </div>
                                 </div>
                             </div>
@@ -332,14 +318,83 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        const cardsData = [
-            { id: 1, title: "The Elder Scrolls V Skyrim", price: "$144.00", image: "/images/card_img1.png", description: "Epic fantasy adventure game", category: "Action" },
-            { id: 2, title: "Grand Theft Auto V", price: "$89.99", image: "/images/card_img2.png", description: "Open world action adventure", category: "Horror" },
-            { id: 3, title: "Call of Duty: Modern Warfare", price: "$129.00", image: "/images/card_img3.png", description: "First-person shooter game", category: "Strategy" },
-            { id: 4, title: "FIFA 24", price: "$99.99", image: "/images/card_img4.png", description: "Football simulation game", category: "Sports" },
-            { id: 5, title: "Assassin's Creed Valhalla", price: "$79.99", image: "/images/card_img5.png", description: "Viking action RPG adventure", category: "Action" },
-            { id: 6, title: "Cyberpunk 2077", price: "$159.99", image: "/images/card_img6.png", description: "Futuristic RPG adventure", category: "Shooter" }
-        ];
+        document.addEventListener("DOMContentLoaded", function () {
+            Promise.all([
+                fetch("http://localhost:3000/products").then(res => res.json()),
+                fetch("http://localhost:3000/categories").then(res => res.json())
+            ]).then(([products, categories]) => {
+                // Map category id to name for quick lookup
+                const catMap = {};
+                categories.forEach(cat => { catMap[cat.id] = cat.name; });
+
+                // Render product cards
+                const gridContainer = document.getElementById('gridContainer');
+                const listContainer = document.getElementById('listContainer');
+                gridContainer.innerHTML = "";
+                listContainer.innerHTML = "";
+
+                products.forEach(product => {
+                    const categoryName = catMap[product.cat_id] || "Unknown";
+                    // Grid Card
+                    gridContainer.innerHTML += `
+                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 d-flex justify-content-center">
+                          <div class="game-card position-relative">
+                            <img src="${product.image}" alt="${product.title}" class="card-img-top" />
+                            <div class="position-absolute card-content">
+                              <div class="icons d-flex gap-2 mb-3">
+                                <i class="fa-brands fa-apple"></i>
+                                <i class="fa-brands fa-windows"></i>
+                              </div>
+                              <h3>${product.title}</h3>
+                              <h3 class="mb-0">$${product.price.toFixed(2)}</h3>
+                              <span class="badge bg-secondary mt-2">${categoryName}</span>
+                            </div>
+                            <div class="card-actions d-flex align-items-center gap-3">
+                              <div class="d_main_button">
+                                <button class="custom-cart-btn" onclick="addToCart(${product.id})">ADD TO CART</button>
+                                <div class="d_border"></div>
+                              </div>
+                              <i class="fa-regular fa-heart text-white" onclick="toggleWishlist(${product.id})"></i>
+                              <i class="fa-solid fa-ellipsis text-white"></i>
+                            </div>
+                          </div>
+                        </div>
+                    `;
+                    // List Card
+                    listContainer.innerHTML += `
+                        <div class="card mb-3 list-card border-1 border-light" style="background: rgba(34,34,34,0.92); color:#fff; border:none;">
+                          <div class="row g-0 align-items-center">
+                            <div class="col-sm-4 d-flex align-items-center justify-content-center" style="min-height:180px;">
+                              <div style="background:rgba(24,24,24,0.95); border-radius:16px; padding:12px; display:flex; align-items:center; justify-content:center; width:130px; height:130px;">
+                                <img src="${product.image}" alt="${product.title}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 12px; box-shadow:0 2px 8px rgba(0,0,0,0.2); background:#181818;" />
+                              </div>
+                            </div>
+                            <div class="col-sm-8">
+                              <div class="card-body d-flex flex-column justify-content-between h-100" style="min-height: 160px;">
+                                <div>
+                                  <h5 class="card-title mb-2" style="color:#ad9d79;">${product.title}</h5>
+                                  <p class="card-text fw-bold mb-1 text-white">$${product.price.toFixed(2)}</p>
+                                  <p class="card-text mb-2 text-white"><small>${product.description}</small></p>
+                                  <span class="badge bg-secondary">${categoryName}</span>
+                                </div>
+                                <div class="d-flex align-items-center gap-3 mt-auto">
+                                  <button class="btn btn-sm s_cart_btn" onclick="addToCart(${product.id})">ADD TO CART</button>
+                                  <i class="fa-regular fa-heart fs-5" onclick="toggleWishlist(${product.id})" style="cursor:pointer;"></i>
+                                  <i class="fa-solid fa-eye fs-6" onclick="viewDetails(${product.id})" style="cursor:pointer;"></i>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                    `;
+                });
+            });
+        });
+
+        // Dummy functions for cart/wishlist/details (replace with your real logic)
+        function addToCart(id) { alert('Add to cart: ' + id); }
+        function toggleWishlist(id) { alert('Wishlist: ' + id); }
+        function viewDetails(id) { alert('View details: ' + id); }
 
         const gridBtn = document.getElementById('gridView');
         const listBtn = document.getElementById('listView');
@@ -399,7 +454,55 @@
 
         function addToCart(id) {
             const card = cardsData.find(c => c.id === id);
-            alert(`Added "${card.title}" to cart!`);
+            if (!card) return;
+
+            // First, check if the item is already in the cart
+            fetch(`http://localhost:3000/cart?productId=${card.id}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        // Item exists, increment quantity
+                        const cartItem = data[0];
+                        fetch(`http://localhost:3000/cart/${cartItem.id}`, {
+                            method: 'PATCH',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ quantity: cartItem.quantity + 1 })
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    alert(`Increased quantity for "${card.title}" in cart!`);
+                                } else {
+                                    alert('Failed to update cart.');
+                                }
+                            });
+                    } else {
+                        // Item does not exist, add new
+                        const newCartItem = {
+                            productId: card.id,
+                            title: card.title,
+                            price: parseFloat(card.price.replace('$', '')),
+                            quantity: 1,
+                            image: card.image
+                        };
+                        fetch('http://localhost:3000/cart', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(newCartItem)
+                        })
+                            .then(response => {
+                                if (response.ok) {
+                                    alert(`Added "${card.title}" to cart!`);
+                                } else {
+                                    alert('Failed to add to cart.');
+                                }
+                            });
+                    }
+                })
+                .catch(() => alert('Error connecting to cart API.'));
         }
 
         function toggleWishlist(id) {
@@ -503,6 +606,122 @@
         });
 
 
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("http://localhost:3000/categories")
+                .then(res => res.json())
+                .then(categories => {
+                    // Desktop filter
+                    const filterListDesktop = document.getElementById("categoryFilterListDesktop");
+                    if (filterListDesktop) {
+                        filterListDesktop.innerHTML = "";
+                        categories.forEach(cat => {
+                            filterListDesktop.innerHTML += `
+                                <li>
+                                    <input type="checkbox" name="category" value="${cat.id}"> ${cat.name}
+                                </li>
+                            `;
+                        });
+                    }
+                    // Mobile filter
+                    const filterListMobile = document.getElementById("categoryFilterListMobile");
+                    if (filterListMobile) {
+                        filterListMobile.innerHTML = "";
+                        categories.forEach(cat => {
+                            filterListMobile.innerHTML += `
+                                <li>
+                                    <input type="checkbox" name="category" value="${cat.id}"> ${cat.name}
+                                </li>
+                            `;
+                        });
+                        // Add event listener to close offcanvas on selection
+                        filterListMobile.addEventListener('change', function (e) {
+                            const offcanvas = document.getElementById('filterOffcanvas');
+                            if (offcanvas && typeof bootstrap !== 'undefined') {
+                                const bsOffcanvas = bootstrap.Offcanvas.getOrCreateInstance(offcanvas);
+                                bsOffcanvas.hide();
+                            } else if (offcanvas) {
+                                // fallback: remove 'show' class if bootstrap js is not available
+                                offcanvas.classList.remove('show');
+                                offcanvas.style.visibility = 'hidden';
+                            }
+                        });
+                    }
+                });
+        });
+
+        let allProducts = [];
+        let allCategories = [];
+
+        function renderProducts(products, categories) {
+            const catMap = {};
+            categories.forEach(cat => { catMap[cat.id] = cat.name; });
+
+            const gridContainer = document.getElementById('gridContainer');
+            gridContainer.innerHTML = "";
+
+            products.forEach(product => {
+                const categoryName = catMap[product.cat_id] || "Unknown";
+                gridContainer.innerHTML += `
+            <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 d-flex justify-content-center">
+              <div class="game-card position-relative">
+                <img src="${product.image}" alt="${product.title}" class="card-img-top" />
+                <div class="position-absolute card-content">
+                  <h3>${product.title}</h3>
+                  <h3 class="mb-0">$${product.price.toFixed(2)}</h3>
+                  <span class="badge bg-secondary mt-2">${categoryName}</span>
+                </div>
+              </div>
+            </div>
+        `;
+            });
+        }
+
+        function filterAndRenderProducts() {
+            // Get checked categories (as numbers)
+            const checkedCategories = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(cb => Number(cb.value));
+            // Get checked price ranges
+            const checkedPrices = Array.from(document.querySelectorAll('input[name="price"]:checked')).map(cb => cb.value);
+
+            let filtered = allProducts;
+
+            // Category filter
+            if (checkedCategories.length > 0) {
+                filtered = filtered.filter(p => checkedCategories.includes(p.cat_id));
+            }
+
+            // Price filter
+            if (checkedPrices.length > 0) {
+                filtered = filtered.filter(p => {
+                    return checkedPrices.some(range => {
+                        const [min, max] = range.split('-').map(Number);
+                        return p.price >= min && p.price <= max;
+                    });
+                });
+            }
+
+            renderProducts(filtered, allCategories);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            Promise.all([
+                fetch("http://localhost:3000/products").then(res => res.json()),
+                fetch("http://localhost:3000/categories").then(res => res.json())
+            ]).then(([products, categories]) => {
+                allProducts = products;
+                allCategories = categories;
+                renderCategoryFilters(categories);
+                filterAndRenderProducts();
+            });
+
+            // Attach filter event listeners (delegated for dynamic checkboxes)
+            document.body.addEventListener('change', function (e) {
+                if (e.target.name === 'category' || e.target.name === 'price') {
+                    filterAndRenderProducts();
+                }
+            });
+        });
     </script>
     <script>
         (function () {
