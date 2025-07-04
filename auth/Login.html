@@ -92,13 +92,13 @@
 
                 <!-- Email -->
                 <div class="mb-3">
-                  <input type="email" class="form-control rounded py-2 px-4 text-black" placeholder="Enter Email" />
+                  <input type="email" name="email" class="form-control rounded py-2 px-4 text-black" placeholder="Enter Email" />
                 </div>
 
                 <!-- Password with eye icon -->
                 <div class="mb-3">
                   <div class="position-relative">
-                    <input type="password" class="form-control rounded-end py-2 px-4 pe-5 text-black"
+                    <input type="password" name="password" class="form-control rounded-end py-2 px-4 pe-5 text-black"
                       placeholder="Enter Password" id="db_password_input" />
                     <i class="fa-solid fa-eye-slash" id="db_toggle_password" style="
                       position: absolute;
@@ -165,14 +165,40 @@
 
   <!-- Password Toggle Script -->
   <script>
-    const togglePassword = document.getElementById("db_toggle_password");
-    const passwordInput = document.getElementById("db_password_input");
+    // Password toggle (if not already present)
+    const db_togglePassword = document.getElementById("db_toggle_password");
+    const db_passwordInput = document.getElementById("db_password_input");
 
-    togglePassword.addEventListener("click", () => {
-      const isPassword = passwordInput.type === "password";
-      passwordInput.type = isPassword ? "text" : "password";
-      togglePassword.classList.toggle("fa-eye");
-      togglePassword.classList.toggle("fa-eye-slash");
+    db_togglePassword.addEventListener("click", () => {
+      const isPassword = db_passwordInput.type === "password";
+      db_passwordInput.type = isPassword ? "text" : "password";
+      db_togglePassword.classList.toggle("fa-eye");
+      db_togglePassword.classList.toggle("fa-eye-slash");
+    });
+
+    // Login logic
+    document.querySelector("form").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const email = this.querySelector('input[name="email"]').value.trim();
+      const password = this.querySelector('input[name="password"]').value;
+
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
+      // Check credentials
+      const res = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
+      const users = await res.json();
+
+      if (users.length > 0) {
+        // Login success
+        localStorage.setItem("user_id", users[0].id);
+        window.location.href = "/landingpage.html";
+      } else {
+        alert("Invalid email or password.");
+      }
     });
   </script>
 
