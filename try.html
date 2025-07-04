@@ -1,52 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add to Cart Button</title>
+  <title>About Us - Game Website</title>
 
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
 
   <style>
-    body {
-      background-color: #2f333d; /* matches dark background from image */
-    }
-
-    .angled-button {
+    .main .d_about_us_section {
       position: relative;
-      display: inline-block;
-      padding: 10px 30px;
-      background-color: #d5180c; /* exact red */
-      color: white;
-      font-weight: 600;
-      text-transform: uppercase;
-      border: none;
-      font-size: 14px;
-      z-index: 1;
-      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+      color: #fff;
+      padding: 4rem 1rem;
+      background: url('https://cdn.pixabay.com/photo/2016/12/29/18/44/background-1939128_640.jpg') center/cover no-repeat;
     }
 
-    .angled-button::before {
-      content: '';
+    .main .d_about_us_section::before {
+      content: "";
       position: absolute;
-      top: -2px;
-      left: -2px;
-      width: calc(100% + 4px);
-      height: calc(100% + 4px);
-      z-index: -1;
-      clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
-      border: 1px solid white;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      z-index: 0;
     }
 
-    .angled-button:hover {
-      background-color: #bb140a;
+    .main .d_about_title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #8a775a;
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 2rem;
+      max-width: 720px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 25px rgba(138, 119, 90, 0.4);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+
+    .main .glass-card:hover {
+      box-shadow: 0 0 40px rgba(138, 119, 90, 0.8);
+    }
+
+    .main .d_img {
+      width: 100%;
+      height: auto;
+      max-height: 240px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(138, 119, 90, 0.4);
+      filter: brightness(0.85) contrast(1.1);
+    }
+
+    .main .d_card_title {
+      font-size: 1.8rem;
+      color: #8a775a;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .main .d_card_text {
+      font-size: 1.05rem;
+      color: #e0e0e0;
+      margin-top: 10px;
+      line-height: 1.6;
+    }
+
+    .main .carousel-control-prev-icon,
+    .main .carousel-control-next-icon {
+      background-color: #8a775a;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      background-size: 60%;
+    }
+
+    .main .carousel-indicators li {
+      background-color: #8a775a;
+    }
+
+    @media (max-width: 576px) {
+      .main .d_about_title {
+        font-size: 2rem;
+      }
+
+      .main .glass-card {
+        padding: 1.5rem;
+      }
+
+      .main .d_card_title {
+        font-size: 1.4rem;
+      }
+
+      .main .d_card_text {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
-<body class="d-flex justify-content-center align-items-center vh-100">
 
-  <button class="angled-button">Add to Cart</button>
+<body>
+  <section class="d_about_us_section main">
+    <div class="container position-relative">
+      <h2 class="text-center mb-5 d_about_title">
+        <i class="fas fa-gamepad me-2"></i> About Us
+      </h2>
 
+      <div id="d_aboutUsCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#d_aboutUsCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#d_aboutUsCarousel" data-slide-to="1"></li>
+          <li data-target="#d_aboutUsCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="glass-card mx-auto text-center">
+              <img src="https://cdn.pixabay.com/photo/2018/02/01/07/50/game-3122816_1280.jpg" class="d_img mb-4" alt="Our Mission">
+              <h3 class="d_card_title">Our Mission</h3>
+              <p class="d_card_text">Deliver thrilling gameplay with cinematic visuals and interactive narratives that
+                engage every player.</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="glass-card mx-auto text-center">
+              <img src="https://cdn.pixabay.com/photo/2017/01/14/10/56/people-1979261_1280.jpg" class="d_img mb-4" alt="Our Team">
+              <h3 class="d_card_title">Our Team</h3>
+              <p class="d_card_text">A powerhouse of gamers, developers, and creatives redefining what gaming means to
+                the world.</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="glass-card mx-auto text-center">
+              <img src="https://cdn.pixabay.com/photo/2021/09/01/19/53/controller-6591262_1280.jpg" class="d_img mb-4" alt="Our Vision">
+              <h3 class="d_card_title">Our Vision</h3>
+              <p class="d_card_text">Be the future of gaming by merging technology with imagination and building global
+                gaming communities.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="carousel-control-prev" href="#d_aboutUsCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#d_aboutUsCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
