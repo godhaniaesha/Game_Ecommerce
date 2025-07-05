@@ -353,7 +353,7 @@
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {
                 try {
-                    const res = await fetch(`http://localhost:3000/users/${userId}`);
+                    const res = await fetch(`http://localhost:4000/users/${userId}`);
                     if (res.ok) {
                         const user = await res.json();
                         if (user.email && user.email.length > 0) {
@@ -484,29 +484,44 @@
 
             try {
                 // 2. Fetch the user's cart
-                const cartRes = await fetch(`http://localhost:3000/cart?user_id=${userId}`);
+                const cartRes = await fetch(`http://localhost:4000/cart?user_id=${userId}`);
+                if (!cartRes.ok) {
+                    throw new Error('Failed to fetch cart');
+                }
                 const carts = await cartRes.json();
                 const cart = carts[0];
 
                 if (!cart || !cart.products || cart.products.length === 0) {
                     tbody.innerHTML = `<tr><td colspan="4" class="text-center">Your cart is empty.</td></tr>`;
+                    document.getElementById('cartTotal').textContent = '£0.00';
                     return;
                 }
 
                 // 3. Fetch all products and categories
                 const [productsRes, categoriesRes] = await Promise.all([
-                    fetch("http://localhost:3000/products"),
-                    fetch("http://localhost:3000/categories")
+                    fetch("http://localhost:4000/products"),
+                    fetch("http://localhost:4000/categories")
                 ]);
+                
+                if (!productsRes.ok || !categoriesRes.ok) {
+                    throw new Error('Failed to fetch products or categories');
+                }
+                
                 const products = await productsRes.json();
                 const categories = await categoriesRes.json();
 
                 let total = 0; // Add this before the loop
+                let validProductsCount = 0;
 
                 // 4. Render each product in the cart
                 cart.products.forEach(item => {
                     const product = products.find(p => Number(p.id) === Number(item.pro_id));
-                    if (!product) return; // skip if product not found
+                    if (!product) {
+                        console.warn(`Product with id ${item.pro_id} not found, skipping...`);
+                        return; // skip if product not found
+                    }
+
+                    validProductsCount++;
 
                     // Find category name
                     const category = categories.find(cat => String(cat.id) === String(product.cat_id));
@@ -526,34 +541,29 @@
                     <td class="Z_cart_td">${categoryName}</td>
                     <td class="Z_cart_td">£${Number(product.price).toFixed(2)}</td>
                     <td class="Z_cart_td text-center">
-                        <button class="Z_cart_removebtn" onclick="removeFromCart(${cart.id}, ${item.pro_id})"><i class="fa-solid fa-xmark"></i></button>
+                        <button class="Z_cart_removebtn" onclick="deleteItem(${item.pro_id})"><i class="fa-solid fa-xmark"></i></button>
                     </td>
                 </tr>
             `;
                 });
 
+                // Check if any valid products were found
+                if (validProductsCount === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" class="text-center">Your cart is empty.</td></tr>`;
+                    total = 0;
+                }
+
                 // After the loop, update the total in the DOM
                 document.getElementById('cartTotal').textContent = `£${total.toFixed(2)}`;
             } catch (err) {
-                tbody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Data not found.</td></tr>`;
+                console.error('Error loading cart:', err);
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center text-danger">Error loading cart data. Please try again.</td></tr>`;
+                document.getElementById('cartTotal').textContent = '£0.00';
             }
         });
 
         // Remove from cart function (removes one product from the cart)
-        async function removeFromCart(cartId, proId) {
-            // Get the cart
-            const cartRes = await fetch(`http://localhost:3000/cart/${cartId}`);
-            const cart = await cartRes.json();
-            // Remove the product from the products array
-            const newProducts = (cart.products || []).filter(item => Number(item.pro_id) !== Number(proId));
-            // Update the cart
-            await fetch(`http://localhost:3000/cart/${cartId}`, {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ products: newProducts })
-            });
-            location.reload();
-        }
+        
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -567,8 +577,68 @@
             }
         });
     </script>
+    <!-- Place this at the bottom before </body> -->
+    <script>
+        // Function to handle delete item button click
+        async function deleteItem(productId) {
+            try {
+                // Store product ID in localStorage under delete_item key
+                localStorage.setItem('delete_item', productId);
+                console.log('Product ID stored in localStorage:', productId);
 
+                // Get user_id from localStorage
+                const userId = localStorage.getItem('user_id');
+                if (!userId) {
+                    alert('User not found. Please log in.');
+                    return;
+                }
+
+                // 1. Get the user's cart
+                const cartRes = await fetch(`http://localhost:4000/cart?user_id=${userId}`);
+                if (!cartRes.ok) {
+                    throw new Error('Failed to fetch cart');
+                }
+                const carts = await cartRes.json();
+                const cart = carts[0];
+
+                if (!cart) {
+                    alert('Cart not found for this user.');
+                    return;
+                }
+
+                // 2. Remove the product with matching pro_id from products array
+                const updatedProducts = cart.products.filter(item => Number(item.pro_id) !== Number(productId));
+
+                // 3. Update the cart using PATCH method to update only products array
+                const updateRes = await fetch(`http://localhost:4000/cart/${cart.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ 
+                        products: updatedProducts 
+                    })
+                });
+
+                if (!updateRes.ok) {
+                    throw new Error('Failed to update cart');
+                }
+
+                console.log('Product removed successfully from cart');
+                alert('Product removed from cart successfully!');
+                
+                // Clear delete_item from localStorage
+                localStorage.removeItem('delete_item');
+                
+                // Refresh the page to show updated cart
+                location.reload();
+
+            } catch (error) {
+                console.error('Error deleting product:', error);
+                alert('Error removing product from cart: ' + error.message);
+            }
+        }
+    </script>
 
 </body>
-
 </html>

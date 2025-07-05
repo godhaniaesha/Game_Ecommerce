@@ -180,23 +180,11 @@
   ],
   "cart": [
     {
-      "id": "08ca",
+      "id": "ed5a",
       "user_id": 2,
       "products": [
         {
-          "pro_id": 3,
-          "quantity": 1
-        },
-        {
-          "pro_id": 2,
-          "quantity": 3
-        },
-        {
-          "pro_id": 0,
-          "quantity": 1
-        },
-        {
-          "pro_id": 8,
+          "pro_id": 5,
           "quantity": 1
         }
       ]

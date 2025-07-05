@@ -131,7 +131,7 @@
       console.log("Trying to fetch user with id:", userId);
 
       // Fetch the full user object first
-      const userRes = await fetch(`http://localhost:3000/users/${userId}`);
+      const userRes = await fetch(`http://localhost:4000/users/${userId}`);
       if (!userRes.ok) {
         alert("User not found.");
         return;
@@ -140,7 +140,7 @@
       user.password = newPassword;
 
       // PUT request to update the full user object
-      const res = await fetch(`http://localhost:3000/users/${userId}`, {
+      const res = await fetch(`http://localhost:4000/users/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(user)

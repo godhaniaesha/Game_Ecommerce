@@ -358,7 +358,7 @@
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {
                 try {
-                    const res = await fetch(`http://localhost:3000/users/${userId}`);
+                    const res = await fetch(`http://localhost:4000/users/${userId}`);
                     if (res.ok) {
                         const user = await res.json();
                         if (user.email && user.email.length > 0) {
@@ -554,7 +554,7 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("http://localhost:3000/categories")
+            fetch("http://localhost:4000/categories")
                 .then(res => res.json())
                 .then(categories => {
                     const wrapper = document.getElementById("categoryWrapper");
@@ -596,8 +596,8 @@
             try {
                 // Fetch products and technology data in parallel
                 const [productsRes, techRes] = await Promise.all([
-                    fetch('http://localhost:3000/products'),
-                    fetch('http://localhost:3000/technology')
+                    fetch('http://localhost:4000/products'),
+                    fetch('http://localhost:4000/technology')
                 ]);
                 const [products, technologies] = await Promise.all([
                     productsRes.json(),
@@ -691,7 +691,7 @@
                         }
 
                         // 2. Check if user already has a cart
-                        let cartRes = await fetch(`http://localhost:3000/cart?user_id=${user_id}`);
+                        let cartRes = await fetch(`http://localhost:4000/cart?user_id=${user_id}`);
                         let carts = await cartRes.json();
                         let cart = carts[0];
 
@@ -711,14 +711,14 @@
                             }
 
                             // 4. Update cart in db
-                            await fetch(`http://localhost:3000/cart/${cart.id}`, {
+                            await fetch(`http://localhost:4000/cart/${cart.id}`, {
                                 method: 'PATCH',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({ products })
                             });
                         } else {
                             // 5. If no cart, create new cart
-                            await fetch('http://localhost:3000/cart', {
+                            await fetch('http://localhost:4000/cart', {
                                 method: 'POST',
                                 headers: { 'Content-Type': 'application/json' },
                                 body: JSON.stringify({
@@ -766,8 +766,8 @@
         // Fetch and render products on page load
         document.addEventListener("DOMContentLoaded", function () {
             Promise.all([
-                fetch("http://localhost:3000/products").then(res => res.json()),
-                fetch("http://localhost:3000/categories").then(res => res.json())
+                fetch("http://localhost:4000/products").then(res => res.json()),
+                fetch("http://localhost:4000/categories").then(res => res.json())
             ]).then(([products, categories]) => {
                 renderProductCards(products, categories);
             });
@@ -776,7 +776,7 @@
     <script>
         async function renderLastFourProducts() {
             try {
-                const res = await fetch('http://localhost:3000/products');
+                const res = await fetch('http://localhost:4000/products');
                 let products = await res.json();
 
                 // Reverse and get last 4

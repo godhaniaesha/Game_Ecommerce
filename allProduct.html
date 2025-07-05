@@ -335,7 +335,7 @@
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {
                 try {
-                    const res = await fetch(`http://localhost:3000/users/${userId}`);
+                    const res = await fetch(`http://localhost:4000/users/${userId}`);
                     if (res.ok) {
                         const user = await res.json();
                         if (user.email && user.email.length > 0) {
@@ -352,8 +352,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             Promise.all([
-                fetch("http://localhost:3000/products").then(res => res.json()),
-                fetch("http://localhost:3000/categories").then(res => res.json())
+                fetch("http://localhost:4000/products").then(res => res.json()),
+                fetch("http://localhost:4000/categories").then(res => res.json())
             ]).then(([products, categories]) => {
                 // Map category id to name for quick lookup
                 const catMap = {};
@@ -489,13 +489,13 @@
             if (!card) return;
 
             // First, check if the item is already in the cart
-            fetch(`http://localhost:3000/cart?productId=${card.id}`)
+            fetch(`http://localhost:4000/cart?productId=${card.id}`)
                 .then(res => res.json())
                 .then(data => {
                     if (data.length > 0) {
                         // Item exists, increment quantity
                         const cartItem = data[0];
-                        fetch(`http://localhost:3000/cart/${cartItem.id}`, {
+                        fetch(`http://localhost:4000/cart/${cartItem.id}`, {
                             method: 'PATCH',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -518,7 +518,7 @@
                             quantity: 1,
                             image: card.image
                         };
-                        fetch('http://localhost:3000/cart', {
+                        fetch('http://localhost:4000/cart', {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json'
@@ -641,7 +641,7 @@
     </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("http://localhost:3000/categories")
+            fetch("http://localhost:4000/categories")
                 .then(res => res.json())
                 .then(categories => {
                     // Desktop filter
@@ -738,8 +738,8 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             Promise.all([
-                fetch("http://localhost:3000/products").then(res => res.json()),
-                fetch("http://localhost:3000/categories").then(res => res.json())
+                fetch("http://localhost:4000/products").then(res => res.json()),
+                fetch("http://localhost:4000/categories").then(res => res.json())
             ]).then(([products, categories]) => {
                 allProducts = products;
                 allCategories = categories;
@@ -832,8 +832,8 @@
 
         function fetchAndRenderProducts(sortType) {
             Promise.all([
-                fetch("http://localhost:3000/products").then(res => res.json()),
-                fetch("http://localhost:3000/categories").then(res => res.json())
+                fetch("http://localhost:4000/products").then(res => res.json()),
+                fetch("http://localhost:4000/categories").then(res => res.json())
             ]).then(([products, categories]) => {
                 // Sort products based on sortType
                 let sortedProducts = [...products];
@@ -910,7 +910,7 @@
                     }
 
                     // 2. Check if user already has a cart
-                    let cartRes = await fetch(`http://localhost:3000/cart?user_id=${user_id}`);
+                    let cartRes = await fetch(`http://localhost:4000/cart?user_id=${user_id}`);
                     let carts = await cartRes.json();
                     let cart = carts[0];
 
@@ -930,14 +930,14 @@
                         }
 
                         // 4. Update cart in db
-                        await fetch(`http://localhost:3000/cart/${cart.id}`, {
+                        await fetch(`http://localhost:4000/cart/${cart.id}`, {
                             method: 'PATCH',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ products })
                         });
                     } else {
                         // 5. If no cart, create new cart
-                        await fetch('http://localhost:3000/cart', {
+                        await fetch('http://localhost:4000/cart', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({
