@@ -245,7 +245,7 @@
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {
                 try {
-                    const res = await fetch(`http://localhost:3000/users/${userId}`);
+                    const res = await fetch(`http://localhost:4000/users/${userId}`);
                     if (res.ok) {
                         const user = await res.json();
                         if (user.email && user.email.length > 0) {
@@ -266,7 +266,7 @@
             const discord = this.querySelector('input[placeholder="Discord / Gamer Tag"]').value;
             const message = this.querySelector('textarea[placeholder="Your message*"]').value;
 
-            fetch('http://localhost:3000/contact', {
+            fetch('http://localhost:4000/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, discord, message })

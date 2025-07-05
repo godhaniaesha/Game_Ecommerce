@@ -124,7 +124,7 @@
       }
 
       // Check if email already exists
-      const res = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}`);
+      const res = await fetch(`http://localhost:4000/users?email=${encodeURIComponent(email)}`);
       const users = await res.json();
       if (users.length > 0) {
         alert("Email already registered. Please use another email.");
@@ -132,7 +132,7 @@
       }
 
       // Get next id (fetch all users, get max id)
-      const allRes = await fetch("http://localhost:3000/users");
+      const allRes = await fetch("http://localhost:4000/users");
       const allUsers = await allRes.json();
       const nextId = allUsers.length > 0 ? Math.max(...allUsers.map(u => u.id)) + 1 : 1;
 
@@ -146,7 +146,7 @@
       };
 
       // POST to API
-      const createRes = await fetch("http://localhost:3000/users", {
+      const createRes = await fetch("http://localhost:4000/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newUser)

@@ -238,7 +238,7 @@
                 return;
             }
             try {
-                const res = await fetch(`http://localhost:3000/users/${userId}`);
+                const res = await fetch(`http://localhost:4000/users/${userId}`);
                 if (!res.ok) throw new Error('User not found');
                 userData = await res.json();
                 // Fill fields
@@ -269,7 +269,7 @@
             // Avatar
             userData.avatar = document.getElementById('Z_profile_avatar_preview').src;
             // PUT to API
-            const res = await fetch(`http://localhost:3000/users/${userId}`, {
+            const res = await fetch(`http://localhost:4000/users/${userId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
@@ -326,7 +326,7 @@
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {
                 try {
-                    const res = await fetch(`http://localhost:3000/users/${userId}`);
+                    const res = await fetch(`http://localhost:4000/users/${userId}`);
                     if (res.ok) {
                         const user = await res.json();
                         if (user.email && user.email.length > 0) {

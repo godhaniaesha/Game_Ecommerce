@@ -189,7 +189,7 @@
       }
 
       // Check credentials
-      const res = await fetch(`http://localhost:3000/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
+      const res = await fetch(`http://localhost:4000/users?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
       const users = await res.json();
 
       if (users.length > 0) {
