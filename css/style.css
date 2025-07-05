@@ -99,8 +99,8 @@ body {
   opacity: 1;
 }
 .icons i {
-  color: #636363;
-  font-size: 16px;
+  color: #000000 !important;
+  font-size: 16px !important;
   background-color: #fff;
   padding: 6px;
   border-radius: 50%;
@@ -253,4 +253,30 @@ body {
 .form-control:focus {
   border-color: transparent !important;
   box-shadow: none !important;
+}
+.tech-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-right: 4px;
+  vertical-align: middle;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.tech-icon-img {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  background: #fff;
+  border-radius: 50%;
+  margin-right: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  background-size: 18px 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
 }

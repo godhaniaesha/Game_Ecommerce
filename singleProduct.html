@@ -127,7 +127,8 @@
                 <!-- Tabs -->
                 <div class="row mt-md-5 mt-4">
                     <div class="col-12">
-                        <ul class="nav nav-tabs x_tabs w-100 overflow-x-auto overflow-y-hidden flex-nowrap text-nowrap" id="x_productTab" role="tablist">
+                        <ul class="nav nav-tabs x_tabs w-100 overflow-x-auto overflow-y-hidden flex-nowrap text-nowrap"
+                            id="x_productTab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active x_tab-link" id="desc-tab" data-bs-toggle="tab"
                                     data-bs-target="#desc" type="button" role="tab">Description</button>
@@ -207,15 +208,16 @@
                                         </div>
                                         <div class="form-check promo-code  checkbox-item mb-3 p-0  ">
                                             <!-- <input class="form-check-input" type="checkbox" id="saveInfo"> -->
-                                                <div class="custom-checkbox"></div>
+                                            <div class="custom-checkbox"></div>
                                             <label class="form-check-label" for="saveInfo">
                                                 Save my name, email, and website in this browser for the next time I
                                                 comment.
                                             </label>
                                         </div>
-                                      <div class="text-center">
-                                          <button type="submit" class="x_btn btn btn-outline-light mx-auto">SUBMIT</button>
-                                      </div>
+                                        <div class="text-center">
+                                            <button type="submit"
+                                                class="x_btn btn btn-outline-light mx-auto">SUBMIT</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>
@@ -303,7 +305,7 @@
     </script>
     <script>
         // Show first letter of user email in user icon if logged in
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             const userId = localStorage.getItem('user_id');
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {
@@ -506,16 +508,47 @@
         });
     </script>
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const promoCheckbox = document.querySelector(".promo-code");
+        document.addEventListener("DOMContentLoaded", function () {
+            const promoCheckbox = document.querySelector(".promo-code");
 
-    promoCheckbox.addEventListener("click", function () {
-      promoCheckbox.classList.toggle("active");
-    });
-  });
-</script>
+            promoCheckbox.addEventListener("click", function () {
+                promoCheckbox.classList.toggle("active");
+            });
+        });
+    </script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            const itemId = localStorage.getItem('item_id');
+            if (!itemId) {
+                alert('No product selected!');
+                window.location.href = 'allProduct.html'; // fallback
+                return;
+            }
+            try {
+                const res = await fetch(`http://localhost:3000/products/${itemId}`);
+                if (!res.ok) throw new Error('Product not found');
+                const product = await res.json();
+
+                // Fill product details
+                document.querySelector('.x_product-title').textContent = product.title;
+                document.querySelector('.x_product-price').textContent = `£${product.price}`;
+                document.querySelector('.x_main-img').src = product.image;
+                // If you want to update thumbnails, do it here as well
+
+                // Fill description tab
+                document.getElementById('desc').textContent = product.description;
+
+                // Optionally fill other fields (category, tags, etc.)
+                // document.querySelector('.x_product-meta').innerHTML = ...;
+
+            } catch (e) {
+                alert('Error loading product');
+                window.location.href = 'allProduct.html';
+            }
+        });
+    </script>
 </body>
 
 </html>
