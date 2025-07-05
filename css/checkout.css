@@ -205,10 +205,24 @@
   color: #2d66f8;
   text-decoration: none;
 }
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .modal-content {
     padding: 0;
   }
+  .checkbox-item {
+    gap: 10px;
+  }
+  .custom-checkbox {
+    width: 26px;
+    height: 19px;
+  }
+
+}
+@media (max-width: 320px) {
+    .custom-checkbox {
+        width: 34px;
+        height: 19px;
+    }
 }
 
 .payment_model_bg .form-control:focus {

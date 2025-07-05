@@ -369,7 +369,7 @@
                     const categoryName = catMap[product.cat_id] || "Unknown";
                     // Grid Card
                     gridContainer.innerHTML += `
-                        <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 d-flex justify-content-center">
+                        <div class="col-xl-4 col-lg-6 col-md-4     col-sm-6 col-12 mb-4 d-flex justify-content-center">
                           <div class="game-card position-relative">
                             <img src="${product.image}" alt="${product.title}" class="card-img-top" />
                             <div class="position-absolute card-content">
@@ -382,12 +382,11 @@
                               <span class="badge bg-secondary mt-2">${categoryName}</span>
                             </div>
                             <div class="card-actions d-flex align-items-center gap-3">
-                              <div class="d_main_button">
-                                <button class="custom-cart-btn" onclick="addToCart(${product.id})">ADD TO CART</button>
+                              <div class="d_main_button w-100">
+                                <button class="custom-cart-btn w-100" onclick="addToCart(${product.id})">ADD TO CART</button>
                                 <div class="d_border"></div>
                               </div>
-                              <i class="fa-regular fa-heart text-white" onclick="toggleWishlist(${product.id})"></i>
-                              <i class="fa-solid fa-ellipsis text-white"></i>
+                        
                             </div>
                           </div>
                         </div>
