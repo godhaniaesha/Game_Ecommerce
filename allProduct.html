@@ -382,12 +382,12 @@
                               <span class="badge bg-secondary mt-2">${categoryName}</span>
                             </div>
                             <div class="card-actions d-flex align-items-center gap-3">
-                              <div class="d_main_button">
-                                <button class="custom-cart-btn" onclick="addToCart(${product.id})">ADD TO CART</button>
+                              <div class="d_main_button w-100">
+                                <button class="custom-cart-btn w-100" onclick="addToCart(${product.id})">ADD TO CART</button>
                                 <div class="d_border"></div>
                               </div>
-                              <i class="fa-regular fa-heart text-white" onclick="toggleWishlist(${product.id})"></i>
-                              <i class="fa-solid fa-ellipsis text-white"></i>
+                              <!-- <i class="fa-regular fa-heart text-white" onclick="toggleWishlist(${product.id})"></i>
+                              <i class="fa-solid fa-ellipsis text-white"></i> -->
                             </div>
                           </div>
                         </div>
@@ -809,6 +809,148 @@
         document.addEventListener('click', () => {
             dbUserDropdown.style.display = 'none';
         });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initial fetch and render
+            fetchAndRenderProducts('featured');
+
+            // Handle sort dropdown click
+            document.querySelectorAll('.s_sort-dropdown .dropdown-item').forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    // Remove active from all, add to selected
+                    document.querySelectorAll('.s_sort-dropdown .dropdown-item').forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                    // Update label
+                    document.getElementById('selectedSort').textContent = this.textContent;
+                    // Fetch and render with selected sort
+                    fetchAndRenderProducts(this.dataset.value);
+                });
+            });
+        });
+
+        function fetchAndRenderProducts(sortType) {
+            Promise.all([
+                fetch("http://localhost:3000/products").then(res => res.json()),
+                fetch("http://localhost:3000/categories").then(res => res.json())
+            ]).then(([products, categories]) => {
+                // Sort products based on sortType
+                let sortedProducts = [...products];
+                switch (sortType) {
+                    case 'name-asc':
+                        sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+                        break;
+                    case 'name-desc':
+                        sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+                        break;
+                    case 'price-asc':
+                        sortedProducts.sort((a, b) => Number(a.price) - Number(b.price));
+                        break;
+                    case 'price-desc':
+                        sortedProducts.sort((a, b) => Number(b.price) - Number(a.price));
+                        break;
+                    // 'featured' or default: no sorting or your own logic
+                    default:
+                        // Optionally, you can shuffle or keep as is for 'featured'
+                        break;
+                }
+                renderProductCards(sortedProducts, categories);
+            });
+        }
+
+        function renderProductCards(products, categories) {
+            const catMap = {};
+            categories.forEach(cat => { catMap[cat.id] = cat.name; });
+            const gridContainer = document.getElementById('gridContainer');
+            gridContainer.innerHTML = "";
+            products.forEach(product => {
+                const categoryName = catMap[product.cat_id] || "Unknown";
+                gridContainer.innerHTML += `
+                    <div class="col-lg-4 col-md-6 col-sm-6 col-12 mb-4 d-flex justify-content-center">
+                      <div class="game-card position-relative" data-id="${product.id}">
+                        <img src="${product.image}" alt="${product.title}" class="card-img-top" />
+                        <div class="position-absolute card-content">
+                          <h3>${product.title}</h3>
+                          <h3 class="mb-0">$${Number(product.price).toFixed(2)}</h3>
+                          <span class="badge bg-secondary mt-2">${categoryName}</span>
+                        </div>
+                        <div class="card-actions d-flex align-items-center gap-3">
+                                <div class="d_main_button w-100">
+                                    <button class="custom-cart-btn w-100" data-id="${product.id}">ADD TO CART</button>
+                                    <div class="d_border"></div>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                `;
+            });
+            // Add click event to all .game-card elements for navigation
+            document.querySelectorAll('.game-card').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    // Prevent navigation if the click was on the ADD TO CART button
+                    if (e.target.closest('.custom-cart-btn')) return;
+                    const id = this.getAttribute('data-id');
+                    localStorage.setItem('item_id', id);
+                    window.location.href = 'singleProduct.html';
+                });
+            });
+            // Add click event to all .custom-cart-btn buttons for cart functionality
+            document.querySelectorAll('.custom-cart-btn').forEach(btn => {
+                btn.addEventListener('click', async function (e) {
+                    e.stopPropagation();
+                    const pro_id = Number(this.getAttribute('data-id'));
+                    console.log('Add to cart clicked, product id:', pro_id);
+                    localStorage.setItem('cart_id', pro_id);
+                    // 1. Get user id from localStorage
+                    const user_id = Number(localStorage.getItem('user_id'));
+                    if (!user_id) {
+                        alert('Please log in to add to cart!');
+                        return;
+                    }
+
+                    // 2. Check if user already has a cart
+                    let cartRes = await fetch(`http://localhost:3000/cart?user_id=${user_id}`);
+                    let carts = await cartRes.json();
+                    let cart = carts[0];
+
+                    if (cart) {
+                        // 3. If cart exists, update products array
+                        let products = cart.products || [];
+                        let found = false;
+                        products = products.map(item => {
+                            if (item.pro_id === pro_id) {
+                                found = true;
+                                return { ...item, quantity: item.quantity + 1 };
+                            }
+                            return item;
+                        });
+                        if (!found) {
+                            products.push({ pro_id, quantity: 1 });
+                        }
+
+                        // 4. Update cart in db
+                        await fetch(`http://localhost:3000/cart/${cart.id}`, {
+                            method: 'PATCH',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ products })
+                        });
+                    } else {
+                        // 5. If no cart, create new cart
+                        await fetch('http://localhost:3000/cart', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                user_id,
+                                products: [{ pro_id, quantity: 1 }]
+                            })
+                        });
+                    }
+
+                    alert('Added to cart!');
+                });
+            });
+        }
     </script>
 </body>
 
