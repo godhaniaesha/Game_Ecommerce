@@ -184,7 +184,15 @@
       "user_id": 2,
       "products": [
         {
-          "pro_id": 5,
+          "pro_id": 2,
+          "quantity": 2
+        },
+        {
+          "pro_id": 9,
+          "quantity": 1
+        },
+        {
+          "pro_id": 8,
           "quantity": 1
         }
       ]

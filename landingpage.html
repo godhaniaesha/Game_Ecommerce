@@ -785,7 +785,7 @@
                 // Render cards in .d_coming_card format
                 const container = document.getElementById('recentProducts');
                 container.innerHTML = lastFour.map(product => `
-                    <div class="d_coming_card" data-date="2025-12-20T00:00:00">
+                    <div class="d_coming_card" data-date="2025-12-20T00:00:00" data-id="${product.id}" style="cursor: pointer;">
                         <div class="d_coming_card_img">
                             <span class="d_release_tag">Dec 20, 2025</span>
                             <img src="${product.image}" alt="${product.title}">
@@ -802,6 +802,15 @@
                         </div>
                     </div>
                 `).join('');
+
+                // Add click event listeners to upcoming game cards
+                document.querySelectorAll('.d_coming_card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const productId = this.getAttribute('data-id');
+                        localStorage.setItem('item_id', productId);
+                        window.location.href = 'singleProduct.html';
+                    });
+                });
 
                 // Re-initialize Slick slider
                 $('#recentProducts').slick('unslick'); // destroy if already initialized

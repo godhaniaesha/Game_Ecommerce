@@ -112,9 +112,11 @@
                             <div class="x_product-price mb-3">£95.00</div>
                             <div class="d-flex align-items-center mb-3 ">
 
-                                <button class="btn btn-outline-light x_add-cart-btn px-md-4 px-3 me-3">BUY NOW</button>
+                                <button class="btn btn-outline-light x_add-cart-btn px-md-4 px-3 me-3"
+                                    data-bs-toggle="modal" data-bs-target="#paymentModal">BUY NOW</button>
 
-                                <button class="btn btn-outline-light x_add-cart-btn px-md-4 px-3">ADD TO CART</button>
+                                <button class="btn btn-outline-light x_add-cart-btn px-md-4 px-3"
+                                    onclick="addToCart()">ADD TO CART</button>
                             </div>
                             <div class="x_product-meta x_line_tb mb-2">
                                 <div>SKU: 004</div>
@@ -239,6 +241,127 @@
             </div>
         </div>
     </section>
+
+    <!-- Payment Modal 1 - Choose Payment Method -->
+    <div class="modal fade " id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered ">
+            <div class="modal-content payment_model_bg">
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title mb-3" id="paymentModalLabel">
+                        Choose payment method
+                    </h5>
+                    <button type="button" class="btn-close mb-2" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body pt-1">
+                    <div class="payment-method active" data-value="visa">
+                        <div class="method-details">
+                            <img src="https://img.icons8.com/color/48/visa.png" alt="Visa" />
+                            <div class="method-label">Visa</div>
+                        </div>
+                        <div class="custom-radio"></div>
+                    </div>
+
+                    <div class="payment-method" data-value="mastercard">
+                        <div class="method-details">
+                            <img src="https://img.icons8.com/color/48/mastercard.png" alt="Mastercard" />
+                            <div class="method-label">Master Card</div>
+                        </div>
+                        <div class="custom-radio"></div>
+                    </div>
+
+                    <div class="payment-method" data-value="discover">
+                        <div class="method-details">
+                            <img src="https://img.icons8.com/color/48/discover.png" alt="Discover" />
+                            <div class="method-label">Discover</div>
+                        </div>
+                        <div class="custom-radio"></div>
+                    </div>
+
+                    <div class="payment-method" data-value="paypal">
+                        <div class="method-details">
+                            <img src="https://img.icons8.com/color/48/paypal.png" alt="PayPal" />
+                            <div class="method-label">PayPal</div>
+                        </div>
+                        <div class="custom-radio"></div>
+                    </div>
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn cancel-btn" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="button" class="btn confirm-btn" id="db_continue_btn">
+                        <a style="text-decoration: none; color: inherit;">Continue</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Modal 2 - Payment Details -->
+    <div class="modal fade" id="paymentModal2" tabindex="-1" aria-labelledby="paymentModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-transparent border-0">
+
+                <div class="modal-body ">
+                    <div class="payment-card">
+                        <div class="payment-card-body payment_model_bg text-white">
+                            <a data-bs-target="#paymentModal" data-bs-dismiss="#paymentModal2" data-bs-toggle="modal"
+                                class="back-link">&larr; Go Back</a>
+                            <h4 class="section-title">Payment details</h4>
+
+                            <div class="mb-3">
+                                <label class="form-label">Name on card</label>
+                                <input type="text" class="form-control" placeholder="Abigail Lorincz" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Card number</label>
+                                <input type="text" class="form-control" placeholder="1234 5678 9012 3456" />
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6 mb-3">
+                                    <label class="form-label">Expiry</label>
+                                    <input type="text" class="form-control" placeholder="08 / 2024" />
+                                </div>
+                                <div class="col-6 mb-3">
+                                    <label class="form-label">CVV</label>
+                                    <input type="password" class="form-control" placeholder="•••" />
+                                </div>
+                            </div>
+
+                            <div class="promo-code checkbox-item">
+                                <div class="custom-checkbox"></div>
+                                <label class="checkbox-label cursor-pointer">Enter a promo code</label>
+                            </div>
+
+                            <div class="summary">
+                                <div class="row">
+                                    <div class="col">Subtotal</div>
+                                    <div class="col text-end" id="paymentSubtotal">£0.00</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">Sales tax</div>
+                                    <div class="col text-end" id="paymentTax">£0.00</div>
+                                </div>
+                                <div class="row total">
+                                    <div class="col">Total</div>
+                                    <div class="col text-end" id="paymentTotal">£0.00</div>
+                                </div>
+                            </div>
+
+                            <button class="btn confirm-btn w-100 mt-3">Place your order</button>
+
+                            <div class="terms">Review the <a href="#" class="text-white">terms and conditions</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="d_footer text-white">
         <div class="container py-md-3 ">
             <div class="row gy-4">
@@ -460,7 +583,7 @@
             const swiperCards = document.getElementById('swiperCards');
             swiperCards.innerHTML = cardsData.map(card => `
                 <div class="swiper-slide d-flex justify-content-center">
-                    <div class="game-card position-relative">
+                    <div class="game-card position-relative" data-id="${card.id}" style="cursor: pointer;">
                         <img src="${card.image}" alt="${card.title}" class="card-img-top" />
                         <div class="position-absolute card-content">
                             <div class="icons d-flex gap-2 mb-3">
@@ -472,7 +595,7 @@
                         </div>
                         <div class="card-actions d-flex align-items-center gap-3 ">
                             <div class="d_main_button w-100">
-                                <button class="custom-cart-btn w-100">ADD TO CART</button>
+                                <button class="custom-cart-btn w-100" data-id="${card.id}">ADD TO CART</button>
                                 <div class="d_border"></div>
                             </div>
                            
@@ -480,6 +603,29 @@
                     </div>
                 </div>
             `).join('');
+
+            // Add click event listeners to slider cards
+            document.querySelectorAll('.game-card').forEach(card => {
+                card.addEventListener('click', function (e) {
+                    // Don't trigger if clicking on ADD TO CART button
+                    if (e.target.closest('.custom-cart-btn')) {
+                        return;
+                    }
+
+                    const productId = this.getAttribute('data-id');
+                    localStorage.setItem('item_id', productId);
+                    window.location.href = 'singleProduct.html';
+                });
+            });
+
+            // Add click event listeners to ADD TO CART buttons
+            document.querySelectorAll('.custom-cart-btn').forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Prevent card click
+                    const productId = this.getAttribute('data-id');
+                    addToCartFromSlider(productId);
+                });
+            });
         }
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -519,7 +665,7 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             const itemId = localStorage.getItem('item_id');
             if (!itemId) {
                 alert('No product selected!');
@@ -547,6 +693,242 @@
                 alert('Error loading product');
                 window.location.href = 'allProduct.html';
             }
+        });
+    </script>
+    <script>
+        // Function to add product to cart
+        async function addToCart() {
+            try {
+                // Get user_id from localStorage
+                const userId = localStorage.getItem('user_id');
+                if (!userId) {
+                    alert('Please log in to add items to cart');
+                    window.location.href = './auth/Login.html';
+                    return;
+                }
+
+                // Get product ID from localStorage
+                const productId = localStorage.getItem('item_id');
+                if (!productId) {
+                    alert('No product selected!');
+                    return;
+                }
+
+                console.log('Adding product ID:', productId, 'to cart for user ID:', userId);
+
+                // 1. Check if user already has a cart
+                const cartRes = await fetch(`http://localhost:4000/cart?user_id=${userId}`);
+                if (!cartRes.ok) {
+                    throw new Error('Failed to fetch cart');
+                }
+                const carts = await cartRes.json();
+                let cart = carts[0];
+
+                // 2. If no cart exists, create a new one
+                if (!cart) {
+                    const newCartRes = await fetch('http://localhost:4000/cart', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            user_id: Number(userId),
+                            products: [{
+                                pro_id: Number(productId),
+                                quantity: 1
+                            }]
+                        })
+                    });
+
+                    if (!newCartRes.ok) {
+                        throw new Error('Failed to create cart');
+                    }
+
+                    cart = await newCartRes.json();
+                    console.log('New cart created:', cart);
+                } else {
+                    // 3. If cart exists, check if product is already in cart
+                    const existingProduct = cart.products.find(item => Number(item.pro_id) === Number(productId));
+
+                    if (existingProduct) {
+                        // Product already exists, increase quantity
+                        existingProduct.quantity += 1;
+                    } else {
+                        // Add new product to cart
+                        cart.products.push({
+                            pro_id: Number(productId),
+                            quantity: 1
+                        });
+                    }
+
+                    // 4. Update the existing cart
+                    const updateRes = await fetch(`http://localhost:4000/cart/${cart.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            products: cart.products
+                        })
+                    });
+
+                    if (!updateRes.ok) {
+                        throw new Error('Failed to update cart');
+                    }
+
+                    console.log('Cart updated successfully');
+                }
+
+                alert('Product added to cart successfully!');
+
+                // Optionally redirect to cart page
+                // window.location.href = './Cart.html';
+
+            } catch (error) {
+                console.error('Error adding to cart:', error);
+                alert('Error adding product to cart: ' + error.message);
+            }
+        }
+
+        // Function to add product to cart from slider
+        async function addToCartFromSlider(productId) {
+            try {
+                // Get user_id from localStorage
+                const userId = localStorage.getItem('user_id');
+                if (!userId) {
+                    alert('Please log in to add items to cart');
+                    window.location.href = './auth/Login.html';
+                    return;
+                }
+
+                console.log('Adding product ID:', productId, 'to cart for user ID:', userId);
+
+                // 1. Check if user already has a cart
+                const cartRes = await fetch(`http://localhost:4000/cart?user_id=${userId}`);
+                if (!cartRes.ok) {
+                    throw new Error('Failed to fetch cart');
+                }
+                const carts = await cartRes.json();
+                let cart = carts[0];
+
+                // 2. If no cart exists, create a new one
+                if (!cart) {
+                    const newCartRes = await fetch('http://localhost:4000/cart', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            user_id: Number(userId),
+                            products: [{
+                                pro_id: Number(productId),
+                                quantity: 1
+                            }]
+                        })
+                    });
+
+                    if (!newCartRes.ok) {
+                        throw new Error('Failed to create cart');
+                    }
+
+                    cart = await newCartRes.json();
+                    console.log('New cart created:', cart);
+                } else {
+                    // 3. If cart exists, check if product is already in cart
+                    const existingProduct = cart.products.find(item => Number(item.pro_id) === Number(productId));
+
+                    if (existingProduct) {
+                        // Product already exists, increase quantity
+                        existingProduct.quantity += 1;
+                    } else {
+                        // Add new product to cart
+                        cart.products.push({
+                            pro_id: Number(productId),
+                            quantity: 1
+                        });
+                    }
+
+                    // 4. Update the existing cart
+                    const updateRes = await fetch(`http://localhost:4000/cart/${cart.id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            products: cart.products
+                        })
+                    });
+
+                    if (!updateRes.ok) {
+                        throw new Error('Failed to update cart');
+                    }
+
+                    console.log('Cart updated successfully');
+                }
+
+                alert('Product added to cart successfully!');
+
+            } catch (error) {
+                console.error('Error adding to cart:', error);
+                alert('Error adding product to cart: ' + error.message);
+            }
+        }
+    </script>
+    <script>
+        // Payment modal functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            const dbContinueBtn = document.getElementById("db_continue_btn");
+            const modal1El = document.getElementById("paymentModal");
+            const modal2El = document.getElementById("paymentModal2");
+            const modal2 = new bootstrap.Modal(modal2El);
+
+            // Handle continue button
+            dbContinueBtn.addEventListener("click", () => {
+                bootstrap.Modal.getInstance(modal1El)?.hide();
+                modal2.show();
+            });
+
+            // Handle payment method selection
+            const methods = document.querySelectorAll(".payment-method");
+            methods.forEach(method => {
+                method.addEventListener("click", () => {
+                    methods.forEach(m => m.classList.remove("active"));
+                    method.classList.add("active");
+                });
+            });
+
+            // Handle promo code checkbox
+            const promoCheckbox = document.querySelector(".promo-code");
+            if (promoCheckbox) {
+                promoCheckbox.addEventListener("click", function () {
+                    promoCheckbox.classList.toggle("active");
+                });
+            }
+
+            // Update payment summary with product price
+            async function updatePaymentSummary() {
+                try {
+                    const itemId = localStorage.getItem('item_id');
+                    if (itemId) {
+                        const res = await fetch(`http://localhost:4000/products/${itemId}`);
+                        if (res.ok) {
+                            const product = await res.json();
+                            const price = Number(product.price);
+                            const tax = price * 0.06; // 6% tax
+                            const total = price + tax;
+
+                            document.getElementById('paymentSubtotal').textContent = `£${price.toFixed(2)}`;
+                            document.getElementById('paymentTax').textContent = `£${tax.toFixed(2)}`;
+                            document.getElementById('paymentTotal').textContent = `£${total.toFixed(2)}`;
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error updating payment summary:', error);
+                }
+            }
+
+            // Update payment summary when modal opens
+            modal1El.addEventListener('show.bs.modal', updatePaymentSummary);
         });
     </script>
 </body>
