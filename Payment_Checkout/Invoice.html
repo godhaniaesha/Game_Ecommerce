@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="../css/d_style.css">
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/s_style.css" />
+    <link rel="stylesheet" href="../css/z_style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", Arial, sans-serif;
+            /* backgroun/d: #181818; */
+            background: url("../images/Cart.jpg") bottom center / cover no-repeat;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="d_main">
+        <!-- Header -->
+        <header class="d_header d-flex align-items-center justify-content-between">
+            <div class="d_logo">
+                <img src="../images/yoyo logo done.png" style="padding: 7px; height: 60px;" alt="logo" class="img-fluid">
+            </div>
+
+            <!-- Desktop Nav -->
+            <nav class="d_navbar navbar navbar-expand-lg d-none d-lg-flex">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="landingpage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
+                </ul>
+
+                <form class="d_search_form ">
+                    <input type="search" placeholder="Search games..." />
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+
+                <div class="d_social_icons me-3">
+                    <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
+                </div>
+
+                <div class="d_user_icon_wrapper position-relative">
+                    <div class="d_user_icon" id="db_user_icon" title="User Profile">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+
+                    <div class="d_user_dropdown" id="db_user_dropdown">
+                        <ul>
+                            <li><a href="./auth/Login.html">Sign in</a></li>
+                            <li><a href="./auth/ForgetPass.html">Change Password</a></li>
+                            <li><a href="Profile.html">My Profile</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+
+            <!-- Mobile Toggler -->
+            <button class="d_toggler_btn d-lg-none" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </header>
+
+        <!-- Offcanvas Mobile Menu -->
+        <aside class="d_offcanvas_menu" id="d_offcanvas_menu">
+            <button class="close_btn" aria-label="Close Menu">&times;</button>
+            <nav>
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link active" href="landingpage.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
+                </ul>
+            </nav>
+            <form class="d_search_form_offcanvas">
+                <input type="search" placeholder="Search games..." />
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <div class="d_social_icons_offcanvas">
+                <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
+                <a href="Profile.html"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </aside>
+    </div>
+    <div class="x_invoice-container"
+        style="max-width: 700px; margin: 40px auto; background: #181818; border-radius: 12px; box-shadow: 0 0 24px #000a; padding: 40px 32px;">
+        <div class="x_invoice-header"
+            style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ad9d79; padding-bottom: 18px; margin-bottom: 32px;">
+            <div>
+                <h1 style="margin: 0; color: #ad9d79; font-size: 2.2rem;">INVOICE</h1>
+                <div style="color: #cfcfcf; font-size: 1.1rem; margin-top: 6px;">Order #01</div>
+                <div style="color: #8f99a3; font-size: 0.98rem;">Date: 2025-07-16</div>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-size: 1.2rem; color: #fffbe6; font-weight: 600;">YOYO</div>
+                <div style="color: #cfcfcf; font-size: 1rem;">info@yoyokhel.com</div>
+                <div style="color: #cfcfcf; font-size: 1rem;">1800 9797 6361</div>
+            </div>
+        </div>
+        <div class="x_invoice-address" style="display: flex; justify-content: space-between; margin-bottom: 32px;">
+            <div>
+                <div style="color: #ad9d79; font-weight: 500; margin-bottom: 4px;">Billed To:</div>
+                <div style="color: #fff; font-size: 1.05rem;">Aesha Patel</div>
+                <div style="color: #cfcfcf; font-size: 0.98rem;">aesha.patel@gmail.com</div>
+                <div style="color: #cfcfcf; font-size: 0.98rem;">Ahmedabad, Gujarat</div>
+            </div>
+            <div>
+                <div style="color: #ad9d79; font-weight: 500; margin-bottom: 4px;">Payment Method:</div>
+                <div style="color: #fff; font-size: 1.05rem;">Credit Card</div>
+                <div style="color: #cfcfcf; font-size: 0.98rem;">**** **** **** 0128</div>
+            </div>
+        </div>
+        <table class="x_invoice-table" style="width: 100%; border-collapse: collapse; margin-bottom: 32px;">
+            <thead>
+                <tr style="background: #222; color: #ad9d79;">
+                    <th style="padding: 12px 8px; text-align: left;">Item</th>
+                    <th style="padding: 12px 8px; text-align: right;">Qty</th>
+                    <th style="padding: 12px 8px; text-align: right;">Unit Price</th>
+                    <th style="padding: 12px 8px; text-align: right;">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="border-bottom: 1px solid #444;">
+                    <td style="padding: 10px 8px; color: #fff;">Elden Ring (PC)</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #cfcfcf;">1</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #cfcfcf;">₹3,999</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #fff;">₹3,999</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #444;">
+                    <td style="padding: 10px 8px; color: #fff;">God of War (PS5)</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #cfcfcf;">2</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #cfcfcf;">₹2,499</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #fff;">₹4,998</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3" style="padding: 10px 8px; text-align: right; color: #ad9d79; font-weight: 600;">
+                        Subtotal</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #fff; font-weight: 600;">₹8,997</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 10px 8px; text-align: right; color: #ad9d79;">GST (18%)</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #fff;">₹1,619</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="padding: 10px 8px; text-align: right; color: #ad9d79; font-size: 1.1rem;">
+                        Total</td>
+                    <td style="padding: 10px 8px; text-align: right; color: #fff; font-size: 1.1rem; font-weight: 700;">
+                        ₹10,616</td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="x_invoice-footer" style="text-align: center; color: #8f99a3; font-size: 1rem; margin-top: 32px;">
+            Thank you for your purchase!<br>
+            <span style="color: #ad9d79;">Yoyo Khel</span> | www.yoyokhel.com
+        </div>
+    </div>
+    <div class="text-center my-4">
+        <button class="db_view_all_btn me-2" id="downloadInvoiceBtn"><i class="fa fa-download me-1"></i>Download</button>
+        <button class="db_view_all_btn" onclick="window.history.back()"><i class="fa fa-times me-1"></i>Cancel</button>
+    </div>
+
+    <!-- Footer from Payment.html -->
+    <footer class="d_footer text-white">
+        <div class="container py-md-3 ">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h4 class="d_footer-logo mb-3">GAMEFORGE</h4>
+                    <p class="d_footer_text">A realm where ancient horrors dwell and forgotten heroes rise again.
+                        Unleash your
+                        legend in the shadows.</p>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h5 class="text-white mb-3">Quick Links</h5>
+                    <ul class="list-unstyled d_footer-links">
+                        <li><a href="landingpage.html" class="active">Home</a></li>
+                        <li><a href="allProduct.html">Games</a></li>
+                        <li><a href="About_us.html">About</a></li>
+                        <li><a href="Contact_us.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 col-6">
+                    <h5 class="text-white mb-3">Our Policy</h5>
+                    <ul class="list-unstyled d_footer-links">
+                        <li><a href="landingpage.html" class="active">Home</a></li>
+                        <li><a href="Contact_us.html">Blog</a></li>
+                        <li><a href="Privacy.html">Privacy</a></li>
+                        <li><a href="services.html">Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="text-white mb-3">Contact</h5>
+                    <ul class="list-unstyled d_footer-links d_footer_text">
+                        <li><i class="fas fa-envelope me-2"></i> support@gameforge.com</li>
+                        <li><i class="fas fa-phone me-2"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-location-dot me-2"></i> GameForge HQ, Darkrealm</li>
+                    </ul>
+                    <div class="d_footer-social mt-3">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-discord"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4" />
+            <div class="text-center d_footer_text small">
+                &copy; 2025 GAMEFORGE. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jsPDF and html2canvas CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        document.getElementById('downloadInvoiceBtn').addEventListener('click', function () {
+            const invoice = document.querySelector('.x_invoice-container');
+            html2canvas(invoice, { scale: 2, useCORS: true }).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new window.jspdf.jsPDF({ orientation: 'p', unit: 'pt', format: 'a4' });
+                // Calculate width/height for A4
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
+                const imgWidth = pageWidth - 40; // 20pt margin each side
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                let y = 20;
+                if (imgHeight > pageHeight - 40) {
+                    // Multi-page
+                    let position = 20;
+                    let remainingHeight = imgHeight;
+                    while (remainingHeight > 0) {
+                        pdf.addImage(imgData, 'PNG', 20, position, imgWidth, imgHeight);
+                        remainingHeight -= (pageHeight - 40);
+                        if (remainingHeight > 0) {
+                            pdf.addPage();
+                            position = 0;
+                        }
+                    }
+                } else {
+                    pdf.addImage(imgData, 'PNG', 20, y, imgWidth, imgHeight);
+                }
+                pdf.save('invoice.pdf');
+            });
+        });
+    </script>
+</body>
+
+</html>
