@@ -175,6 +175,97 @@ body {
   transform: scale(1.05);
 }
 
+.btn_gem{
+  background-color: #8a775a;
+  border: 1px solid #8a775a;
+  border-radius: 20px;
+  color: #fff;
+  padding: 5px 20px;
+  text-decoration: none;
+   
+}
+
+/* Modern Flat Pagination Style */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 32px 0 16px 0;
+  list-style: none;
+  padding: 0;
+  background: none;
+}
+
+.pagination li {
+  display: inline-block;
+}
+
+.pagination a,
+.pagination span {
+  display: inline-block;
+  min-width: 30px;
+  height: 40px;
+  line-height: 25px !important;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #8a775a;
+  background: transparent;
+  border: 2px solid #8a775a;
+  border-radius: 8px;
+  margin: 0 2px;
+  text-decoration: none;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.pagination a:hover,
+.pagination .active a,
+.pagination .active span {
+  background: #685641 !important;
+  color: #fff;
+  border-color: #685641 !important;
+  transform: none;
+}
+
+.pagination .active a,
+.pagination .active span {
+  background: #685641 !important;
+  color: #fff;
+  border-color: #685641 !important;
+  pointer-events: none;
+}
+
+.pagination .disabled a,
+.pagination .disabled span {
+  color: #685641;
+  border-color: #685641;
+  background: #23282e;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pagination .page-link i {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+@media (max-width: 576px) {
+  .pagination a,
+  .pagination span {
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+  .pagination .page-link i {
+    font-size: 15px;
+  }
+}
+
 @media (max-width: 576px) {
   .game-card {
     width: 98vw;
