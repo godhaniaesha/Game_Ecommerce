@@ -22,12 +22,19 @@
 
             <!-- Desktop Nav -->
             <nav class="d_navbar navbar navbar-expand-lg d-none d-lg-flex">
-               <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="./landingpage.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="./blog.html">Blog</a></li> -->
                     <li class="nav-item"><a class="nav-link " href="./About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="#">Contact</a></li>
+                    <li class="nav-item px-2">
+                        <a href="/gx_ai/index.html">
+                            <button class="d_search_form btn_gem">
+                                GeminaX
+                            </button>
+                        </a>
+                    </li>
                 </ul>
 
                 <form class="d_search_form ">
@@ -39,7 +46,7 @@
                     <a href="./Cart.html"><i class="fa fa-cart-plus"></i></a>
                 </div>
 
-                 <div class="d_user_icon_wrapper position-relative">
+                <div class="d_user_icon_wrapper position-relative">
                     <div class="d_user_icon" id="db_user_icon" title="User Profile">
                         <i class="fas fa-user-circle"></i>
                     </div>
@@ -64,13 +71,22 @@
         <!-- Offcanvas Mobile Menu -->
         <aside class="d_offcanvas_menu" id="d_offcanvas_menu">
             <button class="close_btn" aria-label="Close Menu">&times;</button>
-            <nav> <ul class="navbar-nav me-auto">
+            <nav>
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link " href="landingpage.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li> -->
                     <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="./Contact_us.html">Contact</a></li>
-                </ul></nav>
+                    <li class="nav-item">
+                        <a href="/gx_ai/index.html">
+                            <button class="d_search_form btn_gem">
+                                GeminaX
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
             <form class="d_search_form_offcanvas">
                 <input type="search" placeholder="Search games..." />
                 <button type="submit"><i class="fas fa-search"></i></button>
@@ -175,7 +191,7 @@
         </section>
     </div>
 
-     <footer class="d_footer text-white">
+    <footer class="d_footer text-white">
         <div class="container py-md-3 ">
             <div class="row gy-4">
                 <div class="col-md-4">
@@ -193,7 +209,7 @@
                         <li><a href="Contact_us.html" class="active">Contact</a></li>
                     </ul>
                 </div>
-             <div class="col-md-2 col-6">
+                <div class="col-md-2 col-6">
                     <h5 class="text-white mb-3">Our Policy</h5>
                     <ul class="list-unstyled d_footer-links">
                         <li><a href="landingpage.html">Home</a></li>
@@ -240,7 +256,7 @@
     </script>
     <script>
         // Show first letter of user email in user icon if logged in
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             const userId = localStorage.getItem('user_id');
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {
@@ -259,7 +275,7 @@
         });
     </script>
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const name = this.querySelector('input[placeholder="Name*"]').value;
             const email = this.querySelector('input[placeholder="Email*"]').value;
@@ -271,12 +287,12 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ name, email, discord, message })
             })
-            .then(res => res.json())
-            .then(data => {
-                window.location.href = 'About_us.html';
-                this.reset();
-            })
-            .catch(err => alert('Error sending message'));
+                .then(res => res.json())
+                .then(data => {
+                    window.location.href = 'About_us.html';
+                    this.reset();
+                })
+                .catch(err => alert('Error sending message'));
         });
     </script>
     <script>
@@ -320,7 +336,7 @@
             });
         })();
     </script>
-     <script>
+    <script>
         const dbUserIcon = document.getElementById('db_user_icon');
         const dbUserDropdown = document.getElementById('db_user_dropdown');
 
