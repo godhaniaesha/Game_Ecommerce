@@ -257,9 +257,10 @@ body {
   .pagination span {
     min-width: 28px;
     height: 28px;
-    line-height: 28px;
+    line-height: 13px !important;
     font-size: 13px;
     border-radius: 6px;
+    padding: 7px;
   }
   .pagination .page-link i {
     font-size: 15px;

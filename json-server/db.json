@@ -216,6 +216,881 @@
         4
       ],
       "cat_id": 1
+    },
+     {
+      "id": "1",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "2",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "3",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "4",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "5",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "6",
+      "title": "Cyberpunk 2077",
+      "price": 159.99,
+      "image": "/images/card_img6.png",
+      "description": "Futuristic RPG adventure",
+      "technology_ids": [
+        3,
+        1
+      ],
+      "cat_id": 5
+    },
+    {
+      "id": "7",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "price": 120,
+      "image": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+      "description": "Open-world action-adventure game set in Hyrule.",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 2
+    },
+    {
+      "id": "8",
+      "title": "Among Us",
+      "price": 15,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+      "description": "Multiplayer social deduction game.",
+      "technology_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "cat_id": 3
+    },
+    {
+      "id": "9",
+      "title": "Forza Horizon 5",
+      "price": 110,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
+      "description": "Open-world racing game with stunning visuals.",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 4
+    },
+    {
+      "id": "10",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "11",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "12",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "13",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "14",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+     {
+      "id": "1",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "2",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "3",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "4",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "5",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "6",
+      "title": "Cyberpunk 2077",
+      "price": 159.99,
+      "image": "/images/card_img6.png",
+      "description": "Futuristic RPG adventure",
+      "technology_ids": [
+        3,
+        1
+      ],
+      "cat_id": 5
+    },
+    {
+      "id": "7",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "price": 120,
+      "image": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+      "description": "Open-world action-adventure game set in Hyrule.",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 2
+    },
+    {
+      "id": "8",
+      "title": "Among Us",
+      "price": 15,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+      "description": "Multiplayer social deduction game.",
+      "technology_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "cat_id": 3
+    },
+    {
+      "id": "9",
+      "title": "Forza Horizon 5",
+      "price": 110,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
+      "description": "Open-world racing game with stunning visuals.",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 4
+    },
+    {
+      "id": "10",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "11",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "12",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "13",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "14",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+     {
+      "id": "1",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "2",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "3",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "4",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "5",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "6",
+      "title": "Cyberpunk 2077",
+      "price": 159.99,
+      "image": "/images/card_img6.png",
+      "description": "Futuristic RPG adventure",
+      "technology_ids": [
+        3,
+        1
+      ],
+      "cat_id": 5
+    },
+    {
+      "id": "7",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "price": 120,
+      "image": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+      "description": "Open-world action-adventure game set in Hyrule.",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 2
+    },
+    {
+      "id": "8",
+      "title": "Among Us",
+      "price": 15,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+      "description": "Multiplayer social deduction game.",
+      "technology_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "cat_id": 3
+    },
+    {
+      "id": "9",
+      "title": "Forza Horizon 5",
+      "price": 110,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
+      "description": "Open-world racing game with stunning visuals.",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 4
+    },
+    {
+      "id": "10",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "11",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "12",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "13",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "14",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+     {
+      "id": "1",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "2",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "3",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "4",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "5",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "6",
+      "title": "Cyberpunk 2077",
+      "price": 159.99,
+      "image": "/images/card_img6.png",
+      "description": "Futuristic RPG adventure",
+      "technology_ids": [
+        3,
+        1
+      ],
+      "cat_id": 5
+    },
+    {
+      "id": "7",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "price": 120,
+      "image": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+      "description": "Open-world action-adventure game set in Hyrule.",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 2
+    },
+    {
+      "id": "8",
+      "title": "Among Us",
+      "price": 15,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+      "description": "Multiplayer social deduction game.",
+      "technology_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "cat_id": 3
+    },
+    {
+      "id": "9",
+      "title": "Forza Horizon 5",
+      "price": 110,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
+      "description": "Open-world racing game with stunning visuals.",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 4
+    },
+    {
+      "id": "10",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "11",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "12",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "13",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "14",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+     {
+      "id": "1",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "2",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "3",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "4",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "5",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "6",
+      "title": "Cyberpunk 2077",
+      "price": 159.99,
+      "image": "/images/card_img6.png",
+      "description": "Futuristic RPG adventure",
+      "technology_ids": [
+        3,
+        1
+      ],
+      "cat_id": 5
+    },
+    {
+      "id": "7",
+      "title": "The Legend of Zelda: Breath of the Wild",
+      "price": 120,
+      "image": "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_2.0/c_scale,w_400/ncom/en_US/games/switch/t/the-legend-of-zelda-breath-of-the-wild-switch/hero",
+      "description": "Open-world action-adventure game set in Hyrule.",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 2
+    },
+    {
+      "id": "8",
+      "title": "Among Us",
+      "price": 15,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg",
+      "description": "Multiplayer social deduction game.",
+      "technology_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "cat_id": 3
+    },
+    {
+      "id": "9",
+      "title": "Forza Horizon 5",
+      "price": 110,
+      "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg",
+      "description": "Open-world racing game with stunning visuals.",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 4
+    },
+    {
+      "id": "10",
+      "title": "The Elder Scrolls V Skyrim",
+      "price": 144,
+      "image": "/images/card_img1.png",
+      "description": "Epic fantasy adventure game",
+      "technology_ids": [
+        1,
+        3
+      ],
+      "cat_id": 1
+    },
+    {
+      "id": "11",
+      "title": "Grand Theft Auto V",
+      "price": 89.99,
+      "image": "/images/card_img2.png",
+      "description": "Open world action adventure",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 8
+    },
+    {
+      "id": "12",
+      "title": "Call of Duty: Modern Warfare",
+      "price": 129,
+      "image": "/images/card_img3.png",
+      "description": "First-person shooter game",
+      "technology_ids": [
+        3,
+        2
+      ],
+      "cat_id": 7
+    },
+    {
+      "id": "13",
+      "title": "FIFA 24",
+      "price": 99.99,
+      "image": "/images/card_img4.png",
+      "description": "Football simulation game",
+      "technology_ids": [
+        2,
+        3,
+        4
+      ],
+      "cat_id": 6
+    },
+    {
+      "id": "14",
+      "title": "Assassin's Creed Valhalla",
+      "price": 79.99,
+      "image": "/images/card_img5.png",
+      "description": "Viking action RPG adventure",
+      "technology_ids": [
+        3,
+        4
+      ],
+      "cat_id": 1
     }
   ],
   "technology": [

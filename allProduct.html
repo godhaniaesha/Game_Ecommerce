@@ -36,75 +36,6 @@
             }
         }
 
-        /* Custom Pagination Styles */
-        .pagination {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 8px;
-          margin: 32px 0 16px 0;
-          list-style: none;
-          padding: 0;
-        }
-
-        .pagination li {
-          display: inline-block;
-        }
-
-        .pagination a,
-        .pagination span {
-          display: inline-block;
-          min-width: 36px;
-          height: 36px;
-          line-height: 36px;
-          text-align: center;
-          font-size: 16px;
-          font-weight: 500;
-          color: #8a775a;
-          background: #fff;
-          border: 1px solid #8a775a;
-          border-radius: 8px;
-          margin: 0 2px;
-          text-decoration: none;
-          transition: all 0.2s;
-          cursor: pointer;
-        }
-
-        .pagination a:hover,
-        .pagination .active a,
-        .pagination .active span {
-          background: linear-gradient(135deg, #8a775a, #5e4d3a);
-          color: #fff;
-          border-color: #5e4d3a;
-          transform: scale(1.08);
-        }
-
-        .pagination .disabled a,
-        .pagination .disabled span {
-          color: #ccc;
-          border-color: #eee;
-          background: #f8f8f8;
-          cursor: not-allowed;
-        }
-
-        .pagination .page-link i {
-          font-size: 18px;
-          vertical-align: middle;
-        }
-
-        @media (max-width: 576px) {
-          .pagination a,
-          .pagination span {
-            min-width: 28px;
-            height: 28px;
-            line-height: 28px;
-            font-size: 13px;
-            border-radius: 6px;
-          }
-          .pagination .page-link i {
-            font-size: 15px;
-          }
-        }
     </style>
 </head>
 
@@ -329,14 +260,10 @@
                     </div>
 
                     <!-- Grid View -->
-                    <div id="gridContainer" class="row"></div>
+                    <div id="gridContainer" class="row product-list"></div>
 
-                    <!-- Pagination Bar -->
-                    <nav aria-label="Product pagination" class="mt-4">
-                      <ul class="pagination justify-content-center" id="paginationBar">
-                        <!-- Pagination items will be injected here by JS -->
-                      </ul>
-                    </nav>
+                    <ul class="pagination" id="pagination"></ul>
+
                 </div>
             </div>
         </div>
@@ -392,13 +319,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     
+    
+
     <script>
         // Global variables
-        const PRODUCTS_PER_PAGE = 12;
         let allProducts = [];
         let allCategories = [];
         let filteredProducts = [];
-        let currentPage = 1;
         let currentSort = 'featured';
 
         // Initialize the application
@@ -466,7 +393,6 @@
             applySorting();
             
             // Reset to first page when filters change
-            currentPage = 1;
             renderProducts();
         }
 
@@ -492,34 +418,39 @@
 
         function renderProducts() {
             const gridContainer = document.getElementById('gridContainer');
-            const paginationBar = document.getElementById('paginationBar');
             const productCount = document.getElementById('productCount');
+            const pagination = document.getElementById('pagination');
             
             // Clear containers
             gridContainer.innerHTML = "";
-            paginationBar.innerHTML = "";
+            pagination.innerHTML = "";
 
-            // Calculate pagination
+            const productsPerPage = 12;
             const totalProducts = filteredProducts.length;
-            const totalPages = Math.ceil(totalProducts / PRODUCTS_PER_PAGE);
+            const totalPages = Math.ceil(totalProducts / productsPerPage);
             
-            // Ensure current page is valid
-            if (currentPage > totalPages) currentPage = totalPages;
+            // Get current page from URL or default to 1
+            const urlParams = new URLSearchParams(window.location.search);
+            let currentPage = parseInt(urlParams.get('page')) || 1;
             if (currentPage < 1) currentPage = 1;
+            if (currentPage > totalPages) currentPage = totalPages;
+
+            // Calculate start and end indices
+            const startIndex = (currentPage - 1) * productsPerPage;
+            const endIndex = Math.min(startIndex + productsPerPage, totalProducts);
             
-            const startIdx = (currentPage - 1) * PRODUCTS_PER_PAGE;
-            const endIdx = startIdx + PRODUCTS_PER_PAGE;
-            const productsToShow = filteredProducts.slice(startIdx, endIdx);
+            // Get products for current page
+            const currentPageProducts = filteredProducts.slice(startIndex, endIndex);
 
             // Update product count
-            productCount.textContent = `Showing ${productsToShow.length} of ${totalProducts} products`;
+            productCount.textContent = `Showing ${startIndex + 1}-${endIndex} of ${totalProducts} products`;
 
             // Create category map
             const catMap = {};
             allCategories.forEach(cat => { catMap[cat.id] = cat.name; });
 
-            // Render products
-            productsToShow.forEach(product => {
+            // Render products for current page
+            currentPageProducts.forEach(product => {
                 const categoryName = catMap[product.cat_id] || "Unknown";
                 gridContainer.innerHTML += `
                     <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6 col-12 mb-4 d-flex justify-content-center">
@@ -545,60 +476,100 @@
                 `;
             });
 
-            // Render pagination
-            renderPagination(totalPages);
-            
+            // Generate pagination
+            if (totalPages > 1) {
+                generatePagination(currentPage, totalPages);
+            }
+
             // Add event listeners to product cards and buttons
             addProductEventListeners();
         }
 
-        function renderPagination(totalPages) {
-            const paginationBar = document.getElementById('paginationBar');
-            
-            if (totalPages <= 1) {
-                paginationBar.innerHTML = '';
-                return;
+        function generatePagination(currentPage, totalPages) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            function addPage(page, text = page, active = false, disabled = false) {
+                const li = document.createElement('li');
+                li.className = `page-item ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`;
+                
+                const element = document.createElement(active || disabled ? 'span' : 'a');
+                element.className = 'page-link';
+                element.innerHTML = text;
+
+                
+                if (!disabled && !active) {
+                    element.href = '#';
+                    element.onclick = (e) => {
+                        e.preventDefault();
+                        const url = new URL(window.location);
+                        url.searchParams.set('page', page);
+                        window.history.pushState({}, '', url);
+                        renderProducts();
+                    };
+                }
+                
+                li.appendChild(element);
+                pagination.appendChild(li);
             }
 
-            let pagHtml = '';
-            
             // Previous button
-            pagHtml += `<li class="page-item${currentPage === 1 ? ' disabled' : ''}">
-                <a class="page-link" href="#" data-page="prev"><i class='fa-solid fa-angle-left'></i></a>
-            </li>`;
-            
-            // Page numbers
-            for (let i = 1; i <= totalPages; i++) {
-                pagHtml += `<li class="page-item${i === currentPage ? ' active' : ''}">
-                    <a class="page-link" href="#" data-page="${i}">${i}</a>
-                </li>`;
-            }
-            
-            // Next button
-            pagHtml += `<li class="page-item${currentPage === totalPages ? ' disabled' : ''}">
-                <a class="page-link" href="#" data-page="next"><i class='fa-solid fa-angle-right'></i></a>
-            </li>`;
-            
-            paginationBar.innerHTML = pagHtml;
+           addPage(currentPage - 1, '<i class="fa fa-angle-left"></i>', false, currentPage === 1);
 
-            // Add pagination event listeners
-            paginationBar.querySelectorAll('a.page-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.getAttribute('data-page');
+
+            // Mobile-friendly pagination logic
+            if (totalPages <= 5) {
+                // Show all pages if 5 or fewer
+                for (let i = 1; i <= totalPages; i++) {
+                    addPage(i, i, i === currentPage);
+                }
+            } else {
+                // Mobile pagination: Show first, current, and last page with dots
+                if (currentPage === 1) {
+                    // First page: show 1, 2, ..., last
+                    addPage(1, '1', true);
+                    addPage(2, '2', false);
                     
-                    if (page === 'prev' && currentPage > 1) {
-                        currentPage--;
-                    } else if (page === 'next' && currentPage < totalPages) {
-                        currentPage++;
-                    } else if (!isNaN(Number(page))) {
-                        currentPage = Number(page);
-                    }
+                    const dots = document.createElement('li');
+                    dots.className = 'page-item disabled';
+                    dots.innerHTML = '<span class="page-link">...</span>';
+                    pagination.appendChild(dots);
                     
-                    renderProducts();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            });
+                    addPage(totalPages, totalPages, false);
+                } else if (currentPage === totalPages) {
+                    // Last page: show 1, ..., last-1, last
+                    addPage(1, '1', false);
+                    
+                    const dots = document.createElement('li');
+                    dots.className = 'page-item disabled';
+                    dots.innerHTML = '<span class="page-link">...</span>';
+                    pagination.appendChild(dots);
+                    
+                    addPage(totalPages - 1, totalPages - 1, false);
+                    addPage(totalPages, totalPages, true);
+                } else {
+                    // Middle pages: show 1, ..., current, ..., last
+                    addPage(1, '1', false);
+                    
+                    const dots1 = document.createElement('li');
+                    dots1.className = 'page-item disabled';
+                    dots1.innerHTML = '<span class="page-link">...</span>';
+                    pagination.appendChild(dots1);
+                    
+                    addPage(currentPage, currentPage, true);
+                    
+                    const dots2 = document.createElement('li');
+                    dots2.className = 'page-item disabled';
+                    dots2.innerHTML = '<span class="page-link">...</span>';
+                    pagination.appendChild(dots2);
+                    
+                    addPage(totalPages, totalPages, false);
+                }
+            }
+
+            // Next button
+           addPage(currentPage + 1, '<i class="fa fa-angle-right"></i>', false, currentPage === totalPages);
+
         }
 
         function addProductEventListeners() {
@@ -809,6 +780,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>
