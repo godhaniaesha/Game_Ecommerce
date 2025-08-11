@@ -28,12 +28,78 @@
                     <li class="nav-item"><a class="nav-link " href="./About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
                     <li class="nav-item px-2">
-                        <a href="/gx_ai/index.html">
-                        <button class="d_search_form btn_gem">
-                            GeminaX
+                        <!-- Chat Open Button -->
+                        <button class="d_search_form btn_gem" id="chatToggleNav">
+                            Chatbox
                         </button>
-                        </a>
                     </li>
+
+                    <!-- Chatbox -->
+                    <div class="chatbox" id="chatbox">
+                        <div class="chatbox-header">
+                            🎮 GameStore AI
+                            <span id="closeChat">✖</span>
+                        </div>
+                        <div class="chatbox-messages" id="chatMessages">
+                            <div class="message bot">Hi! I’m your gaming assistant. How can I help you today?</div>
+                        </div>
+                        <div class="chatbox-input">
+                            <input type="text" id="userInput" placeholder="Type your message...">
+                            <button id="sendMessage">➤</button>
+                        </div>
+                    </div>
+
+                    <script>
+                        const chatToggleNav = document.getElementById("chatToggleNav");
+                        const chatbox = document.getElementById("chatbox");
+                        const closeChat = document.getElementById("closeChat");
+                        const sendMessageBtn = document.getElementById("sendMessage");
+                        const userInput = document.getElementById("userInput");
+                        const chatMessages = document.getElementById("chatMessages");
+
+                        // Open chat from navbar button
+                        chatToggleNav.addEventListener("click", () => {
+                            chatbox.style.display = "flex";
+                        });
+
+                        // Close chat
+                        closeChat.addEventListener("click", () => {
+                            chatbox.style.display = "none";
+                        });
+
+                        // Send message
+                        function sendMessage() {
+                            const message = userInput.value.trim();
+                            if (message === "") return;
+
+                            appendMessage(message, "user");
+                            userInput.value = "";
+
+                            setTimeout(() => {
+                                let reply = getBotReply(message);
+                                appendMessage(reply, "bot");
+                            }, 800);
+                        }
+
+                        function appendMessage(text, sender) {
+                            const msg = document.createElement("div");
+                            msg.classList.add("message", sender);
+                            msg.innerText = text;
+                            chatMessages.appendChild(msg);
+                            chatMessages.scrollTop = chatMessages.scrollHeight;
+                        }
+
+                        function getBotReply(userMsg) {
+                            userMsg = userMsg.toLowerCase();
+                            if (userMsg.includes("game")) return "We have the latest trending games! 🎮";
+                            if (userMsg.includes("offer") || userMsg.includes("discount")) return "Check out our deals page for discounts up to 50%! 🔥";
+                            if (userMsg.includes("console")) return "We sell PS5, Xbox Series X, and Nintendo Switch consoles.";
+                            return "I’m not sure, but I can connect you to a human agent. 😊";
+                        }
+
+                        sendMessageBtn.addEventListener("click", sendMessage);
+                        userInput.addEventListener("keypress", e => { if (e.key === "Enter") sendMessage(); });
+                    </script>
                 </ul>
 
                 <form class="d_search_form ">
@@ -76,13 +142,86 @@
                     <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
-                    <li class="nav-item">
-                        <a href="/gx_ai/index.html">
-                        <button class="d_search_form btn_gem">
-                            GeminaX
-                        </button>
-                        </a>
-                    </li>
+                                       <li class="nav-item px-2">
+    <!-- Chat Open Button -->
+    <button class="d_search_form btn_gem" id="navChatToggle">
+        Chatbox
+    </button>
+</li>
+
+<!-- Chatbox -->
+<div class="chatbox" id="navChatbox">
+    <div class="chatbox-header">
+        🎮 GameStore AI
+        <span id="navCloseChat">✖</span>
+    </div>
+    <div class="chatbox-messages" id="navChatMessages">
+        <div class="message bot">Hi! I’m your gaming assistant. How can I help you today?</div>
+    </div>
+    <div class="chatbox-input">
+        <input type="text" id="navUserInput" placeholder="Type your message...">
+        <button id="navSendMessage">➤</button>
+    </div>
+</div>
+
+<script>
+const navChatToggle = document.getElementById("navChatToggle");
+const navChatbox = document.getElementById("navChatbox");
+const navCloseChat = document.getElementById("navCloseChat");
+const navSendMessageBtn = document.getElementById("navSendMessage");
+const navUserInput = document.getElementById("navUserInput");
+const navChatMessages = document.getElementById("navChatMessages");
+
+// Open chat from navbar button
+navChatToggle.addEventListener("click", () => {
+    // Remove 'active' class from .d_offcanvas_menu if it exists
+    const offcanvasMenu = document.querySelector(".d_offcanvas_menu");
+    if (offcanvasMenu && offcanvasMenu.classList.contains("active")) {
+        offcanvasMenu.classList.remove("active");
+    }
+
+    // Show chatbox
+    navChatbox.style.display = "flex";
+});
+
+// Close chat
+navCloseChat.addEventListener("click", () => {
+    navChatbox.style.display = "none";
+});
+
+// Send message
+function sendNavMessage() {
+    const message = navUserInput.value.trim();
+    if (message === "") return;
+
+    appendNavMessage(message, "user");
+    navUserInput.value = "";
+
+    setTimeout(() => {
+        let reply = getNavBotReply(message);
+        appendNavMessage(reply, "bot");
+    }, 800);
+}
+
+function appendNavMessage(text, sender) {
+    const msg = document.createElement("div");
+    msg.classList.add("message", sender);
+    msg.innerText = text;
+    navChatMessages.appendChild(msg);
+    navChatMessages.scrollTop = navChatMessages.scrollHeight;
+}
+
+function getNavBotReply(userMsg) {
+    userMsg = userMsg.toLowerCase();
+    if (userMsg.includes("game")) return "We have the latest trending games! 🎮";
+    if (userMsg.includes("offer") || userMsg.includes("discount")) return "Check out our deals page for discounts up to 50%! 🔥";
+    if (userMsg.includes("console")) return "We sell PS5, Xbox Series X, and Nintendo Switch consoles.";
+    return "I’m not sure, but I can connect you to a human agent. 😊";
+}
+
+navSendMessageBtn.addEventListener("click", sendNavMessage);
+navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavMessage(); });
+</script>
                 </ul></nav>
             <form class="d_search_form_offcanvas">
                 <input type="search" placeholder="Search games..." />

@@ -372,3 +372,111 @@ body {
   background-position: center;
   vertical-align: middle;
 }
+
+
+/* Chat css */
+
+/* ==== General Reset ==== */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+ 
+/* ==== Floating Button ==== */
+.chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #8a775a; /* Accent earthy gold/brown */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: background 0.3s;
+}
+.chat-toggle:hover { background: #7a694f; }
+ 
+/* ==== Chatbox Container ==== */
+.chatbox {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  max-width: 90%;
+  height: 450px;
+  background: #1c1c1c; /* Dark background */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+}
+ 
+/* ==== Chatbox Header ==== */
+.chatbox-header {
+  background: #2a2a2a; /* Slightly lighter dark for header */
+  padding: 15px;
+  color: #f5f5f5;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.chatbox-header span { cursor: pointer; }
+ 
+/* ==== Chat Messages ==== */
+.chatbox-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #141414; /* Deep dark for message area */
+}
+.message {
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 80%;
+  font-size: 14px;
+}
+.bot { background: #2e2e2e; color: #f3f3f3; }
+.user { background: #8a775a; color: white; margin-left: auto; }
+ 
+/* ==== Input Area ==== */
+.chatbox-input {
+  display: flex;
+  border-top: 1px solid #444;
+}
+.chatbox-input input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background: #1c1c1c;
+  color: white;
+}
+.chatbox-input button {
+  background: #8a775a;
+  border: none;
+  color: white;
+  padding: 0 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.chatbox-input button:hover { background: #7a694f; }
+ 
+/* ==== Scrollbar ==== */
+.chatbox-messages::-webkit-scrollbar { width: 6px; }
+.chatbox-messages::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+ 
+@media (max-width: 500px) {
+  .chatbox { height: 70vh; }
+}
+/* end chat  */
