@@ -9,6 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/x_style.css">
     <link rel="stylesheet" href="./css/d_style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" href="./landingpage.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="./blog.html">Blog</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link active" href="./blog.html">Blog</a></li> -->
                     <li class="nav-item"><a class="nav-link " href="./About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
                     <li class="nav-item px-2">
@@ -136,93 +137,95 @@
         <!-- Offcanvas Mobile Menu -->
         <aside class="d_offcanvas_menu" id="d_offcanvas_menu">
             <button class="close_btn" aria-label="Close Menu">&times;</button>
-            <nav> <ul class="navbar-nav me-auto">
+            <nav>
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link " href="landingpage.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="allProduct.html">Games</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li> -->
                     <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
-                                       <li class="nav-item px-2">
-    <!-- Chat Open Button -->
-    <button class="d_search_form btn_gem" id="navChatToggle">
-        Chatbox
-    </button>
-</li>
+                    <li class="nav-item px-2">
+                        <!-- Chat Open Button -->
+                        <button class="d_search_form btn_gem" id="navChatToggle">
+                            Chatbox
+                        </button>
+                    </li>
 
-<!-- Chatbox -->
-<div class="chatbox" id="navChatbox">
-    <div class="chatbox-header">
-        🎮 GameStore AI
-        <span id="navCloseChat">✖</span>
-    </div>
-    <div class="chatbox-messages" id="navChatMessages">
-        <div class="message bot">Hi! I’m your gaming assistant. How can I help you today?</div>
-    </div>
-    <div class="chatbox-input">
-        <input type="text" id="navUserInput" placeholder="Type your message...">
-        <button id="navSendMessage">➤</button>
-    </div>
-</div>
+                    <!-- Chatbox -->
+                    <div class="chatbox" id="navChatbox">
+                        <div class="chatbox-header">
+                            🎮 GameStore AI
+                            <span id="navCloseChat">✖</span>
+                        </div>
+                        <div class="chatbox-messages" id="navChatMessages">
+                            <div class="message bot">Hi! I’m your gaming assistant. How can I help you today?</div>
+                        </div>
+                        <div class="chatbox-input">
+                            <input type="text" id="navUserInput" placeholder="Type your message...">
+                            <button id="navSendMessage">➤</button>
+                        </div>
+                    </div>
 
-<script>
-const navChatToggle = document.getElementById("navChatToggle");
-const navChatbox = document.getElementById("navChatbox");
-const navCloseChat = document.getElementById("navCloseChat");
-const navSendMessageBtn = document.getElementById("navSendMessage");
-const navUserInput = document.getElementById("navUserInput");
-const navChatMessages = document.getElementById("navChatMessages");
+                    <script>
+                        const navChatToggle = document.getElementById("navChatToggle");
+                        const navChatbox = document.getElementById("navChatbox");
+                        const navCloseChat = document.getElementById("navCloseChat");
+                        const navSendMessageBtn = document.getElementById("navSendMessage");
+                        const navUserInput = document.getElementById("navUserInput");
+                        const navChatMessages = document.getElementById("navChatMessages");
 
-// Open chat from navbar button
-navChatToggle.addEventListener("click", () => {
-    // Remove 'active' class from .d_offcanvas_menu if it exists
-    const offcanvasMenu = document.querySelector(".d_offcanvas_menu");
-    if (offcanvasMenu && offcanvasMenu.classList.contains("active")) {
-        offcanvasMenu.classList.remove("active");
-    }
+                        // Open chat from navbar button
+                        navChatToggle.addEventListener("click", () => {
+                            // Remove 'active' class from .d_offcanvas_menu if it exists
+                            const offcanvasMenu = document.querySelector(".d_offcanvas_menu");
+                            if (offcanvasMenu && offcanvasMenu.classList.contains("active")) {
+                                offcanvasMenu.classList.remove("active");
+                            }
 
-    // Show chatbox
-    navChatbox.style.display = "flex";
-});
+                            // Show chatbox
+                            navChatbox.style.display = "flex";
+                        });
 
-// Close chat
-navCloseChat.addEventListener("click", () => {
-    navChatbox.style.display = "none";
-});
+                        // Close chat
+                        navCloseChat.addEventListener("click", () => {
+                            navChatbox.style.display = "none";
+                        });
 
-// Send message
-function sendNavMessage() {
-    const message = navUserInput.value.trim();
-    if (message === "") return;
+                        // Send message
+                        function sendNavMessage() {
+                            const message = navUserInput.value.trim();
+                            if (message === "") return;
 
-    appendNavMessage(message, "user");
-    navUserInput.value = "";
+                            appendNavMessage(message, "user");
+                            navUserInput.value = "";
 
-    setTimeout(() => {
-        let reply = getNavBotReply(message);
-        appendNavMessage(reply, "bot");
-    }, 800);
-}
+                            setTimeout(() => {
+                                let reply = getNavBotReply(message);
+                                appendNavMessage(reply, "bot");
+                            }, 800);
+                        }
 
-function appendNavMessage(text, sender) {
-    const msg = document.createElement("div");
-    msg.classList.add("message", sender);
-    msg.innerText = text;
-    navChatMessages.appendChild(msg);
-    navChatMessages.scrollTop = navChatMessages.scrollHeight;
-}
+                        function appendNavMessage(text, sender) {
+                            const msg = document.createElement("div");
+                            msg.classList.add("message", sender);
+                            msg.innerText = text;
+                            navChatMessages.appendChild(msg);
+                            navChatMessages.scrollTop = navChatMessages.scrollHeight;
+                        }
 
-function getNavBotReply(userMsg) {
-    userMsg = userMsg.toLowerCase();
-    if (userMsg.includes("game")) return "We have the latest trending games! 🎮";
-    if (userMsg.includes("offer") || userMsg.includes("discount")) return "Check out our deals page for discounts up to 50%! 🔥";
-    if (userMsg.includes("console")) return "We sell PS5, Xbox Series X, and Nintendo Switch consoles.";
-    return "I’m not sure, but I can connect you to a human agent. 😊";
-}
+                        function getNavBotReply(userMsg) {
+                            userMsg = userMsg.toLowerCase();
+                            if (userMsg.includes("game")) return "We have the latest trending games! 🎮";
+                            if (userMsg.includes("offer") || userMsg.includes("discount")) return "Check out our deals page for discounts up to 50%! 🔥";
+                            if (userMsg.includes("console")) return "We sell PS5, Xbox Series X, and Nintendo Switch consoles.";
+                            return "I’m not sure, but I can connect you to a human agent. 😊";
+                        }
 
-navSendMessageBtn.addEventListener("click", sendNavMessage);
-navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavMessage(); });
-</script>
-                </ul></nav>
+                        navSendMessageBtn.addEventListener("click", sendNavMessage);
+                        navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavMessage(); });
+                    </script>
+                </ul>
+            </nav>
             <form class="d_search_form_offcanvas">
                 <input type="search" placeholder="Search games..." />
                 <button type="submit"><i class="fas fa-search"></i></button>
@@ -261,113 +264,14 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
 
                 <div class="col-lg-8 x_blog-main mb-2  MB-MD-5 p-0 mb-lg-0">
                     <div id="blogPostsContainer">
-                        <!-- Blog Post 1 -->
-                        <div class="x_blog-post mb-3">
-                            <div class="x_blog-media mb-3">
-                                <iframe width="560" height="315"
-                                    src="https://www.youtube.com/embed/_jG23qmnm6k?si=NhXwn__27f1z_LWo"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                    class="w-100 x_blog-iframe"></iframe>
-                            </div>
-                            <div class="x_blog-meta mb-1">Epic</div>
-                            <h2 class="x_blog-title">Dragon attack</h2>
-                            <p class="x_blog-desc">Lorem ipsum gravida nibh vel velit auctor aliquenean
-                                sollicitudinlorem
-                                quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh
-                                vulputate cursus a sit amet mauris. Morbiaccumsan ipsum velit. Nam nec tellus a odio
-                                tincidunt auctor a ornare odio. ...</p>
-                            <div class="x_blog-footer d-flex align-items-center gap-3 mt-2">
-                                <span class="x_blog-author ">
-                                    <img src="./images/user.jpg" class="x_blog-user-img"
-                                        onerror="this.onerror=null;this.classList.add('x_blog-user-default');this.src='';"
-                                        alt="User" />
-                                    by admin</span>
-                                <span class="x_blog-date"><i class="fa-regular fa-calendar me-1"></i>June 6, 2017</span>
-                                <span class="x_blog-comments"><i class="fa-regular fa-comment me-1"></i>2</span>
-                            </div>
-                        </div>
-                        <!-- Blog Post 2 (Quote) -->
-                        <div class="x_blog-quote-section mb-5">
-                            <div class="x_blog-quote-bg"
-                                style="background: url('./images/shop-background-image.jpg') center ">
-                                <blockquote class="x_blog-quote-content mb-0">
-                                    <span class="x_blog-quote-icon">&ldquo;</span>
-                                </blockquote>
-                                What Is Better ? To Be Born Good Or To Overcome Your Evil Nature Through Great Effort?
-                            </div>
-                        </div>
-                        <!-- Blog Post 3 -->
-                        <div class="x_blog-post mb-3">
-                            <div class="x_blog-media mb-3">
-                                <iframe width="560" height="315"
-                                    src="https://www.youtube.com/embed/MU632Blbj6M?si=iJnE2DDN9m-liruY"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen
-                                    class="w-100 x_blog-iframe"></iframe>
-                            </div>
-                            <div class="x_blog-meta mb-1">Epic</div>
-                            <h2 class="x_blog-title">Lost castle</h2>
-                            <p class="x_blog-desc">Lorem ipsum gravida nibh vel velit auctor aliquenean
-                                sollicitudinlorem
-                                quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh
-                                vulputate cursus a sit amet mauris. Morbiaccumsan ipsum velit. Nam nec tellus a odio
-                                tincidunt auctor a ornare odio. ...</p>
-                            <div class="x_blog-footer d-flex align-items-center gap-3 mt-2">
-                                <span class="x_blog-author me-1"><img src="./images/user.jpg" class="x_blog-user-img"
-                                        onerror="this.onerror=null;this.classList.add('x_blog-user-default');this.src='';"
-                                        alt="User" /></i>by admin</span>
-                                <span class="x_blog-date"><i class="fa-regular fa-calendar me-1"></i>June 7, 2017</span>
-                                <span class="x_blog-comments"><i class="fa-regular fa-comment me-1"></i>3</span>
-                            </div>
-                        </div>
-                        <!-- Blog Post 4 (Image Slider) -->
-                        <div class="x_blog-post mb-3">
-                            <div id="x_blogCarousel" class="carousel slide x_blog-carousel mb-3"
-                                data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="./images/blog3info.jpg" class="d-block w-100 " alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="./images/blog4info.jpg" class="d-block w-100 " alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#x_blogCarousel"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#x_blogCarousel"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <div class="x_blog-meta mb-1">Epic</div>
-                            <h2 class="x_blog-title">Dragon of the darkness flame</h2>
-                            <p class="x_blog-desc">Lorem ipsum gravida nibh vel velit auctor aliquenean
-                                sollicitudinlorem
-                                quis bibendum auci elit consequat ipsutis sem nibh id elit. Duis sed odio sit amet nibh
-                                vulputate cursus a sit amet mauris. Morbiaccumsan ipsum velit. Nam nec tellus a odio
-                                tincidunt auctor a ornare odio. ...</p>
-                            <div class="x_blog-footer d-flex align-items-center gap-3 mt-2">
-                                <span class="x_blog-author me-1"><img src="./images/user.jpg" class="x_blog-user-img"
-                                        onerror="this.onerror=null;this.classList.add('x_blog-user-default');this.src='';"
-                                        alt="User" /></i>by admin</span>
-                                <span class="x_blog-date"><i class="fa-regular fa-calendar me-1"></i>June 8, 2017</span>
-                                <span class="x_blog-comments"><i class="fa-regular fa-comment me-1"></i>5</span>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="pagination-container d-flex justify-content-center mt-4 x_review-form">
                         <button id="prevPage" class="x_pagination-btn me-2"><i
-                                class="fa-solid fa-chevron-left me-1"></i> </button>
+                                class="fa-solid fa-chevron-left mx-auto p-2"></i> </button>
                         <div id="pageNumbers" class="d-flex gap-2"></div>
                         <button id="nextPage" class="x_pagination-btn ms-2"> <i
-                                class="fa-solid fa-chevron-right ms-1"></i></button>
+                                class="fa-solid fa-chevron-right mx-auto p-2"></i></button>
                     </div>
                 </div>
                 <!-- Blog Sidebar (Desktop) -->
@@ -531,6 +435,117 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const postsPerPage = 4;
+            const blogPosts = Array.from(document.querySelectorAll('.x_blog-post, .x_blog-quote-section'));
+            const totalPosts = blogPosts.length;
+            const totalPages = Math.ceil(totalPosts / postsPerPage);
+            let currentPage = 1;
+
+            const prevButton = document.getElementById('prevPage');
+            const nextButton = document.getElementById('nextPage');
+            const pageNumbers = document.getElementById('pageNumbers');
+            const paginationContainer = document.querySelector(".pagination-container");
+            const blogContainer = document.getElementById("blogPostsContainer");
+
+            // ✅ If no posts
+            if (totalPosts === 0) {
+                paginationContainer.style.display = "none";
+                prevPage.style.display = "none";
+                nextPage.style.display = "none";
+                blogContainer.innerHTML = `
+           <div class="text-center p-4">
+    <img src="/images/file.png" 
+         alt="No Data" 
+         style="max-width:100px; opacity:0.85;">
+    <h4 class="mt-3 x_blog-widget-title border-0">No Blog Posts Found</h4>
+</div>
+
+        `;
+                return;
+            }
+
+            function renderPagination() {
+                pageNumbers.innerHTML = '';
+
+                if (totalPages <= 1) {
+                    paginationContainer.style.display = "none";
+                    return;
+                } else {
+                    paginationContainer.style.display = "flex";
+                }
+
+                let paginationHTML = '';
+
+                paginationHTML += createPageBtn(1);
+
+                if (currentPage > 3) {
+                    paginationHTML += `<span class="dots">...</span>`;
+                }
+
+                let start = Math.max(2, currentPage - 1);
+                let end = Math.min(totalPages - 1, currentPage + 1);
+
+                for (let i = start; i <= end; i++) {
+                    paginationHTML += createPageBtn(i);
+                }
+
+                if (currentPage < totalPages - 2) {
+                    paginationHTML += `<span class="dots">...</span>`;
+                }
+
+                if (totalPages > 1) {
+                    paginationHTML += createPageBtn(totalPages);
+                }
+
+                pageNumbers.innerHTML = paginationHTML;
+            }
+
+            function createPageBtn(page) {
+                return `<button class="pagination-btn ${page === currentPage ? 'active' : ''}" data-page="${page}">${page}</button>`;
+            }
+
+            function showPage(page) {
+                currentPage = page;
+                const start = (page - 1) * postsPerPage;
+                const end = start + postsPerPage;
+
+                blogPosts.forEach((post, index) => {
+                    post.style.display = (index >= start && index < end) ? 'block' : 'none';
+                });
+
+                prevButton.disabled = currentPage === 1;
+                nextButton.disabled = currentPage === totalPages;
+                renderPagination();
+            }
+
+            pageNumbers.addEventListener('click', function (e) {
+                if (e.target.classList.contains('pagination-btn')) {
+                    const page = parseInt(e.target.dataset.page);
+                    if (!isNaN(page)) {
+                        showPage(page);
+                    }
+                }
+            });
+
+            prevButton.addEventListener('click', function () {
+                if (currentPage > 1) {
+                    showPage(currentPage - 1);
+                }
+            });
+
+            nextButton.addEventListener('click', function () {
+                if (currentPage < totalPages) {
+                    showPage(currentPage + 1);
+                }
+            });
+
+            showPage(1);
+        });
+    </script>
+
+
+    <script>
         // Logout functionality
         document.querySelectorAll('a').forEach(function (link) {
             if (link.textContent.trim().toLowerCase() === 'logout') {
@@ -544,7 +559,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
     </script>
     <script>
         // Show first letter of user email in user icon if logged in
-        document.addEventListener('DOMContentLoaded', async function() {
+        document.addEventListener('DOMContentLoaded', async function () {
             const userId = localStorage.getItem('user_id');
             const userIconDiv = document.getElementById('db_user_icon');
             if (userId && userIconDiv) {

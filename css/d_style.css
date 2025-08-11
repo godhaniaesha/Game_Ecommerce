@@ -335,7 +335,7 @@ html {
   width: 3rem;
   height: 3rem;
 }
-
+/*  change image */
 #heroCarousel .carousel-item:nth-child(1) {
  background-position: top center;
   background-image: url("https://ubistatic-a.akamaihd.net/0071/Assassins_Creed_Valhalla/000100405_en-GB_Twilight_Pack.jpg");

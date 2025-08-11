@@ -8,11 +8,11 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-        <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/s_style.css" />
     <link rel="stylesheet" href="./css/z_style.css" />
     <link rel="stylesheet" href="./css/d_style.css">
-   <style>
+    <style>
         .offcanvas {
             --bs-offcanvas-width: 350px;
             background-color: #1a1a1a;
@@ -35,7 +35,6 @@
                 --bs-offcanvas-width: 280px;
             }
         }
-
     </style>
 </head>
 
@@ -170,86 +169,86 @@
                     <li class="nav-item"><a class="nav-link active" href="allProduct.html">Games</a></li>
                     <li class="nav-item"><a class="nav-link" href="About_us.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="./Contact_us.html">Contact</a></li>
-                                       <li class="nav-item px-2">
-    <!-- Chat Open Button -->
-    <button class="d_search_form btn_gem" id="navChatToggle">
-        Chatbox
-    </button>
-</li>
+                    <li class="nav-item px-2">
+                        <!-- Chat Open Button -->
+                        <button class="d_search_form btn_gem" id="navChatToggle">
+                            Chatbox
+                        </button>
+                    </li>
 
-<!-- Chatbox -->
-<div class="chatbox" id="navChatbox">
-    <div class="chatbox-header">
-        🎮 GameStore AI
-        <span id="navCloseChat">✖</span>
-    </div>
-    <div class="chatbox-messages" id="navChatMessages">
-        <div class="message bot">Hi! I’m your gaming assistant. How can I help you today?</div>
-    </div>
-    <div class="chatbox-input">
-        <input type="text" id="navUserInput" placeholder="Type your message...">
-        <button id="navSendMessage">➤</button>
-    </div>
-</div>
+                    <!-- Chatbox -->
+                    <div class="chatbox" id="navChatbox">
+                        <div class="chatbox-header">
+                            🎮 GameStore AI
+                            <span id="navCloseChat">✖</span>
+                        </div>
+                        <div class="chatbox-messages" id="navChatMessages">
+                            <div class="message bot">Hi! I’m your gaming assistant. How can I help you today?</div>
+                        </div>
+                        <div class="chatbox-input">
+                            <input type="text" id="navUserInput" placeholder="Type your message...">
+                            <button id="navSendMessage">➤</button>
+                        </div>
+                    </div>
 
-<script>
-const navChatToggle = document.getElementById("navChatToggle");
-const navChatbox = document.getElementById("navChatbox");
-const navCloseChat = document.getElementById("navCloseChat");
-const navSendMessageBtn = document.getElementById("navSendMessage");
-const navUserInput = document.getElementById("navUserInput");
-const navChatMessages = document.getElementById("navChatMessages");
+                    <script>
+                        const navChatToggle = document.getElementById("navChatToggle");
+                        const navChatbox = document.getElementById("navChatbox");
+                        const navCloseChat = document.getElementById("navCloseChat");
+                        const navSendMessageBtn = document.getElementById("navSendMessage");
+                        const navUserInput = document.getElementById("navUserInput");
+                        const navChatMessages = document.getElementById("navChatMessages");
 
-// Open chat from navbar button
-navChatToggle.addEventListener("click", () => {
-    // Remove 'active' class from .d_offcanvas_menu if it exists
-    const offcanvasMenu = document.querySelector(".d_offcanvas_menu");
-    if (offcanvasMenu && offcanvasMenu.classList.contains("active")) {
-        offcanvasMenu.classList.remove("active");
-    }
+                        // Open chat from navbar button
+                        navChatToggle.addEventListener("click", () => {
+                            // Remove 'active' class from .d_offcanvas_menu if it exists
+                            const offcanvasMenu = document.querySelector(".d_offcanvas_menu");
+                            if (offcanvasMenu && offcanvasMenu.classList.contains("active")) {
+                                offcanvasMenu.classList.remove("active");
+                            }
 
-    // Show chatbox
-    navChatbox.style.display = "flex";
-});
+                            // Show chatbox
+                            navChatbox.style.display = "flex";
+                        });
 
-// Close chat
-navCloseChat.addEventListener("click", () => {
-    navChatbox.style.display = "none";
-});
+                        // Close chat
+                        navCloseChat.addEventListener("click", () => {
+                            navChatbox.style.display = "none";
+                        });
 
-// Send message
-function sendNavMessage() {
-    const message = navUserInput.value.trim();
-    if (message === "") return;
+                        // Send message
+                        function sendNavMessage() {
+                            const message = navUserInput.value.trim();
+                            if (message === "") return;
 
-    appendNavMessage(message, "user");
-    navUserInput.value = "";
+                            appendNavMessage(message, "user");
+                            navUserInput.value = "";
 
-    setTimeout(() => {
-        let reply = getNavBotReply(message);
-        appendNavMessage(reply, "bot");
-    }, 800);
-}
+                            setTimeout(() => {
+                                let reply = getNavBotReply(message);
+                                appendNavMessage(reply, "bot");
+                            }, 800);
+                        }
 
-function appendNavMessage(text, sender) {
-    const msg = document.createElement("div");
-    msg.classList.add("message", sender);
-    msg.innerText = text;
-    navChatMessages.appendChild(msg);
-    navChatMessages.scrollTop = navChatMessages.scrollHeight;
-}
+                        function appendNavMessage(text, sender) {
+                            const msg = document.createElement("div");
+                            msg.classList.add("message", sender);
+                            msg.innerText = text;
+                            navChatMessages.appendChild(msg);
+                            navChatMessages.scrollTop = navChatMessages.scrollHeight;
+                        }
 
-function getNavBotReply(userMsg) {
-    userMsg = userMsg.toLowerCase();
-    if (userMsg.includes("game")) return "We have the latest trending games! 🎮";
-    if (userMsg.includes("offer") || userMsg.includes("discount")) return "Check out our deals page for discounts up to 50%! 🔥";
-    if (userMsg.includes("console")) return "We sell PS5, Xbox Series X, and Nintendo Switch consoles.";
-    return "I’m not sure, but I can connect you to a human agent. 😊";
-}
+                        function getNavBotReply(userMsg) {
+                            userMsg = userMsg.toLowerCase();
+                            if (userMsg.includes("game")) return "We have the latest trending games! 🎮";
+                            if (userMsg.includes("offer") || userMsg.includes("discount")) return "Check out our deals page for discounts up to 50%! 🔥";
+                            if (userMsg.includes("console")) return "We sell PS5, Xbox Series X, and Nintendo Switch consoles.";
+                            return "I’m not sure, but I can connect you to a human agent. 😊";
+                        }
 
-navSendMessageBtn.addEventListener("click", sendNavMessage);
-navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavMessage(); });
-</script>
+                        navSendMessageBtn.addEventListener("click", sendNavMessage);
+                        navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavMessage(); });
+                    </script>
                 </ul>
             </nav>
             <form class="d_search_form_offcanvas">
@@ -262,7 +261,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
             </div>
         </aside>
     </div>
-    
+
     <!-- Hero Section Start -->
     <div class="Z_cards_hero">
         <div class="Z_cart_hero-overlay">
@@ -317,7 +316,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="offcanvas offcanvas-start d-lg-none d_offcan_width" tabindex="-1" id="filterOffcanvas"
                     aria-labelledby="filterOffcanvasLabel">
                     <div class="offcanvas-header">
@@ -386,9 +385,11 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
                             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sortDropdownBtn">
                                 <li><a class="dropdown-item active" href="#" data-value="featured">Featured</a></li>
                                 <li><a class="dropdown-item" href="#" data-value="name-asc">Alphabetically, A-Z</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="name-desc">Alphabetically, Z-A</a></li>
+                                <li><a class="dropdown-item" href="#" data-value="name-desc">Alphabetically, Z-A</a>
+                                </li>
                                 <li><a class="dropdown-item" href="#" data-value="price-asc">Price, low to high</a></li>
-                                <li><a class="dropdown-item" href="#" data-value="price-desc">Price, high to low</a></li>
+                                <li><a class="dropdown-item" href="#" data-value="price-desc">Price, high to low</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -407,7 +408,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
             </div>
         </div>
     </div>
-    
+
     <footer class="d_footer text-white">
         <div class="container py-md-3 ">
             <div class="row gy-4">
@@ -429,7 +430,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
                     <h5 class="text-white mb-3">Our Policy</h5>
                     <ul class="list-unstyled d_footer-links">
                         <li><a href="landingpage.html">Home</a></li>
-                        <li><a href="Contact_us.html">Blog</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="Privacy.html">Privacy</a></li>
                         <li><a href="services.html">Service</a></li>
                     </ul>
@@ -457,8 +458,8 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-    
+
+
 
     <script>
         // Global variables
@@ -488,7 +489,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
                 renderCategoryFilters();
                 renderProducts();
                 setupEventListeners();
-                
+
                 // Initialize user info
                 initializeUserInfo();
             } catch (error) {
@@ -500,11 +501,11 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
         function renderCategoryFilters() {
             const desktopList = document.getElementById("categoryFilterListDesktop");
             const mobileList = document.getElementById("categoryFilterListMobile");
-            
-            const categoryHTML = allCategories.map(cat => 
+
+            const categoryHTML = allCategories.map(cat =>
                 `<li><input type="checkbox" name="category" value="${cat.id}"> ${cat.name}</li>`
             ).join('');
-            
+
             if (desktopList) desktopList.innerHTML = categoryHTML;
             if (mobileList) mobileList.innerHTML = categoryHTML;
         }
@@ -530,7 +531,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
 
             // Apply sorting
             applySorting();
-            
+
             // Reset to first page when filters change
             renderProducts();
         }
@@ -559,7 +560,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
             const gridContainer = document.getElementById('gridContainer');
             const productCount = document.getElementById('productCount');
             const pagination = document.getElementById('pagination');
-            
+
             // Clear containers
             gridContainer.innerHTML = "";
             pagination.innerHTML = "";
@@ -567,7 +568,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
             const productsPerPage = 12;
             const totalProducts = filteredProducts.length;
             const totalPages = Math.ceil(totalProducts / productsPerPage);
-            
+
             // Get current page from URL or default to 1
             const urlParams = new URLSearchParams(window.location.search);
             let currentPage = parseInt(urlParams.get('page')) || 1;
@@ -577,7 +578,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
             // Calculate start and end indices
             const startIndex = (currentPage - 1) * productsPerPage;
             const endIndex = Math.min(startIndex + productsPerPage, totalProducts);
-            
+
             // Get products for current page
             const currentPageProducts = filteredProducts.slice(startIndex, endIndex);
 
@@ -624,92 +625,42 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
             addProductEventListeners();
         }
 
-        function generatePagination(currentPage, totalPages) {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = '';
+       function generatePagination(currentPage, totalPages) {
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = '';
 
-            function addPage(page, text = page, active = false, disabled = false) {
-                const li = document.createElement('li');
-                li.className = `page-item ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`;
-                
-                const element = document.createElement(active || disabled ? 'span' : 'a');
-                element.className = 'page-link';
-                element.innerHTML = text;
-
-                
-                if (!disabled && !active) {
-                    element.href = '#';
-                    element.onclick = (e) => {
-                        e.preventDefault();
-                        const url = new URL(window.location);
-                        url.searchParams.set('page', page);
-                        window.history.pushState({}, '', url);
-                        renderProducts();
-                    };
-                }
-                
-                li.appendChild(element);
-                pagination.appendChild(li);
-            }
-
-            // Previous button
-           addPage(currentPage - 1, '<i class="fa fa-angle-left"></i>', false, currentPage === 1);
-
-
-            // Mobile-friendly pagination logic
-            if (totalPages <= 5) {
-                // Show all pages if 5 or fewer
-                for (let i = 1; i <= totalPages; i++) {
-                    addPage(i, i, i === currentPage);
-                }
-            } else {
-                // Mobile pagination: Show first, current, and last page with dots
-                if (currentPage === 1) {
-                    // First page: show 1, 2, ..., last
-                    addPage(1, '1', true);
-                    addPage(2, '2', false);
-                    
-                    const dots = document.createElement('li');
-                    dots.className = 'page-item disabled';
-                    dots.innerHTML = '<span class="page-link">...</span>';
-                    pagination.appendChild(dots);
-                    
-                    addPage(totalPages, totalPages, false);
-                } else if (currentPage === totalPages) {
-                    // Last page: show 1, ..., last-1, last
-                    addPage(1, '1', false);
-                    
-                    const dots = document.createElement('li');
-                    dots.className = 'page-item disabled';
-                    dots.innerHTML = '<span class="page-link">...</span>';
-                    pagination.appendChild(dots);
-                    
-                    addPage(totalPages - 1, totalPages - 1, false);
-                    addPage(totalPages, totalPages, true);
-                } else {
-                    // Middle pages: show 1, ..., current, ..., last
-                    addPage(1, '1', false);
-                    
-                    const dots1 = document.createElement('li');
-                    dots1.className = 'page-item disabled';
-                    dots1.innerHTML = '<span class="page-link">...</span>';
-                    pagination.appendChild(dots1);
-                    
-                    addPage(currentPage, currentPage, true);
-                    
-                    const dots2 = document.createElement('li');
-                    dots2.className = 'page-item disabled';
-                    dots2.innerHTML = '<span class="page-link">...</span>';
-                    pagination.appendChild(dots2);
-                    
-                    addPage(totalPages, totalPages, false);
-                }
-            }
-
-            // Next button
-           addPage(currentPage + 1, '<i class="fa fa-angle-right"></i>', false, currentPage === totalPages);
-
+    function addButton(page, text, disabled) {
+        const li = document.createElement('li');
+        li.className = `page-item ${disabled ? 'disabled' : ''}`;
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.innerHTML = text;
+        if (!disabled) {
+            a.href = '#';
+            a.onclick = (e) => {
+                e.preventDefault();
+                const url = new URL(window.location);
+                url.searchParams.set('page', page);
+                window.history.pushState({}, '', url);
+                renderProducts();
+            };
         }
+        li.appendChild(a);
+        pagination.appendChild(li);
+    }
+
+    // Previous Button
+    addButton(currentPage - 1, '<i class="fa fa-angle-left"></i>', currentPage === 1);
+
+    // Middle text "X of Y"
+    const middle = document.createElement('li');
+    middle.className = 'page-item';
+    middle.innerHTML = `<span class="page-link">${currentPage} of ${totalPages}</span>`;
+    pagination.appendChild(middle);
+
+    // Next Button
+    addButton(currentPage + 1, '<i class="fa fa-angle-right"></i>', currentPage === totalPages);
+}
 
         function addProductEventListeners() {
             // Add click event to product cards for navigation
@@ -717,7 +668,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
                 card.addEventListener('click', function (e) {
                     // Prevent navigation if the click was on the ADD TO CART button
                     if (e.target.closest('.custom-cart-btn')) return;
-                    
+
                     const id = this.getAttribute('data-id');
                     // Store item id for single product page
                     if (typeof Storage !== "undefined") {
@@ -755,7 +706,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
                     // Update existing cart
                     let products = cart.products || [];
                     let found = false;
-                    
+
                     products = products.map(item => {
                         if (item.pro_id === pro_id) {
                             found = true;
@@ -763,7 +714,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
                         }
                         return item;
                     });
-                    
+
                     if (!found) {
                         products.push({ pro_id, quantity: 1 });
                     }
@@ -807,7 +758,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
 
                     // Remove active class from all
                     document.querySelectorAll('.dropdown-item').forEach(i => i.classList.remove('active'));
-                    
+
                     // Add active to selected
                     item.classList.add('active');
 
@@ -823,7 +774,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
 
             // Mobile menu functionality
             setupMobileMenu();
-            
+
             // User dropdown functionality
             setupUserDropdown();
         }
@@ -880,7 +831,7 @@ navUserInput.addEventListener("keypress", e => { if (e.key === "Enter") sendNavM
         async function initializeUserInfo() {
             const userId = localStorage.getItem('user_id');
             const userIconDiv = document.getElementById('db_user_icon');
-            
+
             if (userId && userIconDiv) {
                 try {
                     const res = await fetch(`http://localhost:4000/users/${userId}`);
